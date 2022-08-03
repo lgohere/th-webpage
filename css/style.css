@@ -1097,7 +1097,7 @@ button:focus {
 
 .page-breadcrumb {
   padding: 250px 0 150px;
-  background: url(../images/novas-imgs/bolosesalgados-img2.png);
+  background-image: url(/images/novas-imgs/bolosesalgados-img2.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position: -35vh -22vh;
@@ -1108,6 +1108,7 @@ button:focus {
   position: relative;
   z-index: 2;
 }
+
 .all-page-title::before {
   background: #010101d1;
   content: "";
