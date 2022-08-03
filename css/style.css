@@ -1095,9 +1095,9 @@ button:focus {
     All Pages
 -------------------------------------------------------------------*/
 
-.page-breadcrumb {
+.fundo-salgadosedoces {
   padding: 250px 0 150px;
-  background-image: url(/images/novas-imgs/bolosesalgados-img2.jpg);
+  background: url(../images/novas-imgs/bolosesalgados-img2.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position: -35vh -22vh;
