@@ -314,7 +314,8 @@ button:focus {
   padding: 70px 0px;
 }
 .about-section-box .img-fluid {
-  box-shadow: -10px -10px 0px #412234ff;
+  box-shadow: -10px -10px 0px #6d466bff;
+  border: 1px solid #b49fccff;
 }
 .inner-column {
 }

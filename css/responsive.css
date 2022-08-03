@@ -70,6 +70,8 @@
   }
   .inner-column h1 {
     font-size: 22px;
+    display: flex;
+    flex-direction: column;
   }
   .filter-button-group {
     margin: 10px 0px;
