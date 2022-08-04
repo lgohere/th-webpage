@@ -385,7 +385,7 @@ button:focus {
 }
 
 .heading-title {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 .heading-title h2 {
   color: #010101;
@@ -1674,7 +1674,7 @@ blockquote {
   position: absolute;
   left: 50%;
   margin-left: -30px;
-  bottom: 20px;
+  bottom: -15px;
 }
 
 .arrows path {
