@@ -26,6 +26,11 @@
     <link rel="stylesheet" href="css/responsive.css" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css" />
+    <!-- Cart Icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -37,47 +42,51 @@
     <!-- Start header -->
     <header class="top-navbar">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-          <a class="navbar-brand" href="index.html">
-            <img
-              src="./images/novas-imgs/th-icon-sm.png"
-              alt=""
-              width="125"
-              style="filter: drop-shadow(1px 1.5px 0.3px #b49fccff)"
-            />
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbars-rs-food"
-            aria-controls="navbars-rs-food"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbars-rs-food">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Quem somos Nós</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="salgadosedoces.html"
-                  >Salgados e Doces</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="salgadosedoces.html">Carrinho</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contato</a>
-              </li>
-            </ul>
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="./images/novas-imgs/th-icon-sm.png"
+            alt=""
+            width="125"
+            style="filter: drop-shadow(1px 1.5px 0.3px #b49fccff)"
+          />
+        </a>
+        <div class="cart">
+          <i class="bi bi-cart2"></i>
+          <div class="cartAmount">
+            <p>0</p>
           </div>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbars-rs-food"
+          aria-controls="navbars-rs-food"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbars-rs-food">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Quem somos Nós</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="salgadosedoces.html"
+                >Salgados e Doces</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="salgadosedoces.html">Carrinho</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contato</a>
+            </li>
+          </ul>
         </div>
       </nav>
     </header>
@@ -127,728 +136,502 @@
         </div>
       </div>
     </div>
-    <!--FRITOS-->
-    <div class="container mt-2" style="overflow-x: auto">
+    <!-- modelos de salgado na lista + carrinho / start -->
+    <div class="container mt-1" style="overflow-x: auto">
+      <!--FRITOS-->
       <div class="row special-list">
-        <div class="col-md-12 p-0 special-grid salgados">
+        <div id="salgado-area" class="col-md-12 p-0 special-grid salgados">
           <h3
             class="h5 m-2 p-4 text-center"
             style="background: rgba(179, 159, 170, 0.384)"
           >
             FRITOS
           </h3>
-          <div class="table-wrap">
-            <table class="table">
-              <tbody>
-                <!--Coxinha-->
-                <tr>
-                  <td>
-                    <img
-                      src="./images/novas-imgs/coxinha-sm.jpg"
-                      alt="bolinhas-de-queijo"
-                      width="100"
-                      style="display: flex"
-                    />
-                    <span>100 Unidades (cento) </span>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-01cento">01 cento</option>
-                        <option value="coxinha-02cento">02 centos</option>
-                        <option value="coxinha-03cento">03 centos</option>
-                        <option value="coxinha-04cento">04 centos</option>
-                        <option value="coxinha-05cento">05 centos</option>
-                        <option value="coxinha-06cento">06 centos</option>
-                        <option value="coxinha-07cento">07 centos</option>
-                        <option value="coxinha-08cento">08 centos</option>
-                        <option value="coxinha-09cento">09 centos</option>
-                        <option value="coxinha-10cento">10 centos</option>
-                      </select>
-                    </div>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-frita">Frito</option>
-                        <option value="coxinha-congelada">Congelado</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <h3 style="text-align: start">
-                      <strong>Coxinha de Frango</strong>
-                    </h3>
-                    <p style="text-align: start">
-                      Temos opções para encomenda tanto na forma frita como
-                      congelada.
-                    </p>
-                    <p class="mx-2" style="float: right; font-size: 18pt">
-                      <strong>R$58,00</strong>
-                    </p>
-                    <div class="col-12">
-                      <button class="btn-block m-auto p-2 botao-carrinho">
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!--Bolinha de Queijo Tradiconal-->
-                <tr>
-                  <td>
-                    <img
-                      src="./images/novas-imgs/bolinha-de-queijo-sm.jpg"
-                      alt="bolinhas-de-queijo"
-                      width="100"
-                      style="display: flex"
-                    />
-                    <span>100 Unidades (cento) </span>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-01cento">01 cento</option>
-                        <option value="coxinha-02cento">02 centos</option>
-                        <option value="coxinha-03cento">03 centos</option>
-                        <option value="coxinha-04cento">04 centos</option>
-                        <option value="coxinha-05cento">05 centos</option>
-                        <option value="coxinha-06cento">06 centos</option>
-                        <option value="coxinha-07cento">07 centos</option>
-                        <option value="coxinha-08cento">08 centos</option>
-                        <option value="coxinha-09cento">09 centos</option>
-                        <option value="coxinha-10cento">10 centos</option>
-                      </select>
-                    </div>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-frita">Frito</option>
-                        <option value="coxinha-congelada">Congelado</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <h3 style="text-align: start">
-                      <strong>Bolinha de Queijo Tradicional</strong>
-                    </h3>
-                    <p style="text-align: start">
-                      Temos opções para encomenda tanto na forma frita como
-                      congelada.
-                    </p>
-                    <p class="mx-2" style="float: right; font-size: 18pt">
-                      <strong>R$58,00</strong>
-                    </p>
-                    <div class="col-12">
-                      <button class="btn-block m-auto p-2 botao-carrinho">
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!--Bolinha de Queijo c/ Alho Frito-->
-                <tr>
-                  <td>
-                    <img
-                      src="./images/novas-imgs/bolinha-de-queijo-sm.jpg"
-                      alt="bolinhas-de-queijo-alho"
-                      width="100"
-                      style="display: flex"
-                    />
-                    <span>100 Unidades (cento) </span>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-01cento">01 cento</option>
-                        <option value="coxinha-02cento">02 centos</option>
-                        <option value="coxinha-03cento">03 centos</option>
-                        <option value="coxinha-04cento">04 centos</option>
-                        <option value="coxinha-05cento">05 centos</option>
-                        <option value="coxinha-06cento">06 centos</option>
-                        <option value="coxinha-07cento">07 centos</option>
-                        <option value="coxinha-08cento">08 centos</option>
-                        <option value="coxinha-09cento">09 centos</option>
-                        <option value="coxinha-10cento">10 centos</option>
-                      </select>
-                    </div>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-frita">Frito</option>
-                        <option value="coxinha-congelada">Congelado</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <h3 style="text-align: start">
-                      <strong>Bolinha de Queijo c/ Algo Frito</strong>
-                    </h3>
-                    <p style="text-align: start">
-                      Temos opções para encomenda tanto na forma frita como
-                      congelada.
-                    </p>
-                    <p class="mx-2" style="float: right; font-size: 18pt">
-                      <strong>R$58,00</strong>
-                    </p>
-                    <div class="col-12">
-                      <button class="btn-block m-auto p-2 botao-carrinho">
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!--Maravilha-->
-                <tr>
-                  <td>
-                    <img
-                      src="./images/novas-imgs/maravilha-sm.jpg"
-                      alt="maravilha"
-                      width="100"
-                      style="display: flex"
-                    />
-                    <span>100 Unidades (cento) </span>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-01cento">01 cento</option>
-                        <option value="coxinha-02cento">02 centos</option>
-                        <option value="coxinha-03cento">03 centos</option>
-                        <option value="coxinha-04cento">04 centos</option>
-                        <option value="coxinha-05cento">05 centos</option>
-                        <option value="coxinha-06cento">06 centos</option>
-                        <option value="coxinha-07cento">07 centos</option>
-                        <option value="coxinha-08cento">08 centos</option>
-                        <option value="coxinha-09cento">09 centos</option>
-                        <option value="coxinha-10cento">10 centos</option>
-                      </select>
-                    </div>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-frita">Frito</option>
-                        <option value="coxinha-congelada">Congelado</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <h3 style="text-align: start">
-                      <strong>Maravilha</strong>
-                    </h3>
-                    <p style="text-align: start">
-                      Recheio de presunto e queijo. Temos opções para encomenda
-                      tanto na forma frita como congelada.
-                    </p>
-                    <p class="mx-2" style="float: right; font-size: 18pt">
-                      <strong>R$58,00</strong>
-                    </p>
-                    <div class="col-12">
-                      <button class="btn-block m-auto p-2 botao-carrinho">
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!--Risoles de Carne-->
-                <tr>
-                  <td>
-                    <img
-                      src="./images/novas-imgs/risoles-carne-sm.jpg"
-                      alt="risoles-carne"
-                      width="100"
-                      style="display: flex"
-                    />
-                    <span>100 Unidades (cento) </span>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-01cento">01 cento</option>
-                        <option value="coxinha-02cento">02 centos</option>
-                        <option value="coxinha-03cento">03 centos</option>
-                        <option value="coxinha-04cento">04 centos</option>
-                        <option value="coxinha-05cento">05 centos</option>
-                        <option value="coxinha-06cento">06 centos</option>
-                        <option value="coxinha-07cento">07 centos</option>
-                        <option value="coxinha-08cento">08 centos</option>
-                        <option value="coxinha-09cento">09 centos</option>
-                        <option value="coxinha-10cento">10 centos</option>
-                      </select>
-                    </div>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-frita">Frito</option>
-                        <option value="coxinha-congelada">Congelado</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <h3 style="text-align: start">
-                      <strong>Risoles de Carne</strong>
-                    </h3>
-                    <p style="text-align: start">
-                      Recheio de carne. Temos opções para encomenda tanto na
-                      forma frita como congelada.
-                    </p>
-                    <p class="mx-2" style="float: right; font-size: 18pt">
-                      <strong>R$58,00</strong>
-                    </p>
-                    <div class="col-12">
-                      <button class="btn-block m-auto p-2 botao-carrinho">
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!--Risoles de Carne com Queijo-->
-                <tr>
-                  <td>
-                    <img
-                      src="./images/novas-imgs/risoles-carne-sm.jpg"
-                      alt="risoles-carne-queijo"
-                      width="100"
-                      style="display: flex"
-                    />
-                    <span>100 Unidades (cento) </span>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-01cento">01 cento</option>
-                        <option value="coxinha-02cento">02 centos</option>
-                        <option value="coxinha-03cento">03 centos</option>
-                        <option value="coxinha-04cento">04 centos</option>
-                        <option value="coxinha-05cento">05 centos</option>
-                        <option value="coxinha-06cento">06 centos</option>
-                        <option value="coxinha-07cento">07 centos</option>
-                        <option value="coxinha-08cento">08 centos</option>
-                        <option value="coxinha-09cento">09 centos</option>
-                        <option value="coxinha-10cento">10 centos</option>
-                      </select>
-                    </div>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-frita">Frito</option>
-                        <option value="coxinha-congelada">Congelado</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <h3 style="text-align: start">
-                      <strong>Risoles de Carne c/ Queijo</strong>
-                    </h3>
-                    <p style="text-align: start">
-                      Recheio de carne e queijo. Temos opções para encomenda
-                      tanto na forma frita como congelada.
-                    </p>
-                    <p class="mx-2" style="float: right; font-size: 18pt">
-                      <strong>R$58,00</strong>
-                    </p>
-                    <div class="col-12">
-                      <button class="btn-block m-auto p-2 botao-carrinho">
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!--Risoles de Calabresa-->
-                <tr>
-                  <td>
-                    <img
-                      src="./images/novas-imgs/risoles-calabresa-sm.png"
-                      alt="risoles-calabresa"
-                      width="100"
-                      style="display: flex"
-                    />
-                    <span>100 Unidades (cento) </span>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-01cento">01 cento</option>
-                        <option value="coxinha-02cento">02 centos</option>
-                        <option value="coxinha-03cento">03 centos</option>
-                        <option value="coxinha-04cento">04 centos</option>
-                        <option value="coxinha-05cento">05 centos</option>
-                        <option value="coxinha-06cento">06 centos</option>
-                        <option value="coxinha-07cento">07 centos</option>
-                        <option value="coxinha-08cento">08 centos</option>
-                        <option value="coxinha-09cento">09 centos</option>
-                        <option value="coxinha-10cento">10 centos</option>
-                      </select>
-                    </div>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-frita">Frito</option>
-                        <option value="coxinha-congelada">Congelado</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <h3 style="text-align: start">
-                      <strong>Risoles de Calabresa</strong>
-                    </h3>
-                    <p style="text-align: start">
-                      Recheio de calabresa. Temos opções para encomenda tanto na
-                      forma frita como congelada.
-                    </p>
-                    <p class="mx-2" style="float: right; font-size: 18pt">
-                      <strong>R$58,00</strong>
-                    </p>
-                    <div class="col-12">
-                      <button class="btn-block m-auto p-2 botao-carrinho">
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!--Risoles de Calabresa c/ Queijo-->
-                <tr>
-                  <td>
-                    <img
-                      src="./images/novas-imgs/risoles-calabresa-sm.png"
-                      alt="risoles-calabresa-queijo"
-                      width="100"
-                      style="display: flex"
-                    />
-                    <span>100 Unidades (cento) </span>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-01cento">01 cento</option>
-                        <option value="coxinha-02cento">02 centos</option>
-                        <option value="coxinha-03cento">03 centos</option>
-                        <option value="coxinha-04cento">04 centos</option>
-                        <option value="coxinha-05cento">05 centos</option>
-                        <option value="coxinha-06cento">06 centos</option>
-                        <option value="coxinha-07cento">07 centos</option>
-                        <option value="coxinha-08cento">08 centos</option>
-                        <option value="coxinha-09cento">09 centos</option>
-                        <option value="coxinha-10cento">10 centos</option>
-                      </select>
-                    </div>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-frita">Frito</option>
-                        <option value="coxinha-congelada">Congelado</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <h3 style="text-align: start">
-                      <strong>Risoles de Calabresa c/ Queijo</strong>
-                    </h3>
-                    <p style="text-align: start">
-                      Recheio de calabresa e queijo. Temos opções para encomenda
-                      tanto na forma frita como congelada.
-                    </p>
-                    <p class="mx-2" style="float: right; font-size: 18pt">
-                      <strong>R$58,00</strong>
-                    </p>
-                    <div class="col-12">
-                      <button class="btn-block m-auto p-2 botao-carrinho">
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!--Croquete de Carne-->
-                <tr>
-                  <td>
-                    <img
-                      src="./images/novas-imgs/croquete-carne-sm.jpg"
-                      alt="croquete-carne"
-                      width="100"
-                      style="display: flex"
-                    />
-                    <span>100 Unidades (cento) </span>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-01cento">01 cento</option>
-                        <option value="coxinha-02cento">02 centos</option>
-                        <option value="coxinha-03cento">03 centos</option>
-                        <option value="coxinha-04cento">04 centos</option>
-                        <option value="coxinha-05cento">05 centos</option>
-                        <option value="coxinha-06cento">06 centos</option>
-                        <option value="coxinha-07cento">07 centos</option>
-                        <option value="coxinha-08cento">08 centos</option>
-                        <option value="coxinha-09cento">09 centos</option>
-                        <option value="coxinha-10cento">10 centos</option>
-                      </select>
-                    </div>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-frita">Frito</option>
-                        <option value="coxinha-congelada">Congelado</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <h3 style="text-align: start">
-                      <strong>Croquete de Carne</strong>
-                    </h3>
-                    <p style="text-align: start">
-                      Recheio de carne. Temos opções para encomenda tanto na
-                      forma frita como congelada.
-                    </p>
-                    <p class="mx-2" style="float: right; font-size: 18pt">
-                      <strong>R$58,00</strong>
-                    </p>
-                    <div class="col-12">
-                      <button class="btn-block m-auto p-2 botao-carrinho">
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!--Croquete de Frango-->
-                <tr>
-                  <td>
-                    <img
-                      src="./images/novas-imgs/croquete-frango-sm.png"
-                      alt="croquete-frango"
-                      width="100"
-                      style="display: flex"
-                    />
-                    <span>100 Unidades (cento) </span>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-01cento">01 cento</option>
-                        <option value="coxinha-02cento">02 centos</option>
-                        <option value="coxinha-03cento">03 centos</option>
-                        <option value="coxinha-04cento">04 centos</option>
-                        <option value="coxinha-05cento">05 centos</option>
-                        <option value="coxinha-06cento">06 centos</option>
-                        <option value="coxinha-07cento">07 centos</option>
-                        <option value="coxinha-08cento">08 centos</option>
-                        <option value="coxinha-09cento">09 centos</option>
-                        <option value="coxinha-10cento">10 centos</option>
-                      </select>
-                    </div>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-frita">Frito</option>
-                        <option value="coxinha-congelada">Congelado</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <h3 style="text-align: start">
-                      <strong>Croquete de Frango</strong>
-                    </h3>
-                    <p style="text-align: start">
-                      Recheio de frango. Temos opções para encomenda tanto na
-                      forma frita como congelada.
-                    </p>
-                    <p class="mx-2" style="float: right; font-size: 18pt">
-                      <strong>R$58,00</strong>
-                    </p>
-                    <div class="col-12">
-                      <button class="btn-block m-auto p-2 botao-carrinho">
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <!-- modelos de salgado na lista + carrinho / start -->
+          <table class="table" id="salgados">
+            <!-- Coxinha-->
+            <tr id="salgado-item">
+              <td id="salgado-item--img">
+                <img
+                  src="./images/novas-imgs/coxinha-sm.jpg "
+                  width="100"
+                  style="display: flex"
+                />
+                <span>100 Unidades (cento) </span>
+                <div
+                  class="d-flex flex-row justify-content-center mt-3"
+                  style="
+                    background-color: rgba(198, 190, 207, 0.158);
+                    border-radius: 4px;
+                  "
+                >
+                  <i class="bi bi-dash-lg"></i>
+                  <div class="px-3" id="quantidade">0</div>
+                  <i class="bi bi-plus-lg"></i>
+                </div>
+                <div class="select-dropdown mt-3">
+                  <select id="salgado-item--options " class="frito-congelado">
+                    <option
+                      id="salgado-item--option"
+                      data-key="0"
+                      value="coxinha-frita"
+                    >
+                      Pronto
+                    </option>
+                    <option
+                      id="salgado-item--option"
+                      data-key="1"
+                      value="coxinha-congelada"
+                    >
+                      Congelado
+                    </option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <h3 id="salgado-item--name" style="text-align: start">
+                  <strong>Coxinha de Frango</strong>
+                </h3>
+                <p id="salgado-item--desc" style="text-align: start">
+                  Temos opções para encomenda tanto na forma frita como
+                  congelada.
+                </p>
+                <p
+                  id="salgado-item--price"
+                  class="mx-2"
+                  style="float: right; font-size: 18pt"
+                >
+                  <strong>R$58,00</strong>
+                </p>
+                <div id="salgado-item--add" class="col-12">
+                  <button class="btn-block m-auto p-2 botao-carrinho">
+                    Adicionar ao Carrinho
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!--Bolinha de Queijo Tradiconal-->
+            <tr>
+              <td>
+                <img
+                  src="./images/novas-imgs/bolinha-de-queijo-sm.jpg"
+                  alt="bolinhas-de-queijo"
+                  width="100"
+                  style="display: flex"
+                />
+                <span>100 Unidades (cento) </span>
+                <div
+                  class="d-flex flex-row justify-content-center mt-3"
+                  style="
+                    background-color: rgba(198, 190, 207, 0.158);
+                    border-radius: 4px;
+                  "
+                >
+                  <i class="bi bi-dash-lg"></i>
+                  <div class="px-3" id="quantidade">0</div>
+                  <i class="bi bi-plus-lg"></i>
+                </div>
+                <div class="select-dropdown mt-3">
+                  <select>
+                    <option value="coxinha-frita">Frito</option>
+                    <option value="coxinha-congelada">Congelado</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <h3 style="text-align: start">
+                  <strong>Bolinha de Queijo Tradicional</strong>
+                </h3>
+                <p style="text-align: start">
+                  Temos opções para encomenda tanto na forma frita como
+                  congelada.
+                </p>
+                <p class="mx-2" style="float: right; font-size: 18pt">
+                  <strong>R$58,00</strong>
+                </p>
+                <div class="col-12">
+                  <button class="btn-block m-auto p-2 botao-carrinho">
+                    Adicionar ao Carrinho
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!--Bolinha de Queijo c/ Alho Frito-->
+            <tr>
+              <td>
+                <img
+                  src="./images/novas-imgs/bolinha-de-queijo-sm.jpg"
+                  alt="bolinhas-de-queijo-alho"
+                  width="100"
+                  style="display: flex"
+                />
+                <span>100 Unidades (cento) </span>
+                <div
+                  class="d-flex flex-row justify-content-center mt-3"
+                  style="
+                    background-color: rgba(198, 190, 207, 0.158);
+                    border-radius: 4px;
+                  "
+                >
+                  <i class="bi bi-dash-lg"></i>
+                  <div class="px-3" id="quantidade">0</div>
+                  <i class="bi bi-plus-lg"></i>
+                </div>
+                <div class="select-dropdown mt-3">
+                  <select>
+                    <option value="coxinha-frita">Frito</option>
+                    <option value="coxinha-congelada">Congelado</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <h3 style="text-align: start">
+                  <strong>Bolinha de Queijo c/ Algo Frito</strong>
+                </h3>
+                <p style="text-align: start">
+                  Temos opções para encomenda tanto na forma frita como
+                  congelada.
+                </p>
+                <p class="mx-2" style="float: right; font-size: 18pt">
+                  <strong>R$58,00</strong>
+                </p>
+                <div class="col-12">
+                  <button class="btn-block m-auto p-2 botao-carrinho">
+                    Adicionar ao Carrinho
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!--Maravilha-->
+            <tr>
+              <td>
+                <img
+                  src="./images/novas-imgs/maravilha-sm.jpg"
+                  alt="maravilha"
+                  width="100"
+                  style="display: flex"
+                />
+                <span>100 Unidades (cento) </span>
+                <div
+                  class="d-flex flex-row justify-content-center mt-3"
+                  style="
+                    background-color: rgba(198, 190, 207, 0.158);
+                    border-radius: 4px;
+                  "
+                >
+                  <i class="bi bi-dash-lg"></i>
+                  <div class="px-3" id="quantidade">0</div>
+                  <i class="bi bi-plus-lg"></i>
+                </div>
+                <div class="select-dropdown mt-3">
+                  <select>
+                    <option value="coxinha-frita">Frito</option>
+                    <option value="coxinha-congelada">Congelado</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <h3 style="text-align: start">
+                  <strong>Maravilha</strong>
+                </h3>
+                <p style="text-align: start">
+                  Recheio de presunto e queijo. Temos opções para encomenda
+                  tanto na forma frita como congelada.
+                </p>
+                <p class="mx-2" style="float: right; font-size: 18pt">
+                  <strong>R$58,00</strong>
+                </p>
+                <div class="col-12">
+                  <button class="btn-block m-auto p-2 botao-carrinho">
+                    Adicionar ao Carrinho
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!--Risoles de Carne-->
+            <tr>
+              <td>
+                <img
+                  src="./images/novas-imgs/risoles-carne-sm.jpg"
+                  alt="risoles-carne"
+                  width="100"
+                  style="display: flex"
+                />
+                <span>100 Unidades (cento) </span>
+                <div
+                  class="d-flex flex-row justify-content-center mt-3"
+                  style="
+                    background-color: rgba(198, 190, 207, 0.158);
+                    border-radius: 4px;
+                  "
+                >
+                  <i class="bi bi-dash-lg"></i>
+                  <div class="px-3" id="quantidade">0</div>
+                  <i class="bi bi-plus-lg"></i>
+                </div>
+                <div class="select-dropdown mt-3">
+                  <select>
+                    <option value="coxinha-frita">Frito</option>
+                    <option value="coxinha-congelada">Congelado</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <h3 style="text-align: start">
+                  <strong>Risoles de Carne</strong>
+                </h3>
+                <p style="text-align: start">
+                  Recheio de carne. Temos opções para encomenda tanto na forma
+                  frita como congelada.
+                </p>
+                <p class="mx-2" style="float: right; font-size: 18pt">
+                  <strong>R$58,00</strong>
+                </p>
+                <div class="col-12">
+                  <button class="btn-block m-auto p-2 botao-carrinho">
+                    Adicionar ao Carrinho
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!--Risoles de Carne com Queijo-->
+            <tr>
+              <td>
+                <img
+                  src="./images/novas-imgs/risoles-carne-sm.jpg"
+                  alt="risoles-carne-queijo"
+                  width="100"
+                  style="display: flex"
+                />
+                <span>100 Unidades (cento) </span>
+                <div
+                  class="d-flex flex-row justify-content-center mt-3"
+                  style="
+                    background-color: rgba(198, 190, 207, 0.158);
+                    border-radius: 4px;
+                  "
+                >
+                  <i class="bi bi-dash-lg"></i>
+                  <div class="px-3" id="quantidade">0</div>
+                  <i class="bi bi-plus-lg"></i>
+                </div>
+                <div class="select-dropdown mt-3">
+                  <select>
+                    <option value="coxinha-frita">Frito</option>
+                    <option value="coxinha-congelada">Congelado</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <h3 style="text-align: start">
+                  <strong>Risoles de Carne c/ Queijo</strong>
+                </h3>
+                <p style="text-align: start">
+                  Recheio de carne e queijo. Temos opções para encomenda tanto
+                  na forma frita como congelada.
+                </p>
+                <p class="mx-2" style="float: right; font-size: 18pt">
+                  <strong>R$58,00</strong>
+                </p>
+                <div class="col-12">
+                  <button class="btn-block m-auto p-2 botao-carrinho">
+                    Adicionar ao Carrinho
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!--Risoles de Calabresa-->
+            <tr>
+              <td>
+                <img
+                  src="./images/novas-imgs/risoles-calabresa-sm.png"
+                  alt="risoles-calabresa"
+                  width="100"
+                  style="display: flex"
+                />
+                <span>100 Unidades (cento) </span>
+                <div
+                  class="d-flex flex-row justify-content-center mt-3"
+                  style="
+                    background-color: rgba(198, 190, 207, 0.158);
+                    border-radius: 4px;
+                  "
+                >
+                  <i class="bi bi-dash-lg"></i>
+                  <div class="px-3" id="quantidade">0</div>
+                  <i class="bi bi-plus-lg"></i>
+                </div>
+                <div class="select-dropdown mt-3">
+                  <select>
+                    <option value="coxinha-frita">Frito</option>
+                    <option value="coxinha-congelada">Congelado</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <h3 style="text-align: start">
+                  <strong>Risoles de Calabresa</strong>
+                </h3>
+                <p style="text-align: start">
+                  Recheio de calabresa. Temos opções para encomenda tanto na
+                  forma frita como congelada.
+                </p>
+                <p class="mx-2" style="float: right; font-size: 18pt">
+                  <strong>R$58,00</strong>
+                </p>
+                <div class="col-12">
+                  <button class="btn-block m-auto p-2 botao-carrinho">
+                    Adicionar ao Carrinho
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!--Risoles de Calabresa c/ Queijo-->
+            <tr>
+              <td>
+                <img
+                  src="./images/novas-imgs/risoles-calabresa-sm.png"
+                  alt="risoles-calabresa-queijo"
+                  width="100"
+                  style="display: flex"
+                />
+                <span>100 Unidades (cento) </span>
+                <div
+                  class="d-flex flex-row justify-content-center mt-3"
+                  style="
+                    background-color: rgba(198, 190, 207, 0.158);
+                    border-radius: 4px;
+                  "
+                >
+                  <i class="bi bi-dash-lg"></i>
+                  <div class="px-3" id="quantidade">0</div>
+                  <i class="bi bi-plus-lg"></i>
+                </div>
+                <div class="select-dropdown mt-3">
+                  <select>
+                    <option value="coxinha-frita">Frito</option>
+                    <option value="coxinha-congelada">Congelado</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <h3 style="text-align: start">
+                  <strong>Risoles de Calabresa c/ Queijo</strong>
+                </h3>
+                <p style="text-align: start">
+                  Recheio de calabresa e queijo. Temos opções para encomenda
+                  tanto na forma frita como congelada.
+                </p>
+                <p class="mx-2" style="float: right; font-size: 18pt">
+                  <strong>R$58,00</strong>
+                </p>
+                <div class="col-12">
+                  <button class="btn-block m-auto p-2 botao-carrinho">
+                    Adicionar ao Carrinho
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!--Croquete de Carne-->
+            <tr>
+              <td>
+                <img
+                  src="./images/novas-imgs/croquete-carne-sm.jpg"
+                  alt="croquete-carne"
+                  width="100"
+                  style="display: flex"
+                />
+                <span>100 Unidades (cento) </span>
+                <div
+                  class="d-flex flex-row justify-content-center mt-3"
+                  style="
+                    background-color: rgba(198, 190, 207, 0.158);
+                    border-radius: 4px;
+                  "
+                >
+                  <i class="bi bi-dash-lg"></i>
+                  <div class="px-3" id="quantidade">0</div>
+                  <i class="bi bi-plus-lg"></i>
+                </div>
+                <div class="select-dropdown mt-3">
+                  <select>
+                    <option value="coxinha-frita">Frito</option>
+                    <option value="coxinha-congelada">Congelado</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <h3 style="text-align: start">
+                  <strong>Croquete de Carne</strong>
+                </h3>
+                <p style="text-align: start">
+                  Recheio de carne. Temos opções para encomenda tanto na forma
+                  frita como congelada.
+                </p>
+                <p class="mx-2" style="float: right; font-size: 18pt">
+                  <strong>R$58,00</strong>
+                </p>
+                <div class="col-12">
+                  <button class="btn-block m-auto p-2 botao-carrinho">
+                    Adicionar ao Carrinho
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <!--Croquete de Frango-->
+            <tr>
+              <td>
+                <img
+                  src="./images/novas-imgs/croquete-frango-sm.png"
+                  alt="croquete-frango"
+                  width="100"
+                  style="display: flex"
+                />
+                <span>100 Unidades (cento) </span>
+                <div
+                  class="d-flex flex-row justify-content-center mt-3"
+                  style="
+                    background-color: rgba(198, 190, 207, 0.158);
+                    border-radius: 4px;
+                  "
+                >
+                  <i class="bi bi-dash-lg"></i>
+                  <div class="px-3" id="quantidade">0</div>
+                  <i class="bi bi-plus-lg"></i>
+                </div>
+                <div class="select-dropdown mt-3">
+                  <select>
+                    <option value="coxinha-frita">Frito</option>
+                    <option value="coxinha-congelada">Congelado</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <h3 style="text-align: start">
+                  <strong>Croquete de Frango</strong>
+                </h3>
+                <p style="text-align: start">
+                  Recheio de frango. Temos opções para encomenda tanto na forma
+                  frita como congelada.
+                </p>
+                <p class="mx-2" style="float: right; font-size: 18pt">
+                  <strong>R$58,00</strong>
+                </p>
+                <div class="col-12">
+                  <button class="btn-block m-auto p-2 botao-carrinho">
+                    Adicionar ao Carrinho
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <!-- modelos de salgado na lista + carrinho / end -->
         </div>
-      </div>
-      <!--ASSADOS-->
-      <div class="row special-list">
-        <div class="col-md-12 p-0 special-grid salgados">
-          <h3
-            class="h5 m-2 p-4 text-center"
-            style="background: rgba(179, 159, 170, 0.384)"
-          >
-            ASSADOS
-          </h3>
-          <div class="table-wrap">
-            <table class="table">
-              <tbody>
-                <!--Coxinha-->
-                <tr>
-                  <td>
-                    <img
-                      src="./images/novas-imgs/coxinha-sm.jpg"
-                      alt="bolinhas-de-queijo"
-                      width="100"
-                      style="display: flex"
-                    />
-                    <span>100 Unidades (cento) </span>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-01cento">01 cento</option>
-                        <option value="coxinha-02cento">02 centos</option>
-                        <option value="coxinha-03cento">03 centos</option>
-                        <option value="coxinha-04cento">04 centos</option>
-                        <option value="coxinha-05cento">05 centos</option>
-                        <option value="coxinha-06cento">06 centos</option>
-                        <option value="coxinha-07cento">07 centos</option>
-                        <option value="coxinha-08cento">08 centos</option>
-                        <option value="coxinha-09cento">09 centos</option>
-                        <option value="coxinha-10cento">10 centos</option>
-                      </select>
-                    </div>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-frita">Frito</option>
-                        <option value="coxinha-congelada">Congelado</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <h3 style="text-align: start">
-                      <strong>Coxinha de Frango</strong>
-                    </h3>
-                    <p style="text-align: start">
-                      Temos opções para encomenda tanto na forma frita como
-                      congelada.
-                    </p>
-                    <p class="mx-2" style="float: right; font-size: 18pt">
-                      <strong>R$58,00</strong>
-                    </p>
-                    <div class="col-12">
-                      <button class="btn-block m-auto p-2 botao-carrinho">
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!--Bolinha de Queijo Tradiconal-->
-                <tr>
-                  <td>
-                    <img
-                      src="./images/novas-imgs/bolinha-de-queijo-sm.jpg"
-                      alt="bolinhas-de-queijo"
-                      width="100"
-                      style="display: flex"
-                    />
-                    <span>100 Unidades (cento) </span>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-01cento">01 cento</option>
-                        <option value="coxinha-02cento">02 centos</option>
-                        <option value="coxinha-03cento">03 centos</option>
-                        <option value="coxinha-04cento">04 centos</option>
-                        <option value="coxinha-05cento">05 centos</option>
-                        <option value="coxinha-06cento">06 centos</option>
-                        <option value="coxinha-07cento">07 centos</option>
-                        <option value="coxinha-08cento">08 centos</option>
-                        <option value="coxinha-09cento">09 centos</option>
-                        <option value="coxinha-10cento">10 centos</option>
-                      </select>
-                    </div>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-frita">Frito</option>
-                        <option value="coxinha-congelada">Congelado</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <h3 style="text-align: start">
-                      <strong>Bolinha de Queijo Tradicional</strong>
-                    </h3>
-                    <p style="text-align: start">
-                      Temos opções para encomenda tanto na forma frita como
-                      congelada.
-                    </p>
-                    <p class="mx-2" style="float: right; font-size: 18pt">
-                      <strong>R$58,00</strong>
-                    </p>
-                    <div class="col-12">
-                      <button class="btn-block m-auto p-2 botao-carrinho">
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!--Bolinha de Queijo c/ Alho Frito-->
-                <tr>
-                  <td>
-                    <img
-                      src="./images/novas-imgs/bolinha-de-queijo-sm.jpg"
-                      alt="bolinhas-de-queijo"
-                      width="100"
-                      style="display: flex"
-                    />
-                    <span>100 Unidades (cento) </span>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-01cento">01 cento</option>
-                        <option value="coxinha-02cento">02 centos</option>
-                        <option value="coxinha-03cento">03 centos</option>
-                        <option value="coxinha-04cento">04 centos</option>
-                        <option value="coxinha-05cento">05 centos</option>
-                        <option value="coxinha-06cento">06 centos</option>
-                        <option value="coxinha-07cento">07 centos</option>
-                        <option value="coxinha-08cento">08 centos</option>
-                        <option value="coxinha-09cento">09 centos</option>
-                        <option value="coxinha-10cento">10 centos</option>
-                      </select>
-                    </div>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-frita">Frito</option>
-                        <option value="coxinha-congelada">Congelado</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <h3 style="text-align: start">
-                      <strong>Bolinha de Queijo c/ Algo Frito</strong>
-                    </h3>
-                    <p style="text-align: start">
-                      Temos opções para encomenda tanto na forma frita como
-                      congelada.
-                    </p>
-                    <p class="mx-2" style="float: right; font-size: 18pt">
-                      <strong>R$58,00</strong>
-                    </p>
-                    <div class="col-12">
-                      <button class="btn-block m-auto p-2 botao-carrinho">
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <!--Maravilha-->
-                <tr>
-                  <td>
-                    <img
-                      src="./images/novas-imgs/maravilha-sm.jpg"
-                      alt="bolinhas-de-queijo"
-                      width="100"
-                      style="display: flex"
-                    />
-                    <span>100 Unidades (cento) </span>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-01cento">01 cento</option>
-                        <option value="coxinha-02cento">02 centos</option>
-                        <option value="coxinha-03cento">03 centos</option>
-                        <option value="coxinha-04cento">04 centos</option>
-                        <option value="coxinha-05cento">05 centos</option>
-                        <option value="coxinha-06cento">06 centos</option>
-                        <option value="coxinha-07cento">07 centos</option>
-                        <option value="coxinha-08cento">08 centos</option>
-                        <option value="coxinha-09cento">09 centos</option>
-                        <option value="coxinha-10cento">10 centos</option>
-                      </select>
-                    </div>
-                    <div class="select-dropdown mt-3">
-                      <select>
-                        <option value="coxinha-frita">Frito</option>
-                        <option value="coxinha-congelada">Congelado</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td>
-                    <h3 style="text-align: start">
-                      <strong>Maravilha</strong>
-                    </h3>
-                    <p style="text-align: start">
-                      Recheio de presunto e queijo. Temos opções para encomenda
-                      tanto na forma frita como congelada.
-                    </p>
-                    <p class="mx-2" style="float: right; font-size: 18pt">
-                      <strong>R$58,00</strong>
-                    </p>
-                    <div class="col-12">
-                      <button class="btn-block m-auto p-2 botao-carrinho">
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <!--ASSADOS-->
       </div>
     </div>
+    <!-- modelos de salgado na lista + carrinho / end -->
+
     <!-- Start Contact info -->
     <div class="contact-imfo-box">
       <div class="container">

@@ -210,6 +210,52 @@ button:focus {
 }
 
 /*------------------------------------------------------------------
+    Cart
+-------------------------------------------------------------------*/
+
+.cart {
+  background-color: #ead7d7ff;
+  color: #1e0c1d;
+  border-radius: 4px;
+  font-size: 21px;
+  padding: 5px;
+  position: relative;
+  line-height: 5vh;
+}
+
+.cartAmount {
+  font-size: 16px;
+  color: white;
+  position: absolute;
+  font-weight: 500;
+  top: -5px;
+  right: -5px;
+  text-shadow: 0px 0px 1px black;
+}
+
+.cartAmount p {
+  background-color: red;
+  border-radius: 4px;
+  line-height: 20px;
+}
+
+.bi-dash-lg {
+  color: red;
+}
+
+.bi-plus-lg {
+  color: green;
+}
+
+/*------------------------------------------------------------------
+    Shop
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+    Shop-Card
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
     Slider
 -------------------------------------------------------------------*/
 
@@ -380,8 +426,8 @@ button:focus {
 -------------------------------------------------------------------*/
 
 .menu-box {
-  padding-top: 20px;
-  margin-top: 70px;
+  padding-top: 0px;
+  margin-top: 45px;
 }
 
 .heading-title {
@@ -1904,12 +1950,6 @@ ul {
 }
 
 /***end*****/
-
-.card {
-  border: none;
-  border-radius: 30px;
-  background-color: #14edaa;
-}
 
 .wow-bg {
   background-color: #141421;
