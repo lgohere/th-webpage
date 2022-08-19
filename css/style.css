@@ -1199,6 +1199,7 @@ button:focus {
   background-size: cover;
   background-position: -35vh -22vh;
   position: relative;
+  z-index: 2;
 }
 
 .all-page-title .container {
