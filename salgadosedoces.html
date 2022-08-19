@@ -99,18 +99,25 @@
       <div class="modal-content">
         <div class="row">
           <div
-            class="col-12 pb-2 d-inline-flex flex-row justify-content-between align-items-center"
+            class="col-12 d-inline-flex flex-row justify-content-between align-items-center"
           >
             <h1>Itens no Carrinho:</h1>
             <span class="close_carrinho">&times;</span>
           </div>
         </div>
-        <div class="row" id="carrinho_item_id">
+        <div
+          class="row shadow-item"
+          id="carrinho_item_id"
+          style="border: solid rgba(0, 0, 0, 0.075) 1px"
+        >
           <div
-            class="col-4 pt-2 d-flex flex-column align-items-center"
+            class="col-4 pt-3 d-flex flex-column align-items-center"
             id="carrinho_item_img"
           >
-            <img src="./images/novas-imgs/coxinha-sm.jpg" class="img-fluid" />
+            <img
+              src="./images/novas-imgs/coxinha-sm.jpg"
+              class="img-fluid border border-success"
+            />
             <p
               id="carrinho_item_name"
               class="text-center"
@@ -119,7 +126,7 @@
               Coxinha de Frango (cento)
             </p>
           </div>
-          <div class="col-4 text-center card-text" id="carrinho_item_qtd">
+          <div class="col-4 text-center pt-3 card-text" id="carrinho_item_qtd">
             <strong>Quantidade</strong>
             <div
               class="col-12 d-inline-flex align-items-center justify-content-center mt-2"
@@ -129,16 +136,16 @@
               <button id="btnMais_Carrinho_itemId">+</button>
             </div>
           </div>
-          <div class="col-4 text-center" id="carrinho_item_subtotal">
+          <div class="col-4 text-center pt-3" id="carrinho_item_subtotal">
             <strong>Subtotal</strong>
             <p class="pt-2" id="carrinho_item_subttotal">R$58.00</p>
-            <i class="pt-4 bi bi-trash3-fill"></i>
+            <i class="pt-4 bi bi-trash3-fill" style="font-size: larger"></i>
           </div>
         </div>
         <div class="row">
           <div
             id="carrinho_total"
-            class="col-12 d-flex justify-content-end font-weight-bold"
+            class="col-12 pt-3 d-flex justify-content-end font-weight-bold"
             style="font-size: 20px"
           >
             Total: R$58.00

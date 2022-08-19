@@ -273,7 +273,9 @@ button:focus {
   margin: 30% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 90%; /* Could be more or less, depending on screen size */
+  width: 95%;
+  border-radius: 20px;
+  color: black;
 }
 
 @media (min-width: 600px) {
@@ -296,6 +298,12 @@ button:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.shadow-item {
+  box-shadow: 0rem 0.1rem 0.2rem rgba(65, 34, 52, 0.377);
+  border-radius: 0px;
+  background: #f1e8e9;
 }
 
 /*------------------------------------------------------------------
