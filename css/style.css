@@ -237,6 +237,8 @@ button:focus {
   background-color: red;
   border-radius: 4px;
   line-height: 20px;
+  width: 15px;
+  text-align: center;
 }
 
 .bi-dash-lg {
