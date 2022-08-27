@@ -53,7 +53,7 @@
         <div class="cart">
           <i id="modalCarrinhoBtn" class="bi bi-cart2"></i>
           <div class="cartAmount">
-            <p id="carrinho_itens">0</p>
+            <p id="carrinhoBtnQtd">0</p>
           </div>
         </div>
         <button
@@ -94,7 +94,7 @@
 
     <!-- Modal Carrinho -->
     <!-- The Modal -->
-    <div id="myModal" class="modal">
+    <div id="modalCarrinho" class="modal">
       <!-- Modal content -->
       <div class="modal-content">
         <div class="row">
@@ -102,7 +102,7 @@
             class="col-12 d-inline-flex flex-row justify-content-between align-items-center"
           >
             <h1>Itens no Carrinho:</h1>
-            <span class="close_carrinho">&times;</span>
+            <span class="closeModalCarrinho">&times;</span>
           </div>
         </div>
         <div
@@ -138,8 +138,12 @@
           </div>
           <div class="col-4 text-center pt-3" id="carrinho_item_subtotal">
             <strong>Subtotal</strong>
-            <p class="pt-2" id="carrinho_item_subttotal">R$58.00</p>
-            <i class="pt-4 bi bi-trash3-fill" style="font-size: larger"></i>
+            <p class="pt-2" id="carrinho_itemSubtotal_id">R$58.00</p>
+            <i
+              id="carrinhoRemoverSubtotal_id"
+              class="pt-4 bi bi-trash3-fill"
+              style="font-size: larger"
+            ></i>
           </div>
         </div>
         <div class="row">
@@ -198,25 +202,22 @@
         </div>
       </div>
     </div>
-    <!-- modelos de salgado na lista + carrinho / start -->
     <div class="container mt-1" style="overflow-x: auto">
-      <!--FRITOS-->
       <div class="row special-list">
-        <div id="salgado-area" class="col-md-12 p-0 special-grid salgados">
+        <div class="col-md-12 p-0 special-grid salgados">
           <h3
-            class="h5 m-2 p-4 text-center"
+            class="h5 p-4 text-center"
             style="background: rgba(179, 159, 170, 0.384)"
           >
             FRITOS
           </h3>
+          <div class="container-fluid" id="salgados"></div>
           <!-- modelos de salgado na lista + carrinho / start -->
-          <table class="table" id="salgados"></table>
+          <!-- <table class="table" id="salgados"></table> -->
           <!-- modelos de salgado na lista + carrinho / end -->
         </div>
-        <!--ASSADOS-->
       </div>
     </div>
-    <!-- modelos de salgado na lista + carrinho / end -->
 
     <!-- Start Contact info -->
     <div class="contact-imfo-box">

@@ -286,15 +286,15 @@ button:focus {
 }
 
 /* The Close Button */
-.close_carrinho {
+.closeModalCarrinho {
   color: #d30000;
   font-size: 30px;
   font-weight: bold;
   position: relative;
   top: -20px;
 }
-.close_carrinho:hover,
-.close_carrinho:focus {
+.closeModalCarrinho:hover,
+.closeModalCarrinho:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
