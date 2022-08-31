@@ -1,24 +1,32 @@
+const seleciona = (elemento) => document.querySelector(elemento);
+
 // modalCarrinho nav-bar
-let modal = document.getElementById("modalCarrinho");
-let modalBtn = document.getElementById("modalCarrinhoBtn");
-let modalSpan = document.getElementsByClassName("closeModalCarrinho")[0];
 
-modalBtn.onclick = function () {
-  modal.style.display = "block";
+const abrirModal = () => {
+  seleciona("#modalCarrinho").style.opacity = 0;
+  seleciona("#modalCarrinho").style.display = "block";
+  setTimeout(() => {
+    seleciona("#modalCarrinho").style.opacity = 1;
+  }, 150);
 };
 
-modalSpan.onclick = function () {
-  modal.style.display = "none";
+const fecharModal = () => {
+  seleciona("#modalCarrinho").style.opacity = 0;
+  setTimeout(() => {
+    seleciona("#modalCarrinho").style.display = "none";
+  }, 500);
 };
 
-// When the user clicks anywhere outside of the modal, close it
+let modal = seleciona("#modalCarrinho");
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 };
 
-// objeto com todos os itens disponiveis no cardápio geral
+seleciona("#modalCarrinhoBtn").addEventListener("click", abrirModal);
+seleciona(".closeModalCarrinho").addEventListener("click", fecharModal);
+
 const cardapio = [
   {
     id: 1,
@@ -92,10 +100,47 @@ const cardapio = [
   },
 ];
 
-// id da table - onde é projetada a parte de salgados, conforme o cardápio geral.
 const $cardapio = document.getElementById("salgados");
 
-// loop que inclui a td (item) no html tendo como orientação o objeto cardápio (cardapio geral).
+const adicionarNoCarrinho = () => {
+  const novoItemCarrinho = `
+      <div class="row shadow-item" style="border: solid rgba(0, 0, 0, 0.075) 1px">
+        <div class="col-4 pt-3 d-flex flex-column align-items-center" id="carrinhoItemImg" >
+          <img src="" class="img-fluid border border-success"/>
+          <div id="carrinhoItemName"><p class="text-center mt-3" style="line-height: 20px"></p>
+          </div>
+        </div>
+        <div class="col-4 text-center pt-3 card-text">
+          <strong>Quantidade</strong>
+          <div id="carrinhoItemQtd"
+          class="col-12 d-inline-flex align-items-center justify-content-center mt-2"
+        >
+          <button id="btnMenosModalCarrinho">-</button>
+          <h3 id="carrinhoItemQuantidade" class="mx-3">-</h3>
+          <button id="btnMaisModalCarrinho">+</button>
+        </div>
+      </div>
+        <div class="col-4 text-center pt-3" id="carrinho_item_subtotal">
+          <strong>Subtotal</strong>
+          <p class="pt-2" id="carrinhoItemSubtotal"></p>
+          <i id="carrinhoRemoverItem"
+          class="pt-4 bi bi-trash3-fill"
+          style="font-size: 20px"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div id="carrinhoTotal" class="col-12 pt-3 d-flex justify-content-end font-weight-bold"
+        style="font-size: 20px">Total: R$58.00</div>
+      </div>
+      `;
+
+  let $itensAdicionados = document.getElementById("itensAdicionados");
+  let $novoItemCarrinho = document.createElement("div");
+  $novoItemCarrinho.innerHTML = novoItemCarrinho;
+
+  $itensAdicionados.appendChild($novoItemCarrinho);
+};
+
 for (item of cardapio) {
   const itemHtml = `
   <div class="row border" style="color: black">
@@ -130,7 +175,7 @@ for (item of cardapio) {
     >
       <strong>R$${item.price},00</strong>
     </p>
-    <div id="salgado-item--add" class="mb-3">
+    <div id="adicionarAoCarrinho" class="mb-3">
       <button
         id="btnCarrinho_${item.id}"
         class="btn-block m-auto p-2 botao-carrinho"
@@ -140,30 +185,30 @@ for (item of cardapio) {
       </div>
     </div>
     `;
-  let novoItem = document.createElement("div"); // cria o elemento newTr como parent do td programado acima.
-  novoItem.innerHTML = itemHtml; // inclue o td "itemHtml" ao parent tr "newTr".
-  $cardapio.appendChild(novoItem); // adiciona o "newTr" como child da table com id: $cardapio.
 
-  // define o elemento no html que será meio para acionar a função adicionarCarrinhoIcon.
+  let novoItem = document.createElement("div");
+  novoItem.innerHTML = itemHtml;
+  $cardapio.appendChild(novoItem);
+
   const $btnCarrinho = document.getElementById(`btnCarrinho_${item.id}`);
-  $btnCarrinho.addEventListener("click", adicionarCarrinhoIcon); //ao clicar aciona a função adicionarCarrinhoIcon.
-
-  // define o elemento no html que será meio para acionar a função adicionar.
-  //const $btnMais = document.getElementById(`btnMais_${item.id}`);
-  // define o elemento no html que será meio para acionar a função subtrair.
-  //const $btnMenos = document.getElementById(`btnMenos_${item.id}`);
-  //$btnMais.addEventListener("click", adicionar); //ao clicar aciona a função adicionar
-  //$btnMenos.addEventListener("click", subtrair); // ao clicar aciona a função subtrair
+  $btnCarrinho.addEventListener("click", () => {
+    abrirModal();
+    adicionarCarrinhoIcon();
+    adicionarNoCarrinho();
+    console.log("Adicionou no carrinho o " + item.name);
+  });
 }
 
-cardapio.map((item, index) => {
-  //console.log(item);
-});
-
-//---------------- ADICIONA ITEM AO CARRINHO --------------------//
+// define o elemento no html que será meio para acionar a função adicionar.
+//const $btnMais = document.getElementById(`btnMais_${item.id}`);
+// define o elemento no html que será meio para acionar a função subtrair.
+//const $btnMenos = document.getElementById(`btnMenos_${item.id}`);
+//$btnMais.addEventListener("click", adicionar); //ao clicar aciona a função adicionar
+//$btnMenos.addEventListener("click", subtrair); // ao clicar aciona a função subtrair
 
 let itens = 0;
-let carrinho = [];
+let carrinhoQtd = [];
+carrinho = [];
 
 // função que atualiza a quantidade de itens no icon do carrinho na nav-bar.
 function atualizaItens(total) {
@@ -173,21 +218,11 @@ function atualizaItens(total) {
 
 // função que adiciona um item (um cento) ao carrinhoIcon.
 function adicionarCarrinhoIcon(event) {
-  modal.style.display = "block";
-  //  let item = cardapio.filter((i) => i.id == itemId);
-
-  console.log(item.name);
-
-  carrinho.push(item);
+  let item = cardapio.filter((i) => i.id);
+  carrinhoQtd.push(item);
   itens += 1;
   atualizaItens(itens);
-
-  // console.log(carrinho);
-
-  // console.log(`Adicionou ${carrinho} ao carrinho`)
 }
-
-// função que habilita botão de mais (btnMais_{item.id}) e
 // incrementa o valor da div com id="quantidade_${item.id}".
 function adicionar(event) {
   let itemId = parseInt(event.srcElement.id.replace("btnMais_", ""));
@@ -196,9 +231,6 @@ function adicionar(event) {
   qtd += 1;
   $qtd.textContent = qtd;
 }
-
-// função que habilita botão de menos (btnMenos_{item.id}) e
-// decrementa o valor da div com id="quantidade_${item.id}".
 function subtrair(event) {
   let itemId = parseInt(event.srcElement.id.replace("btnMenos_", ""));
   const $qtd = document.getElementById(`quantidade_${itemId}`);
@@ -208,6 +240,8 @@ function subtrair(event) {
     $qtd.textContent = qtd;
   }
 }
+
+//Segunda parte
 
 /*
 Tasks:
@@ -221,12 +255,6 @@ mas sim ao modal do carrinho (task 2).
 e do valor TOTAL do pedido.
 
 // ao clicar no botao adicionar ao carrinho.
-
-
-
-
-
-
  
 3. Habilitar o botao de remover item do modal do carrinho.
 - ao acionar o botão remove todo o item do modal do carrinho.
@@ -257,3 +285,21 @@ de quantidade de salgadinhos fritos / congelados.
 6. Formatar o pedido ao modelo de mensagem do whatsapp.
  
 */
+
+// MSG WHATSAPP - KITS PROMOCIONAIS
+
+function enviarMensagem(kitmsg) {
+  let celular = "5513981942956";
+
+  let kit1Msg =
+    "Olá T&H! Gostaria de encomendar o KIT 1 da promoção disponível no website. Como podemos prosseguir?";
+
+  kit1Msg = window.encodeURIComponent(kit1Msg);
+
+  window.open(
+    "https://api.whatsapp.com/send?phone=" + celular + "&text=" + kit1Msg,
+    "_blank"
+  );
+}
+
+const $kit1Msg = seleciona("#kit01").addEventListener("click", enviarMensagem);

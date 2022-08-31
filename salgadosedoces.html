@@ -39,135 +39,92 @@
   </head>
 
   <body>
-    <!-- Start header -->
     <header class="top-navbar">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">
-          <img
-            src="./images/novas-imgs/th-icon-sm.png"
-            alt=""
-            width="125"
-            style="filter: drop-shadow(1px 1.5px 0.3px #b49fccff)"
-          />
-        </a>
-        <div class="cart">
-          <i id="modalCarrinhoBtn" class="bi bi-cart2"></i>
-          <div class="cartAmount">
-            <p id="carrinhoBtnQtd">0</p>
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img
+              src="./images/novas-imgs/th-icon-sm.png"
+              alt=""
+              width="125"
+              style="filter: drop-shadow(1px 1.5px 0.3px #b49fccff)"
+            />
+          </a>
+          <div class="cart">
+            <i id="modalCarrinhoBtn" class="bi bi-cart2"></i>
+            <div class="cartAmount">
+              <p id="carrinhoBtnQtd">0</p>
+            </div>
           </div>
-        </div>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbars-rs-food"
-          aria-controls="navbars-rs-food"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbars-rs-food">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Quem somos Nós</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="salgadosedoces.html"
-                >Salgados e Doces</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="salgadosedoces.html">Carrinho</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contato</a>
-            </li>
-          </ul>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbars-rs-food"
+            aria-controls="navbars-rs-food"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbars-rs-food">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#go-to-about">Quem somos Nós</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="salgadosedoces.html"
+                  >Salgados e Doces</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Carrinho</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="https://wa.me/5513981942956?text=Teste%20de%20Mensagem%20Whatsapp.%20Ok?"
+                  >Contato</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>
-    <!-- End header -->
 
     <!-- Modal Carrinho -->
     <!-- The Modal -->
     <div id="modalCarrinho" class="modal">
       <!-- Modal content -->
-      <div class="modal-content">
+      <div class="modal-content" id="itensAdicionados">
         <div class="row">
           <div
             class="col-12 d-inline-flex flex-row justify-content-between align-items-center"
+            id="topoModalCarrinho"
           >
             <h1>Itens no Carrinho:</h1>
-            <span class="closeModalCarrinho">&times;</span>
-          </div>
-        </div>
-        <div
-          class="row shadow-item"
-          id="carrinho_item_id"
-          style="border: solid rgba(0, 0, 0, 0.075) 1px"
-        >
-          <div
-            class="col-4 pt-3 d-flex flex-column align-items-center"
-            id="carrinho_item_img"
-          >
-            <img
-              src="./images/novas-imgs/coxinha-sm.jpg"
-              class="img-fluid border border-success"
-            />
-            <p
-              id="carrinho_item_name"
-              class="text-center"
-              style="line-height: 18px; margin-top: 5px"
-            >
-              Coxinha de Frango (cento)
-            </p>
-          </div>
-          <div class="col-4 text-center pt-3 card-text" id="carrinho_item_qtd">
-            <strong>Quantidade</strong>
-            <div
-              class="col-12 d-inline-flex align-items-center justify-content-center mt-2"
-            >
-              <button id="btnMenosCarrinho_itemId">-</button>
-              <div class="px-3" id="quantidadeCarrinho_itemId">1</div>
-              <button id="btnMais_Carrinho_itemId">+</button>
-            </div>
-          </div>
-          <div class="col-4 text-center pt-3" id="carrinho_item_subtotal">
-            <strong>Subtotal</strong>
-            <p class="pt-2" id="carrinho_itemSubtotal_id">R$58.00</p>
-            <i
-              id="carrinhoRemoverSubtotal_id"
-              class="pt-4 bi bi-trash3-fill"
-              style="font-size: larger"
-            ></i>
-          </div>
-        </div>
-        <div class="row">
-          <div
-            id="carrinho_total"
-            class="col-12 pt-3 d-flex justify-content-end font-weight-bold"
-            style="font-size: 20px"
-          >
-            Total: R$58.00
+            <span class="closeModalCarrinho"
+              ><i class="bi bi-x-circle"></i
+            ></span>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Start All Pages -->
-    <div class="all-page-title fundo-salgadosedoces">
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1>Salgados e Doces</h1>
-          </div>
-        </div>
+    <div class="all-page-title fundo-salgadosedoces text-center">
+      <h1 style="z-index: 1">Salgados e Doces</h1>
+    </div>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-lg-12"></div>
       </div>
     </div>
+
     <!-- End All Pages -->
 
     <!-- Start Menu -->
@@ -212,9 +169,6 @@
             FRITOS
           </h3>
           <div class="container-fluid" id="salgados"></div>
-          <!-- modelos de salgado na lista + carrinho / start -->
-          <!-- <table class="table" id="salgados"></table> -->
-          <!-- modelos de salgado na lista + carrinho / end -->
         </div>
       </div>
     </div>
@@ -279,12 +233,14 @@
                   placeholder="Seu endereço de e-mail"
                   type="email"
                 />
-                <button type="submit" class="submit">
-                  Sim! Me informe sobre as promoções!
-                </button>
+                <button type="submit" class="submit">Receber promoções</button>
                 <div class="clearfix"></div>
               </form>
             </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 pt-4">
             <ul class="list-inline f-social">
               <li class="list-inline-item">
                 <a href="#"
