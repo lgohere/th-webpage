@@ -1,3 +1,7 @@
+let itens = 0;
+let carrinhoQtd = [];
+let carrinho = [];
+
 const seleciona = (elemento) => document.querySelector(elemento);
 
 // modalCarrinho nav-bar
@@ -102,44 +106,67 @@ const cardapio = [
 
 const $cardapio = document.getElementById("salgados");
 
-const adicionarNoCarrinho = () => {
-  const novoItemCarrinho = `
-      <div class="row shadow-item" style="border: solid rgba(0, 0, 0, 0.075) 1px">
-        <div class="col-4 pt-3 d-flex flex-column align-items-center" id="carrinhoItemImg" >
-          <img src="" class="img-fluid border border-success"/>
-          <div id="carrinhoItemName"><p class="text-center mt-3" style="line-height: 20px"></p>
-          </div>
-        </div>
-        <div class="col-4 text-center pt-3 card-text">
-          <strong>Quantidade</strong>
-          <div id="carrinhoItemQtd"
-          class="col-12 d-inline-flex align-items-center justify-content-center mt-2"
-        >
-          <button id="btnMenosModalCarrinho">-</button>
-          <h3 id="carrinhoItemQuantidade" class="mx-3">-</h3>
-          <button id="btnMaisModalCarrinho">+</button>
-        </div>
-      </div>
-        <div class="col-4 text-center pt-3" id="carrinho_item_subtotal">
-          <strong>Subtotal</strong>
-          <p class="pt-2" id="carrinhoItemSubtotal"></p>
-          <i id="carrinhoRemoverItem"
-          class="pt-4 bi bi-trash3-fill"
-          style="font-size: 20px"></i>
-        </div>
-      </div>
-      <div class="row">
-        <div id="carrinhoTotal" class="col-12 pt-3 d-flex justify-content-end font-weight-bold"
-        style="font-size: 20px">Total: R$58.00</div>
-      </div>
-      `;
+const adicionarNoCarrinho = (produtoId) => {
+  const produto = cardapio.filter((item) => item.id == produtoId)[0];
 
-  let $itensAdicionados = document.getElementById("itensAdicionados");
-  let $novoItemCarrinho = document.createElement("div");
-  $novoItemCarrinho.innerHTML = novoItemCarrinho;
-
-  $itensAdicionados.appendChild($novoItemCarrinho);
+  const produtoNoCarrinho = carrinho.filter((item) => item.id == produtoId);
+  if (produtoNoCarrinho.length >= 1) {
+    produto.qtd += 1;
+  } else {
+    produto.qtd = 1;
+    carrinho.push(produto);
+  }
+  produto.subtotal = produto.qtd * produto.price;
+  mostraCarrinho();
 };
+
+function mostraCarrinho() {
+  let $carrinho = document.getElementById("itensAdicionados");
+  let $itens = document.createElement("div");
+
+  let item = "a";
+  for (let item of carrinho) {
+    const novoItemCarrinho = `
+    <div class="row shadow-item" style="border: solid rgba(0, 0, 0, 0.075) 1px">
+      <div class="col-4 pt-3 d-flex flex-column align-items-center" id="carrinhoItemImg" >
+        <img src="" class="img-fluid border border-success"/>
+        <div id="carrinhoItemName"><p class="text-center mt-3" style="line-height: 20px"></p>
+        </div>
+      </div>
+      <div class="col-4 text-center pt-3 card-text">
+        <strong>Quantidade</strong>
+        <div id="carrinhoItemQtd"
+        class="col-12 d-inline-flex align-items-center justify-content-center mt-2"
+      >
+        <button id="btnMenosModalCarrinho">-</button>
+        <h3 id="carrinhoItemQuantidade" class="mx-3">-</h3>
+        <button id="btnMaisModalCarrinho">+</button>
+      </div>
+    </div>
+      <div class="col-4 text-center pt-3" id="carrinho_item_subtotal">
+        <strong>Subtotal</strong>
+        <p class="pt-2" id="carrinhoItemSubtotal"></p>
+        <i id="carrinhoRemoverItem"
+        class="pt-4 bi bi-trash3-fill"
+        style="font-size: 20px"></i>
+      </div>
+    </div>
+    <div class="row">
+      <div id="carrinhoTotal" class="col-12 pt-3 d-flex justify-content-end font-weight-bold"
+      style="font-size: 20px">Total: R$58.00</div>
+    </div>
+    `;
+
+    const novoItem = `
+    <p>${item.id} - ${item.name} ${item.price} (${item.qtd})</p> Subtotal ${item.subtotal}
+    `;
+
+    let $novoItemCarrinho = document.createElement("div");
+    $novoItemCarrinho.innerHTML = novoItem;
+    $itens.appendChild($novoItemCarrinho);
+  }
+  $carrinho.innerHTML = $itens.innerHTML;
+}
 
 for (item of cardapio) {
   const itemHtml = `
@@ -179,6 +206,7 @@ for (item of cardapio) {
       <button
         id="btnCarrinho_${item.id}"
         class="btn-block m-auto p-2 botao-carrinho"
+        produtoId="${item.id}"
       >
         Adicionar ao Carrinho <i class="bi bi-cart-plus"></i>
       </button>
@@ -191,11 +219,12 @@ for (item of cardapio) {
   $cardapio.appendChild(novoItem);
 
   const $btnCarrinho = document.getElementById(`btnCarrinho_${item.id}`);
-  $btnCarrinho.addEventListener("click", () => {
-    abrirModal();
-    adicionarCarrinhoIcon();
-    adicionarNoCarrinho();
-    console.log("Adicionou no carrinho o " + item.name);
+  $btnCarrinho.addEventListener("click", (el) => {
+    const produtoId = el.srcElement.getAttribute("produtoid");
+    adicionarNoCarrinho(produtoId);
+    abrirModal(produtoId);
+    // adicionarCarrinhoIcon(produtoId);
+    console.log("Adicionou no carrinho o " + produtoId);
   });
 }
 
@@ -205,10 +234,6 @@ for (item of cardapio) {
 //const $btnMenos = document.getElementById(`btnMenos_${item.id}`);
 //$btnMais.addEventListener("click", adicionar); //ao clicar aciona a função adicionar
 //$btnMenos.addEventListener("click", subtrair); // ao clicar aciona a função subtrair
-
-let itens = 0;
-let carrinhoQtd = [];
-carrinho = [];
 
 // função que atualiza a quantidade de itens no icon do carrinho na nav-bar.
 function atualizaItens(total) {
@@ -288,18 +313,18 @@ de quantidade de salgadinhos fritos / congelados.
 
 // MSG WHATSAPP - KITS PROMOCIONAIS
 
-function enviarMensagem(kitmsg) {
-  let celular = "5513981942956";
+// function enviarMensagem(kitmsg) {
+//   let celular = "5513981942956";
 
-  let kit1Msg =
-    "Olá T&H! Gostaria de encomendar o KIT 1 da promoção disponível no website. Como podemos prosseguir?";
+//   let kit1Msg =
+//     "Olá T&H! Gostaria de encomendar o KIT 1 da promoção disponível no website. Como podemos prosseguir?";
 
-  kit1Msg = window.encodeURIComponent(kit1Msg);
+//   kit1Msg = window.encodeURIComponent(kit1Msg);
 
-  window.open(
-    "https://api.whatsapp.com/send?phone=" + celular + "&text=" + kit1Msg,
-    "_blank"
-  );
-}
+//   window.open(
+//     "https://api.whatsapp.com/send?phone=" + celular + "&text=" + kit1Msg,
+//     "_blank"
+//   );
+// }
 
-const $kit1Msg = seleciona("#kit01").addEventListener("click", enviarMensagem);
+//const $kit1Msg = seleciona("#kit01").addEventListener("click", enviarMensagem);
