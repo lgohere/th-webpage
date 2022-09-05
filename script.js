@@ -106,31 +106,53 @@ const cardapio = [
 
 const $cardapio = document.getElementById("salgados");
 
+const calculadora = [];
+
 const adicionarNoCarrinho = (produtoId) => {
   const produto = cardapio.filter((item) => item.id == produtoId)[0];
 
   const produtoNoCarrinho = carrinho.filter((item) => item.id == produtoId);
   if (produtoNoCarrinho.length >= 1) {
-    produto.qtd += 1;
+    produto.qtd + 1;
   } else {
     produto.qtd = 1;
     carrinho.push(produto);
   }
   produto.subtotal = produto.qtd * produto.price;
+
+  if (carrinho.length == 1) {
+    produto.total = produto.subtotal;
+  } else {
+    produto.total = 0;
+    for (i of carrinho) {
+      produto.total += produto.price;
+    }
+  }
+
+  calculadora.push(produto.price);
+
+  somaFinal = 0;
+  for (i of calculadora) {
+    somaFinal += i;
+  }
+
   mostraCarrinho();
+  console.log(
+    `Quantidade de items no carrinho: ${calculadora.length} / Total da compra: R$ ${somaFinal},00`
+  );
 };
 
 function mostraCarrinho() {
   let $carrinho = document.getElementById("itensAdicionados");
   let $itens = document.createElement("div");
 
-  let item = "a";
   for (let item of carrinho) {
-    const novoItemCarrinho = `
-    <div class="row shadow-item" style="border: solid rgba(0, 0, 0, 0.075) 1px">
+    const novoItem = `
+    <div class="row shadow-item mb-2" style="border: solid rgba(0, 0, 0, 0.075) 1px">
       <div class="col-4 pt-3 d-flex flex-column align-items-center" id="carrinhoItemImg" >
-        <img src="" class="img-fluid border border-success"/>
-        <div id="carrinhoItemName"><p class="text-center mt-3" style="line-height: 20px"></p>
+        <img src="${item.image}" class="img-fluid border border-success"/>
+        <div id="carrinhoItemName">
+          <p class="text-center mt-3" style="line-height: 20px">${item.name}</p>
         </div>
       </div>
       <div class="col-4 text-center pt-3 card-text">
@@ -138,28 +160,28 @@ function mostraCarrinho() {
         <div id="carrinhoItemQtd"
         class="col-12 d-inline-flex align-items-center justify-content-center mt-2"
       >
-        <button id="btnMenosModalCarrinho">-</button>
-        <h3 id="carrinhoItemQuantidade" class="mx-3">-</h3>
-        <button id="btnMaisModalCarrinho">+</button>
+        <button id="btnMenos_${item.id}">-</button>
+        <h3 id="quantidade_${item.id}" class="mx-3">${item.qtd}</h3>
+        <button id="btnMais_${item.id}">+</button>
       </div>
     </div>
       <div class="col-4 text-center pt-3" id="carrinho_item_subtotal">
         <strong>Subtotal</strong>
-        <p class="pt-2" id="carrinhoItemSubtotal"></p>
+        <p class="pt-2" id="carrinhoItemSubtotal">R$ ${item.subtotal},00</p>
         <i id="carrinhoRemoverItem"
         class="pt-4 bi bi-trash3-fill"
         style="font-size: 20px"></i>
       </div>
     </div>
-    <div class="row">
-      <div id="carrinhoTotal" class="col-12 pt-3 d-flex justify-content-end font-weight-bold"
-      style="font-size: 20px">Total: R$58.00</div>
-    </div>
     `;
 
-    const novoItem = `
-    <p>${item.id} - ${item.name} ${item.price} (${item.qtd})</p> Subtotal ${item.subtotal}
-    `;
+    // let $total = document.getElementById("carrinhoTotal");
+    // let valorTotal = document.createElement("div");
+
+    // const total = `
+    // <div class="col-12 pt-3 d-flex justify-content-end font-weight-bold" style="font-size: 20px">
+    // Total: ${item.total}
+    // </div>`;
 
     let $novoItemCarrinho = document.createElement("div");
     $novoItemCarrinho.innerHTML = novoItem;
@@ -170,47 +192,42 @@ function mostraCarrinho() {
 
 for (item of cardapio) {
   const itemHtml = `
-  <div class="row border" style="color: black">
-    <div
-    class="col-5 pt-3 d-flex flex-column align-items-center justify-content-center"
-  >
-    <img
-      src="${item.image}"
-      class="img-fluid"
-    />
-    <span class="text-center">100 Unidades (cento)</span>
-    <div class="select-dropdown mt-3 mb-3">
-      <select>
-        <option data-key="0" value="coxinha-frita">Pronto</option>
-        <option data-key="1" value="coxinha-congelada">
-          Congelado
-        </option>
-      </select>
-    </div>
-    </div>
-    <div class="col-7 pt-3 d-flex justify-content-around flex-column">
-    <h3 id="salgado-item--name" style="text-align: start">
-      <strong>${item.name}</strong>
-    </h3>
-    <p id="salgado-item--desc" style="text-align: start">
-      ${item.desc}
-    </p>
-    <p
-      id="salgado-item--price"
-      class="d-flex flex-row-reverse"
-      style="font-size: 18pt"
-    >
-      <strong>R$${item.price},00</strong>
-    </p>
-    <div id="adicionarAoCarrinho" class="mb-3">
-      <button
-        id="btnCarrinho_${item.id}"
-        class="btn-block m-auto p-2 botao-carrinho"
-        produtoId="${item.id}"
-      >
-        Adicionar ao Carrinho <i class="bi bi-cart-plus"></i>
-      </button>
+    <div class="row border mb-2 box-items shadow">
+      <div class="col-5 pt-3 d-flex flex-column align-items-center justify-content-center">
+        <img
+        src="${item.image}"
+        class="img-fluid"/>
+        <span class="text-center">100 Unidades (cento)</span>
+        <div class="select-dropdown mt-3 mb-3">
+          <select>
+          <option data-key="0" value="coxinha-frita">Pronto</option>
+          <option data-key="1" value="coxinha-congelada">
+            Congelado
+          </option>
+          </select>
+        </div>
       </div>
+      <div class="col-7 pt-3 d-flex justify-content-around flex-column">
+        <h3 id="salgado-item--name" style="text-align: start">
+          <strong>${item.name}</strong>
+        </h3>
+        <p id="salgado-item--desc" style="text-align: start">
+        ${item.desc}
+        </p>
+        <p
+        id="salgado-item--price"
+        class="d-flex flex-row-reverse"
+        style="font-size: 18pt">
+        <strong>R$${item.price},00</strong>
+        </p>
+        <div id="adicionarAoCarrinho" class="mb-3">
+          <button
+            id="btnCarrinho_${item.id}"
+            class="btn-block m-auto p-2 botao-carrinho"
+            produtoId="${item.id}">
+          Adicionar ao Carrinho <i class="bi bi-cart-plus"></i> </button>
+        </div>
+      </div>  
     </div>
     `;
 
@@ -223,17 +240,12 @@ for (item of cardapio) {
     const produtoId = el.srcElement.getAttribute("produtoid");
     adicionarNoCarrinho(produtoId);
     abrirModal(produtoId);
-    // adicionarCarrinhoIcon(produtoId);
+    adicionarCarrinhoIcon();
     console.log("Adicionou no carrinho o " + produtoId);
   });
 }
 
-// define o elemento no html que será meio para acionar a função adicionar.
-//const $btnMais = document.getElementById(`btnMais_${item.id}`);
-// define o elemento no html que será meio para acionar a função subtrair.
-//const $btnMenos = document.getElementById(`btnMenos_${item.id}`);
-//$btnMais.addEventListener("click", adicionar); //ao clicar aciona a função adicionar
-//$btnMenos.addEventListener("click", subtrair); // ao clicar aciona a função subtrair
+/*-------------------NAV-BAR CARRINHO --------------------------*/
 
 // função que atualiza a quantidade de itens no icon do carrinho na nav-bar.
 function atualizaItens(total) {
@@ -248,23 +260,43 @@ function adicionarCarrinhoIcon(event) {
   itens += 1;
   atualizaItens(itens);
 }
-// incrementa o valor da div com id="quantidade_${item.id}".
+
+/*-------------------NAV-BAR CARRINHO --------------------------*/
+
+/*-------------------BOTÕES + E - MODAL-CARRINHO  --------------------------*/
+
+const $btnMais = document.getElementById(`btnMais_${item.id}`);
+const $btnMenos = document.getElementById(`btnMenos_${item.id}`);
+
+if ($btnMais) {
+  $btnMais.addEventListener("click", adicionar);
+}
+
+if ($btnMenos) {
+  $btnMenos.addEventListener("click", subtrair);
+}
+
 function adicionar(event) {
   let itemId = parseInt(event.srcElement.id.replace("btnMais_", ""));
-  const $qtd = document.getElementById(`quantidade_${itemId}`);
+  const $qtd = document.getElementById(`quantidade_${produto.id}`);
   let qtd = parseInt($qtd.textContent);
   qtd += 1;
   $qtd.textContent = qtd;
+  console.log("Clicou no botão MAIS");
 }
+
 function subtrair(event) {
   let itemId = parseInt(event.srcElement.id.replace("btnMenos_", ""));
-  const $qtd = document.getElementById(`quantidade_${itemId}`);
+  const $qtd = document.getElementById(`quantidade_${produto.id}`);
   let qtd = parseInt($qtd.textContent);
   if (qtd > 0) {
     qtd -= 1;
     $qtd.textContent = qtd;
+    console.log("Clicou no botão MENOS");
   }
 }
+
+/*-------------------BOTÕES + E - MODAL-CARRINHO  --------------------------*/
 
 //Segunda parte
 

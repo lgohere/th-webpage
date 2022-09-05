@@ -40,6 +40,11 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
+.box-items {
+  color: black;
+  position: relative;
+}
+
 h1,
 h2,
 h3,

@@ -110,12 +110,14 @@
             <span class="closeModalCarrinho"
               ><i class="bi bi-x-circle"></i
             ></span>
-            <div id="itensAdicionados"></div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-12" id="itensAdicionados"></div>
+        </div>
+        <div class="row" id="carrinhoTotal"></div>
       </div>
     </div>
-
     <!-- Start All Pages -->
     <div class="all-page-title fundo-salgadosedoces text-center">
       <h1 style="z-index: 1">Salgados e Doces</h1>
@@ -161,15 +163,19 @@
       </div>
     </div>
     <div class="container mt-1" style="overflow-x: auto">
-      <div class="row special-list">
-        <div class="col-md-12 p-0 special-grid salgados">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
           <h3
-            class="h5 p-4 text-center"
+            class="h5 p-4 text-center border border-2"
             style="background: rgba(179, 159, 170, 0.384)"
           >
             FRITOS
           </h3>
-          <div class="container-fluid" id="salgados"></div>
+        </div>
+      </div>
+      <div class="row mx-0 d-flex justify-content-center">
+        <div class="col-md-12 col-lg-10">
+          <div class="col-12" id="salgados"></div>
         </div>
       </div>
     </div>
