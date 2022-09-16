@@ -1,6 +1,7 @@
 let itens = 0;
 let carrinhoQtd = [];
 let carrinho = [];
+let totalCarrinho = [];
 
 const seleciona = (elemento) => document.querySelector(elemento);
 
@@ -106,41 +107,46 @@ const cardapio = [
 
 const $cardapio = document.getElementById("salgados");
 
-const calculadora = [];
-
 const adicionarNoCarrinho = (produtoId) => {
-  const produto = cardapio.filter((item) => item.id == produtoId)[0];
-
-  const produtoNoCarrinho = carrinho.filter((item) => item.id == produtoId);
-  if (produtoNoCarrinho.length >= 1) {
-    produto.qtd + 1;
-  } else {
-    produto.qtd = 1;
+  // to-do pesquisar sobre filter.
+  // const produto = cardapio.filter((item) => item.id == produtoId)[0];
+  const produto = cardapio.find((item) => item.id == produtoId); // achou o produto "ex.: coxinha de frango"
+  let produtoNoCarrinho = carrinho.find((item) => item.id == produtoId); // agora procura no carrinho. Tem ele lá? se não add ele lá.
+  if (!produtoNoCarrinho) {
     carrinho.push(produto);
+    produto.qtd = 0;
+    produtoNoCarrinho = produto;
   }
-  produto.subtotal = produto.qtd * produto.price;
+  produtoNoCarrinho.qtd += 1;
+  produtoNoCarrinho.subtotal = produto.price * produto.qtd;
 
-  if (carrinho.length == 1) {
-    produto.total = produto.subtotal;
-  } else {
-    produto.total = 0;
-    for (i of carrinho) {
-      produto.total += produto.price;
+  totalCarrinho.push(produtoNoCarrinho.price);
+  total = 0;
+  function somarTotal() {
+    for (i of totalCarrinho) {
+      total += i;
     }
   }
 
-  calculadora.push(produto.price);
-
-  somaFinal = 0;
-  for (i of calculadora) {
-    somaFinal += i;
-  }
-
   mostraCarrinho();
+  somarTotal();
+  mostrarTotal();
+
   console.log(
-    `Quantidade de items no carrinho: ${calculadora.length} / Total da compra: R$ ${somaFinal},00`
+    `Quantidade de items no carrinho: ${carrinho.length}. Total: ${total}`
   );
 };
+
+/* 
+CRIAR FUNCIONALIDADES DE INCREMENTO E DECREMENTO PARA CADA ITEM.
+*/
+function mostrarTotal() {
+  const $total = document.getElementById("totalCarrinho");
+  let $totalView = document.createElement("div");
+  $totalView.innerText = `Total: R$ ${total},00`;
+  $total.appendChild($totalView);
+  $total.innerHTML = $totalView.innerHTML;
+}
 
 function mostraCarrinho() {
   let $carrinho = document.getElementById("itensAdicionados");
@@ -157,12 +163,12 @@ function mostraCarrinho() {
       </div>
       <div class="col-4 text-center pt-3 card-text">
         <strong>Quantidade</strong>
-        <div id="carrinhoItemQtd"
+        <div id="btnContadores"
         class="col-12 d-inline-flex align-items-center justify-content-center mt-2"
       >
-        <button id="btnMenos_${item.id}">-</button>
+        <button id="btnMenos_${item.id}" class="btnMinus">-</button>
         <h3 id="quantidade_${item.id}" class="mx-3">${item.qtd}</h3>
-        <button id="btnMais_${item.id}">+</button>
+        <button id="btnMais_${item.id}" class="btnPlus">+</button>
       </div>
     </div>
       <div class="col-4 text-center pt-3" id="carrinho_item_subtotal">
@@ -174,14 +180,6 @@ function mostraCarrinho() {
       </div>
     </div>
     `;
-
-    // let $total = document.getElementById("carrinhoTotal");
-    // let valorTotal = document.createElement("div");
-
-    // const total = `
-    // <div class="col-12 pt-3 d-flex justify-content-end font-weight-bold" style="font-size: 20px">
-    // Total: ${item.total}
-    // </div>`;
 
     let $novoItemCarrinho = document.createElement("div");
     $novoItemCarrinho.innerHTML = novoItem;
@@ -261,102 +259,74 @@ function adicionarCarrinhoIcon(event) {
   atualizaItens(itens);
 }
 
-/*-------------------NAV-BAR CARRINHO --------------------------*/
+/* 
 
-/*-------------------BOTÕES + E - MODAL-CARRINHO  --------------------------*/
-
-const $btnMais = document.getElementById(`btnMais_${item.id}`);
-const $btnMenos = document.getElementById(`btnMenos_${item.id}`);
-
-if ($btnMais) {
-  $btnMais.addEventListener("click", adicionar);
+function adicionar() {
+  let elValor = document.querySelector(`quantidade_${item.id}`);
+  let valor = produto.qtd;
+  valor += 1;
 }
 
-if ($btnMenos) {
-  $btnMenos.addEventListener("click", subtrair);
-}
-
-function adicionar(event) {
-  let itemId = parseInt(event.srcElement.id.replace("btnMais_", ""));
-  const $qtd = document.getElementById(`quantidade_${produto.id}`);
-  let qtd = parseInt($qtd.textContent);
-  qtd += 1;
-  $qtd.textContent = qtd;
-  console.log("Clicou no botão MAIS");
-}
-
-function subtrair(event) {
-  let itemId = parseInt(event.srcElement.id.replace("btnMenos_", ""));
-  const $qtd = document.getElementById(`quantidade_${produto.id}`);
-  let qtd = parseInt($qtd.textContent);
-  if (qtd > 0) {
-    qtd -= 1;
-    $qtd.textContent = qtd;
-    console.log("Clicou no botão MENOS");
-  }
-}
-
-/*-------------------BOTÕES + E - MODAL-CARRINHO  --------------------------*/
-
-//Segunda parte
-
-/*
-Tasks:
- 
-1. Criar um if para que se o cento de determinado salgadinho ja tenha
-sido adicionado ele NÃO SEJA COMPUTADO ao icon do carrinho na nav-bar, 
-mas sim ao modal do carrinho (task 2).
- 
-2. Adicionar o item selecionado ao modal do carrinho.
-- com isso habilitar a calculadora do valor SUBTOTAL de cada item
-e do valor TOTAL do pedido.
-
-// ao clicar no botao adicionar ao carrinho.
- 
-3. Habilitar o botao de remover item do modal do carrinho.
-- ao acionar o botão remove todo o item do modal do carrinho.
- 
-4. Habilitar o botao ˜finalizar pedido˜.
- 
-Nesse momento inicia uma nova section no modal do carrinho.
-Por favor, para procedermos com seu pedido, nos informe:
-- nome
-- whatsapp (cel p/ contato)
-- endereço de entrega
-- data para entrega
-- período esperado (manhã/ tarde/ noite)
-- observações: aqui pode ser incluida as especificações
-de quantidade de salgadinhos fritos / congelados.
-
-+ abaixo constará a explicação do redirecionamento para o aplicativo whatsapp.
-+ politica de confirmacao do pedido via envio do comprovante do pix.
+let btn = document.querySelector(".btnPlus");
+btn.addEventListener("click", adicionar);
 
 
-* Data de entrega - o sistema deve calcular com base na data atual.
-- programar a data de entrega ser projetada com base na quantidade de itens.
-
-
-
-5. Habilitar o botao "enviar pedido"
- 
-6. Formatar o pedido ao modelo de mensagem do whatsapp.
- 
 */
 
-// MSG WHATSAPP - KITS PROMOCIONAIS
+/*
+------------ Tasks - MTH Bolos e Salgados ----------------
 
-// function enviarMensagem(kitmsg) {
-//   let celular = "5513981942956";
+1 - acrescentar valor "pronto" ou "congelado" ao item adicionado ao carrinho.
+2-  distinguir quantidade de prontos e de congelados (caso haja 2 tipos para um único item)
 
-//   let kit1Msg =
-//     "Olá T&H! Gostaria de encomendar o KIT 1 da promoção disponível no website. Como podemos prosseguir?";
+1 - ativar botoes de + e - para quantidade do item no carrinho
+2 - multiplicar quantidade do item por preço do item e gerar subtotal.
+3 - somar subtotais dos items no carrinho e gerar valor total.
 
-//   kit1Msg = window.encodeURIComponent(kit1Msg);
+1 - ativar botão da lixeira (remover) do item no carrinho.
+2 - subtrair o valor removido do valor total do carrinho.
 
-//   window.open(
-//     "https://api.whatsapp.com/send?phone=" + celular + "&text=" + kit1Msg,
-//     "_blank"
-//   );
-// }
+1 - criar botão 'finalizar pedido' abaixo do valor total.
+2 - ao clicar em 'finalizar pedido' -> 
+inicia-se a seção adicionar dados com:
+#INPUTS:
+- 'nome', 
+- 'email',
+- 'endereço para entrega',
+- data e horario DESEJADO (a confirmar por whatsapp). 
+- 'celular para contato'.
 
-//const $kit1Msg = seleciona("#kit01").addEventListener("click", enviarMensagem);
+#BUTTONS:
+- [Voltar] ->
+- Volta para a seção de items no carrinho.
+
+[Proximo]
+* requisito para proximo = preencher todos os campos.
+
+
+#FOOTER-REMINDER:
+- forma de pagamento (pix).
+- tempo minimo de entrega para quantidades 'x' de pedido.
+
+
+1 - após preencher todos os dados -> proximo: 
+aparece: 
+- o pedido completo em formato de ul li c/ todos os valores e items.
+- os dados do consumidor e da entrega.
+
+#BUTTONS:
+[Confirmar Pedido] -> 
+- MENSAGEM: Obrigado por escolher a MTH! 
+            Você está sendo encaminhado para o nosso whatsapp.
+- O pedido é enviado ao cliente que confirma o recebimento.
+- Avalia a disponibilidade da data e horarios DESEJADOS.
+- Aguarda envio do comprovante de pegamento PIX e prossegue com encomenda.
+
+[Editar] -> 
+- Volta para a seção anterior de preenchimento dos dados.
+
+[Cancelar] ->
+- Pergunta se tem certeza que gostaria de cancelar o pedido?
+  Sub-BUTTONS: [SIM] [NÃO]
+
+*/
