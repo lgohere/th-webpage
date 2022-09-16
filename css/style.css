@@ -275,10 +275,10 @@ button:focus {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 30% auto; /* 15% from the top and centered */
+  margin: 20% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 95%;
+  width: 86%;
   border-radius: 20px;
   color: black;
 }

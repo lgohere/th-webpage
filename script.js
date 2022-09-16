@@ -127,11 +127,9 @@ const adicionarNoCarrinho = (produtoId) => {
       total += i;
     }
   }
-
   mostraCarrinho();
   somarTotal();
   mostrarTotal();
-
   console.log(
     `Quantidade de items no carrinho: ${carrinho.length}. Total: ${total}`
   );
