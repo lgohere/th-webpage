@@ -132,7 +132,7 @@ a,
 
 .lead {
   font-size: 18px;
-  line-height: 30px;
+  line-height: 40px;
   color: #ead7d7ff;
   margin: 0;
   padding: 0;
@@ -157,6 +157,9 @@ button:focus {
 .form-control::-moz-placeholder {
   color: #2a2a2a;
   opacity: 1;
+}
+
+.testimunhos {
 }
 
 /*------------------------------------------------------------------
@@ -418,6 +421,7 @@ button:focus {
 .cover-slides p {
   font-size: 18px;
   color: #fff;
+  font-weight: 500;
 }
 .slides-pagination a {
   border: 2px solid #ffffff;
@@ -475,14 +479,16 @@ button:focus {
   background-position: center center;
   position: relative;
   background-attachment: local;
+  height: 45vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .qt-background p {
   font-size: 35px;
   font-weight: 300;
-  line-height: 44px;
   color: rgb(255, 255, 255);
   font-family: "Arbutus Slab", serif;
-  margin-bottom: 20px;
 }
 
 .qt-background span {
@@ -628,7 +634,6 @@ button:focus {
 -------------------------------------------------------------------*/
 
 .customer-reviews-box {
-  padding: 70px 0px;
 }
 
 .carousel-inner .carousel-item .img-box {
@@ -652,7 +657,10 @@ button:focus {
 
 @media (min-width: 320px) and (max-width: 640px) {
   .carousel-inner .carousel-item p {
-    font-size: 14px;
+    font-size: 18px;
+    padding: 2rem 2.2rem;
+    color: #412234ff;
+    font-weight: 500;
   }
   .carousel-control-prev {
     left: -5px;
@@ -672,7 +680,7 @@ button:focus {
   position: absolute;
   width: 8%;
   height: 50px;
-  top: 50%;
+  top: 20vh;
   font-size: 28px;
   opacity: 1;
 }
@@ -688,7 +696,7 @@ button:focus {
   position: absolute;
   width: 8%;
   height: 50px;
-  top: 50%;
+  top: 20vh;
   font-size: 28px;
   opacity: 1;
 }
@@ -1452,13 +1460,28 @@ blockquote {
 
 /* PROMOÇÕES */
 
+.rowPadrao {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rowPadrao2 {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -10vh;
+}
+
 .arrows {
   width: 60px;
   height: 72px;
   position: absolute;
   left: 50%;
   margin-left: -30px;
-  bottom: -15px;
+  top: 30vh;
 }
 
 .arrows path {
