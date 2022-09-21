@@ -1,78 +1,7 @@
 new Vue({
   el: "#app",
   data: {
-    cardapio: [
-      {
-        id: 1,
-        name: "Coxinha de Frango",
-        image: "./images/novas-imgs/coxinha-sm.jpg",
-        price: 58.0,
-        desc: "Coxinha recheada com frango",
-      },
-      {
-        id: 2,
-        name: "Bolinha de Queijo Tradicional",
-        image: "./images/novas-imgs/bolinha-de-queijo-sm.jpg",
-        price: 58.0,
-        desc: "Bolinha frita recheada com queijo mussarela",
-      },
-      {
-        id: 3,
-        name: "Bolinha de Queijo c/ Alho Frito",
-        image: "./images/novas-imgs/bolinha-de-queijo-sm.jpg",
-        price: 58.0,
-        desc: "Bolinha recheada com queijo mussarela e alho frito",
-      },
-      {
-        id: 4,
-        name: "Maravilha",
-        image: "./images/novas-imgs/maravilha-sm.jpg",
-        price: 58.0,
-        desc: "Maravilha recheada com presunto e queijo mussarela",
-      },
-      {
-        id: 5,
-        name: "Risoles de Carne",
-        image: "./images/novas-imgs/risoles-carne-sm.jpg",
-        price: 58.0,
-        desc: "Risoles recheada com carne bovina",
-      },
-      {
-        id: 6,
-        name: "Risoles de Carne c/ Queijo",
-        image: "./images/novas-imgs/risoles-carne-sm.jpg",
-        price: 58.0,
-        desc: "Risoles recheado com carne bovina e queijo mussarela",
-      },
-      {
-        id: 7,
-        name: "Risoles de Calabresa",
-        image: "./images/novas-imgs/risoles-calabresa-sm.png",
-        price: 58.0,
-        desc: "Risoles recheado com calabresa",
-      },
-      {
-        id: 8,
-        name: "Risoles de Calabresa c/ Queijo",
-        image: "./images/novas-imgs/risoles-calabresa-sm.png",
-        price: 58.0,
-        desc: "Risoles recheado com calabresa e queijo mussarela",
-      },
-      {
-        id: 9,
-        name: "Croquete de Carne",
-        image: "./images/novas-imgs/croquete-carne-sm.jpg",
-        price: 58.0,
-        desc: "Croquete de carne bovina",
-      },
-      {
-        id: 10,
-        name: "Croquete de Frango",
-        image: "./images/novas-imgs/croquete-frango-sm.png",
-        price: 58.0,
-        desc: "Croquete de frango",
-      },
-    ],
+    cardapio: getCardapio(),
     carrinho: [],
     totalCarrinho: [],
   },
@@ -82,15 +11,39 @@ new Vue({
         ? "Nenhum item no carrinho"
         : "Itens no Carrinho";
     },
+    totalDoCarrinho() {
+      let total = 0;
+      this.carrinho.forEach((item) => {
+        total += item.subtotal;
+      });
+      return total;
+    },
   },
 
   methods: {
     adicionarAoCarrinho(salgado) {
-      console.log("Funcionou o clique!", salgado);
-      this.carrinho.push(salgado);
-      this.totalCarrinho.push(salgado.price);
-      console.log("Total do carrinho:", this.totalCarrinho);
-      this.somarCarrinho();
+      // procurar se ja tem no carrinho
+      // se tiver no carrinho, somo qtd
+      // senao faco push no carrinho
+      let salgadoDoCarrinho = this.carrinho.find(
+        (item) => salgado.id == item.id
+      );
+
+      // nao encontrou
+      if (!salgadoDoCarrinho) {
+        console.log("3 ----");
+        salgadoDoCarrinho = salgado;
+        salgadoDoCarrinho.qtd = 0;
+        this.carrinho.push(salgadoDoCarrinho);
+      }
+      console.log("4 ----");
+      salgadoDoCarrinho.qtd += 1;
+      salgadoDoCarrinho.subtotal =
+        salgadoDoCarrinho.price * salgadoDoCarrinho.qtd;
+
+      // gamby para atualizar o carrinho!
+      this.carrinho.push(10);
+      this.carrinho.pop();
     },
     somarCarrinho(totalCarrinho) {
       let sum = 0;
@@ -101,8 +54,15 @@ new Vue({
       return sum;
     },
     somarSubtotal() {},
+    alteraQtd(salgado, qtd) {
+      // find do salgado
+      // salgadoCarrinho.qtd += qtd
+    },
     lixeiraCarrinho(salgado) {
-      this.carrinho.pop(salgado);
+      // find do salgado
+      // indexOf salgado   3
+      // this.carrinho.splice
+      //this.carrinho.pop(salgado);   <----- nao funfa
       this.totalCarrinho;
     },
   },
