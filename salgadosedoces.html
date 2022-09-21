@@ -136,12 +136,14 @@
                   >
                     <button class="btnMinus">-</button>
                     <h3 class="mx-3">{{ item.qtd }}</h3>
-                    <button class="btnPlus">+</button>
+                    <button @click="alteraQtd(item.qtd)" class="btnPlus">
+                      +
+                    </button>
                   </div>
                 </div>
                 <div class="col-4 text-center pt-3">
                   <strong>Subtotal</strong>
-                  <p class="pt-2">R$ {{ item.price }},00</p>
+                  <p class="pt-2">R$ {{ item.subtotal }},00</p>
                   <i
                     @click="lixeiraCarrinho(salgado)"
                     class="pt-4 bi bi-trash3-fill"
@@ -155,7 +157,7 @@
               class="col-12 d-flex flex-column align-items-center"
             >
               <div>Quantidade de Items: {{ carrinho.length }}</div>
-              <div>Total: R${{ totalDoCarrinho }}</div>
+              <div>Total: R${{ totalDoCarrinho }},00</div>
             </div>
             <div class="col-12 btn-total">
               <button class="btn">Confirmar Pedido</button>

@@ -31,12 +31,11 @@ new Vue({
 
       // nao encontrou
       if (!salgadoDoCarrinho) {
-        console.log("3 ----");
         salgadoDoCarrinho = salgado;
         salgadoDoCarrinho.qtd = 0;
         this.carrinho.push(salgadoDoCarrinho);
       }
-      console.log("4 ----");
+
       salgadoDoCarrinho.qtd += 1;
       salgadoDoCarrinho.subtotal =
         salgadoDoCarrinho.price * salgadoDoCarrinho.qtd;
@@ -45,17 +44,15 @@ new Vue({
       this.carrinho.push(10);
       this.carrinho.pop();
     },
-    somarCarrinho(totalCarrinho) {
-      let sum = 0;
-      this.totalCarrinho.forEach(function (item) {
-        sum += item;
-        console.log("Valor do carrinho é: " + sum);
-      });
-      return sum;
-    },
-    somarSubtotal() {},
+
     alteraQtd(salgado, qtd) {
       // find do salgado
+      let salgadoNoCarrinho = this.carrinho.find(
+        (item) => salgado.id == item.id
+      );
+      salgadoNoCarrinho = salgado;
+      console.log(salgadoNoCarrinho);
+
       // salgadoCarrinho.qtd += qtd
     },
     lixeiraCarrinho(salgado) {
