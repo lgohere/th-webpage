@@ -17,20 +17,15 @@
     <!-- Site Icons -->
     <link rel="shortcut icon" href="#" type="image/x-icon" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <!-- Site CSS -->
     <link rel="stylesheet" href="css/style.css" />
-    <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css" />
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css" />
-    <!-- Cart Icon -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -39,150 +34,247 @@
   </head>
 
   <body>
-    <header class="top-navbar">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div id="app">
+      <header class="top-navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container">
+            <a class="navbar-brand" href="index.html">
+              <img
+                src="./images/novas-imgs/mth-icon-sm.png"
+                alt=""
+                width="125"
+                style="filter: drop-shadow(1px 1.5px 0.3px #b49fccff)"
+              />
+            </a>
+            <div class="cart">
+              <i id="modalCarrinhoBtn" class="bi bi-cart2"></i>
+              <div class="cartAmount">
+                <p id="carrinhoBtnQtd">{{ carrinho.length }}</p>
+              </div>
+            </div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbars-rs-food"
+              aria-controls="navbars-rs-food"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbars-rs-food">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#go-to-about">Quem somos Nós</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="salgadosedoces.html"
+                    >Salgados e Doces</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Carrinho</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="https://wa.me/5513981942956?text=Teste%20de%20Mensagem%20Whatsapp.%20Ok?"
+                    >Contato</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <!-- Modal Carrinho -->
+      <!-- The Modal -->
+      <div id="modalCarrinho" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="row">
+            <div
+              class="col-12 d-inline-flex flex-row justify-content-between align-items-center"
+            >
+              <h1>{{ carrinhoMessage }}</h1>
+              <span class="closeModalCarrinho"
+                ><i class="bi bi-x-circle"></i
+              ></span>
+            </div>
+          </div>
+          <div class="row">
+            <div
+              v-if="carrinho.length > 0"
+              v-for="item in carrinho"
+              :key="item.id"
+              class="col-12"
+            >
+              <div
+                class="row shadow-item mb-2"
+                style="border: solid rgba(0, 0, 0, 0.075) 1px"
+              >
+                <div class="col-4 pt-3 d-flex flex-column align-items-center">
+                  <img
+                    :src="item.image"
+                    class="img-fluid border border-success"
+                  />
+                  <div>
+                    <p class="text-center mt-3" style="line-height: 20px">
+                      {{ item.name }}
+                    </p>
+                  </div>
+                </div>
+                <div class="col-4 text-center pt-3 card-text">
+                  <strong>Quantidade</strong>
+                  <div
+                    class="col-12 d-inline-flex align-items-center justify-content-center mt-2"
+                  >
+                    <button class="btnMinus">-</button>
+                    <h3 class="mx-3">{{ item.qtd }}</h3>
+                    <button class="btnPlus">+</button>
+                  </div>
+                </div>
+                <div class="col-4 text-center pt-3">
+                  <strong>Subtotal</strong>
+                  <p class="pt-2">R$ {{ item.price }},00</p>
+                  <i
+                    @click="lixeiraCarrinho(salgado)"
+                    class="pt-4 bi bi-trash3-fill"
+                    style="font-size: 20px"
+                  ></i>
+                </div>
+              </div>
+            </div>
+            <div
+              id="totalCarrinho"
+              class="col-12 d-flex flex-column align-items-center"
+            >
+              <div>Quantidade de Items: {{ carrinho.length }}</div>
+              <div>Total: R${{ somarCarrinho(totalCarrinho) }},00</div>
+            </div>
+            <div class="col-12 btn-total">
+              <button class="btn">Confirmar Pedido</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Start All Pages -->
+      <div class="all-page-title fundo-salgadosedoces text-center">
+        <h1 style="z-index: 1">Salgados e Doces</h1>
+      </div>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-12"></div>
+        </div>
+      </div>
+
+      <!-- End All Pages -->
+
+      <!-- Start Menu -->
+      <div class="menu-box">
         <div class="container">
-          <a class="navbar-brand" href="index.html">
-            <img
-              src="./images/novas-imgs/mth-icon-sm.png"
-              alt=""
-              width="125"
-              style="filter: drop-shadow(1px 1.5px 0.3px #b49fccff)"
-            />
-          </a>
-          <div class="cart">
-            <i id="modalCarrinhoBtn" class="bi bi-cart2"></i>
-            <div class="cartAmount">
-              <p id="carrinhoBtnQtd">0</p>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="heading-title text-center">
+                <h2>
+                  As melhores opções para o seu evento você encontra aqui!
+                </h2>
+                <p>
+                  Confira as opções de Salgados e Doces que temos para
+                  encomenda.
+                </p>
+              </div>
             </div>
           </div>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbars-rs-food"
-            aria-controls="navbars-rs-food"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbars-rs-food">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#go-to-about">Quem somos Nós</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="salgadosedoces.html"
-                  >Salgados e Doces</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Carrinho</a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="https://wa.me/5513981942956?text=Teste%20de%20Mensagem%20Whatsapp.%20Ok?"
-                  >Contato</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <!-- Modal Carrinho -->
-    <!-- The Modal -->
-    <div id="modalCarrinho" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <div class="row">
-          <div
-            class="col-12 d-inline-flex flex-row justify-content-between align-items-center"
-            id="topoModalCarrinho"
-          >
-            <h1>Itens no Carrinho:</h1>
-            <span class="closeModalCarrinho"
-              ><i class="bi bi-x-circle"></i
-            ></span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12" id="itensAdicionados"></div>
-          <div id="totalCarrinho" class="col-12"></div>
-          <div class="col-12 btn-total">
-            <button class="btn">Confirmar Pedido</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Start All Pages -->
-    <div class="all-page-title fundo-salgadosedoces text-center">
-      <h1 style="z-index: 1">Salgados e Doces</h1>
-    </div>
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-lg-12"></div>
-      </div>
-    </div>
-
-    <!-- End All Pages -->
-
-    <!-- Start Menu -->
-    <div class="menu-box">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="heading-title text-center">
-              <h2>As melhores opções para o seu evento você encontra aqui!</h2>
-              <p>
-                Confira as opções de Salgados e Doces que temos para encomenda.
-              </p>
+          <div class="row">
+            <div class="col-12">
+              <div class="special-menu text-center">
+                <div class="button-group filter-button-group">
+                  <button
+                    class="active"
+                    style="box-shadow: none"
+                    data-filter="*"
+                  >
+                    Tudo
+                  </button>
+                  <button style="box-shadow: none" data-filter=".salgados">
+                    Salgados
+                  </button>
+                  <button style="box-shadow: none" data-filter=".doces">
+                    Doces
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="special-menu text-center">
-              <div class="button-group filter-button-group">
-                <button class="active" style="box-shadow: none" data-filter="*">
-                  Tudo
-                </button>
-                <button style="box-shadow: none" data-filter=".salgados">
-                  Salgados
-                </button>
-                <button style="box-shadow: none" data-filter=".doces">
-                  Doces
-                </button>
+      </div>
+      <div class="container mt-1" style="overflow-x: auto">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <h3
+              class="h5 p-4 text-center border border-2"
+              style="background: rgba(179, 159, 170, 0.384)"
+            >
+              FRITOS
+            </h3>
+          </div>
+        </div>
+        <div class="row mx-0 d-flex justify-content-center">
+          <div class="col-md-12 col-lg-10">
+            <div class="col-12" v-for="salgado in cardapio" :key="salgado.id">
+              <div class="row border mb-2 box-items shadow">
+                <div
+                  class="col-5 pt-3 d-flex flex-column align-items-center justify-content-center"
+                >
+                  <img :src="salgado.image" class="img-fluid" />
+                  <span class="text-center">100 Unidades (cento)</span>
+                  <div class="select-dropdown mt-3 mb-3">
+                    <select>
+                      <option data-key="0" value="coxinha-frita">Pronto</option>
+                      <option data-key="1" value="coxinha-congelada">
+                        Congelado
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  class="col-7 pt-3 d-flex justify-content-around flex-column"
+                >
+                  <h3 id="salgado-item--name" style="text-align: start">
+                    <strong>{{ salgado.name }}</strong>
+                  </h3>
+                  <p id="salgado-item--desc" style="text-align: start">
+                    {{ salgado.desc }}
+                  </p>
+                  <p
+                    id="salgado-item--price"
+                    class="d-flex flex-row-reverse"
+                    style="font-size: 18pt"
+                  >
+                    <strong>R${{ salgado.price }},00</strong>
+                  </p>
+                  <div id="adicionarAoCarrinho" class="mb-3">
+                    <button
+                      @click="adicionarAoCarrinho(salgado)"
+                      class="btn-block m-auto p-2 botao-carrinho"
+                      :produtoId="salgado.id"
+                    >
+                      Adicionar ao Carrinho <i class="bi bi-cart-plus"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="container mt-1" style="overflow-x: auto">
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-10">
-          <h3
-            class="h5 p-4 text-center border border-2"
-            style="background: rgba(179, 159, 170, 0.384)"
-          >
-            FRITOS
-          </h3>
-        </div>
-      </div>
-      <div class="row mx-0 d-flex justify-content-center">
-        <div class="col-md-12 col-lg-10">
-          <div class="col-12" id="salgados"></div>
-        </div>
-      </div>
-    </div>
-
     <!-- Start Contact info -->
     <div class="contact-imfo-box">
       <div class="container">
@@ -198,7 +290,7 @@
             <i class="fa fa-envelope"></i>
             <div class="overflow-hidden">
               <h4>Email</h4>
-              <p class="lead">thbolosesalgados@gmail.com</p>
+              <p class="lead">mthbolosesalgados@gmail.com</p>
             </div>
           </div>
           <div class="col-md-4">
