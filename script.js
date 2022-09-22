@@ -34,11 +34,13 @@ new Vue({
         salgadoDoCarrinho = salgado;
         salgadoDoCarrinho.qtd = 0;
         this.carrinho.push(salgadoDoCarrinho);
+        abrirModal();
       }
 
       salgadoDoCarrinho.qtd += 1;
       salgadoDoCarrinho.subtotal =
         salgadoDoCarrinho.price * salgadoDoCarrinho.qtd;
+      abrirModal();
 
       // gamby para atualizar o carrinho!
       this.carrinho.push(10);
