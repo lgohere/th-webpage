@@ -45,22 +45,54 @@ new Vue({
       this.carrinho.pop();
     },
 
-    alteraQtd(salgado, qtd) {
+    somaQtd(salgado, qtd) {
       // find do salgado
       let salgadoNoCarrinho = this.carrinho.find(
         (item) => salgado.id == item.id
       );
       salgadoNoCarrinho = salgado;
-      console.log(salgadoNoCarrinho);
-
-      // salgadoCarrinho.qtd += qtd
+      salgadoNoCarrinho.qtd += 1;
+      salgadoNoCarrinho.subtotal =
+        salgadoNoCarrinho.qtd * salgadoNoCarrinho.price;
+      this.carrinho.push(10);
+      this.carrinho.pop();
     },
-    lixeiraCarrinho(salgado) {
+
+    subtraiQtd(salgado, qtd) {
       // find do salgado
-      // indexOf salgado   3
-      // this.carrinho.splice
-      //this.carrinho.pop(salgado);   <----- nao funfa
-      this.totalCarrinho;
+      let salgadoNoCarrinho = this.carrinho.find(
+        (item) => salgado.id == item.id
+      );
+
+      if (salgadoNoCarrinho.qtd > 1) {
+        salgadoNoCarrinho.qtd = salgado.qtd;
+        salgadoNoCarrinho.qtd -= 1;
+        salgadoNoCarrinho.subtotal =
+          salgadoNoCarrinho.qtd * salgadoNoCarrinho.price;
+        this.carrinho.push(10);
+        this.carrinho.pop();
+      } else {
+        const index = this.carrinho.indexOf(salgadoNoCarrinho);
+        if (index > -1) {
+          this.carrinho.splice(index, 1);
+        }
+
+        if (this.carrinho.length == 0) {
+          fecharModal();
+        }
+      }
+    },
+
+    lixeiraCarrinho(salgado) {
+      let salgadoNoCarrinho = this.carrinho.find(
+        (item) => salgado.id == item.id
+      );
+      salgadoNoCarrinho = salgado;
+      const index = this.carrinho.indexOf(salgadoNoCarrinho);
+      if (index > -1) {
+        this.carrinho.splice(index, 1);
+      }
+      console.log(this.carrinho);
     },
   },
 });

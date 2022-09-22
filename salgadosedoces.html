@@ -134,18 +134,18 @@
                   <div
                     class="col-12 d-inline-flex align-items-center justify-content-center mt-2"
                   >
-                    <button class="btnMinus">-</button>
-                    <h3 class="mx-3">{{ item.qtd }}</h3>
-                    <button @click="alteraQtd(item.qtd)" class="btnPlus">
-                      +
+                    <button @click="subtraiQtd(item)" class="btnMinus">
+                      -
                     </button>
+                    <h3 class="mx-3">{{ item.qtd }}</h3>
+                    <button @click="somaQtd(item)" class="btnPlus">+</button>
                   </div>
                 </div>
                 <div class="col-4 text-center pt-3">
                   <strong>Subtotal</strong>
                   <p class="pt-2">R$ {{ item.subtotal }},00</p>
                   <i
-                    @click="lixeiraCarrinho(salgado)"
+                    @click="lixeiraCarrinho(item)"
                     class="pt-4 bi bi-trash3-fill"
                     style="font-size: 20px"
                   ></i>
