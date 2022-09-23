@@ -14,7 +14,7 @@ new Vue({
     totalDoCarrinho() {
       let total = 0;
       this.carrinho.forEach((item) => {
-        total += item.subtotal;
+        total += item.subtotal + item.priceCongelado;
       });
       return total;
     },
@@ -82,6 +82,26 @@ new Vue({
         if (this.carrinho.length == 0) {
           fecharModal();
         }
+      }
+    },
+
+    somaQtdCongelado(salgado, qtd) {
+      // find do salgado
+      let congeladoNoCarrinho = this.carrinho.find(
+        (item) => salgado.id == item.id
+      );
+      congeladoNoCarrinho.congelado += 1;
+      congeladoNoCarrinho.priceCongelado = 50 * congeladoNoCarrinho.congelado;
+    },
+
+    subtraiQtdCongelado(salgado, qtd) {
+      // find do salgado
+      let congeladoNoCarrinho = this.carrinho.find(
+        (item) => salgado.id == item.id
+      );
+      if (congeladoNoCarrinho.congelado >= 1) {
+        congeladoNoCarrinho.congelado -= 1;
+        congeladoNoCarrinho.priceCongelado = 50 * congeladoNoCarrinho.congelado;
       }
     },
 

@@ -130,20 +130,30 @@
                   </div>
                 </div>
                 <div class="col-4 text-center pt-3 card-text">
-                  <strong>Quantidade</strong>
+                  <div class="pb-2"><strong>Quantidade</strong></div>
                   <div
-                    class="col-12 d-inline-flex align-items-center justify-content-center mt-2"
+                    class="col-12 d-inline-flex align-items-center justify-content-center"
                   >
-                    <button @click="subtraiQtd(item)" class="btnMinus">
-                      -
-                    </button>
+                    <button @click="subtraiQtd(item)">-</button>
                     <h3 class="mx-3">{{ item.qtd }}</h3>
-                    <button @click="somaQtd(item)" class="btnPlus">+</button>
+                    <button @click="somaQtd(item)">+</button>
                   </div>
+                  <p>(Pronto)</p>
+                  <div
+                    class="col-12 d-inline-flex align-items-center justify-content-center"
+                  >
+                    <button @click="subtraiQtdCongelado(item)">-</button>
+                    <h3 class="mx-3">{{ item.congelado }}</h3>
+                    <button @click="somaQtdCongelado(item)">+</button>
+                  </div>
+                  <p>(Congelado)</p>
                 </div>
+
                 <div class="col-4 text-center pt-3">
                   <strong>Subtotal</strong>
-                  <p class="pt-2">R$ {{ item.subtotal }},00</p>
+                  <p class="pt-2">
+                    R$ {{ item.subtotal + item.priceCongelado }},00
+                  </p>
                   <i
                     @click="lixeiraCarrinho(item)"
                     class="pt-4 bi bi-trash3-fill"
@@ -235,18 +245,10 @@
             <div class="col-12" v-for="salgado in cardapio" :key="salgado.id">
               <div class="row border mb-2 box-items shadow">
                 <div
-                  class="col-5 pt-3 d-flex flex-column align-items-center justify-content-center"
+                  class="col-5 py-2 d-flex flex-column justify-content-center"
                 >
                   <img :src="salgado.image" class="img-fluid" />
                   <span class="text-center">100 Unidades (cento)</span>
-                  <div class="select-dropdown mt-3 mb-3">
-                    <select>
-                      <option data-key="0" value="coxinha-frita">Pronto</option>
-                      <option data-key="1" value="coxinha-congelada">
-                        Congelado
-                      </option>
-                    </select>
-                  </div>
                 </div>
                 <div
                   class="col-7 pt-3 d-flex justify-content-around flex-column"
