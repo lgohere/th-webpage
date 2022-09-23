@@ -90,7 +90,7 @@ new Vue({
       let congeladoNoCarrinho = this.carrinho.find(
         (item) => salgado.id == item.id
       );
-      if (congeladoNoCarrinho.qtd >= 1) {
+      if (congeladoNoCarrinho.qtd >= 0) {
         congeladoNoCarrinho.congelado += 1;
         congeladoNoCarrinho.priceCongelado = 50 * congeladoNoCarrinho.congelado;
       }
