@@ -7,9 +7,11 @@ new Vue({
   },
   computed: {
     carrinhoMessage() {
-      return this.carrinho.length == 0
-        ? "Nenhum item no carrinho"
-        : "Itens no Carrinho";
+      if (this.carrinho.length == 0 && this.totalDoCarrinho == 0) {
+        return "Nenhum item no carrinho";
+      } else {
+        return "Itens no Carrinho";
+      }
     },
     totalDoCarrinho() {
       let total = 0;
@@ -66,21 +68,19 @@ new Vue({
         (item) => salgado.id == item.id
       );
 
-      if (salgadoNoCarrinho.qtd > 1) {
+      if (salgadoNoCarrinho.qtd > 0) {
         salgadoNoCarrinho.qtd = salgado.qtd;
         salgadoNoCarrinho.qtd -= 1;
         salgadoNoCarrinho.subtotal =
           salgadoNoCarrinho.qtd * salgadoNoCarrinho.price;
         this.carrinho.push(10);
         this.carrinho.pop();
-      } else {
+      }
+
+      if (salgadoNoCarrinho.qtd == 0 && salgadoNoCarrinho.congelado == 0) {
         const index = this.carrinho.indexOf(salgadoNoCarrinho);
         if (index > -1) {
           this.carrinho.splice(index, 1);
-        }
-
-        if (this.carrinho.length == 0) {
-          fecharModal();
         }
       }
     },
@@ -90,8 +90,10 @@ new Vue({
       let congeladoNoCarrinho = this.carrinho.find(
         (item) => salgado.id == item.id
       );
-      congeladoNoCarrinho.congelado += 1;
-      congeladoNoCarrinho.priceCongelado = 50 * congeladoNoCarrinho.congelado;
+      if (congeladoNoCarrinho.qtd >= 1) {
+        congeladoNoCarrinho.congelado += 1;
+        congeladoNoCarrinho.priceCongelado = 50 * congeladoNoCarrinho.congelado;
+      }
     },
 
     subtraiQtdCongelado(salgado, qtd) {
@@ -102,6 +104,13 @@ new Vue({
       if (congeladoNoCarrinho.congelado >= 1) {
         congeladoNoCarrinho.congelado -= 1;
         congeladoNoCarrinho.priceCongelado = 50 * congeladoNoCarrinho.congelado;
+      }
+
+      if (congeladoNoCarrinho.qtd == 0 && congeladoNoCarrinho.congelado == 0) {
+        const index = this.carrinho.indexOf(congeladoNoCarrinho);
+        if (index > -1) {
+          this.carrinho.splice(index, 1);
+        }
       }
     },
 
