@@ -123,7 +123,8 @@ new Vue({
       if (index > -1) {
         this.carrinho.splice(index, 1);
       }
-      console.log(this.carrinho);
+      salgadoNoCarrinho.congelado = 0;
+      salgadoNoCarrinho.priceCongelado = 0;
     },
   },
 });
