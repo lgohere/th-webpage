@@ -5,6 +5,7 @@ function getCardapio() {
       name: "Coxinha de Frango",
       image: "./images/novas-imgs/coxinha-sm.jpg",
       price: 58.0,
+      priceCongelado: 50,
       desc: "Coxinha recheada com frango",
     },
     {
@@ -12,6 +13,7 @@ function getCardapio() {
       name: "Bolinha de Queijo Tradicional",
       image: "./images/novas-imgs/bolinha-de-queijo-sm.jpg",
       price: 58.0,
+      priceCongelado: 50,
       desc: "Bolinha frita recheada com queijo mussarela",
     },
     {
@@ -19,6 +21,7 @@ function getCardapio() {
       name: "Bolinha de Queijo c/ Alho Frito",
       image: "./images/novas-imgs/bolinha-de-queijo-sm.jpg",
       price: 58.0,
+      priceCongelado: 50,
       desc: "Bolinha recheada com queijo mussarela e alho frito",
     },
     {
@@ -26,6 +29,7 @@ function getCardapio() {
       name: "Maravilha",
       image: "./images/novas-imgs/maravilha-sm.jpg",
       price: 58.0,
+      priceCongelado: 50,
       desc: "Maravilha recheada com presunto e queijo mussarela",
     },
     {
@@ -33,6 +37,7 @@ function getCardapio() {
       name: "Risoles de Carne",
       image: "./images/novas-imgs/risoles-carne-sm.jpg",
       price: 58.0,
+      priceCongelado: 50,
       desc: "Risoles recheada com carne bovina",
     },
     {
@@ -40,6 +45,7 @@ function getCardapio() {
       name: "Risoles de Carne c/ Queijo",
       image: "./images/novas-imgs/risoles-carne-sm.jpg",
       price: 58.0,
+      priceCongelado: 50,
       desc: "Risoles recheado com carne bovina e queijo mussarela",
     },
     {
@@ -47,6 +53,7 @@ function getCardapio() {
       name: "Risoles de Calabresa",
       image: "./images/novas-imgs/risoles-calabresa-sm.png",
       price: 58.0,
+      priceCongelado: 50,
       desc: "Risoles recheado com calabresa",
     },
     {
@@ -54,6 +61,7 @@ function getCardapio() {
       name: "Risoles de Calabresa c/ Queijo",
       image: "./images/novas-imgs/risoles-calabresa-sm.png",
       price: 58.0,
+      priceCongelado: 50,
       desc: "Risoles recheado com calabresa e queijo mussarela",
     },
     {
@@ -61,6 +69,7 @@ function getCardapio() {
       name: "Croquete de Carne",
       image: "./images/novas-imgs/croquete-carne-sm.jpg",
       price: 58.0,
+      priceCongelado: 50,
       desc: "Croquete de carne bovina",
     },
     {
@@ -68,6 +77,7 @@ function getCardapio() {
       name: "Croquete de Frango",
       image: "./images/novas-imgs/croquete-frango-sm.png",
       price: 58.0,
+      priceCongelado: 50,
       desc: "Croquete de frango",
     },
   ];

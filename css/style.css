@@ -472,7 +472,7 @@ button:focus {
 -------------------------------------------------------------------*/
 
 .qt-background {
-  background: url(../images/novas-imgs/bolo-chocolate-pedaço.jpg) no-repeat;
+  background: url(../images/novas-imgs/bolo-banner.jpg) no-repeat;
   background-size: cover;
   padding: 100px 0;
   background-attachment: fixed;
@@ -893,7 +893,7 @@ button:focus {
 
 .fundo-salgadosedoces {
   padding: 215px 0 150px;
-  background: url(../images/novas-imgs/bolosesalgados-img.jpg);
+  background: url(../images/novas-imgs/bolosesalgados-top.jpg);
   background-size: cover;
   background-position: -20vh 5vh;
   position: relative;
