@@ -123,8 +123,13 @@
     position: relative;
   }
 
-  .about-section-box .img-fluid {
-    width: 50vh;
+  .menu-box .heading-title h2 {
+    font-size: 25px;
+    padding: 2vh 2vh;
+  }
+
+  .menu-box .heading-title p {
+    padding-top: 1.5vh;
   }
 }
 
@@ -145,14 +150,33 @@
     width: 150px;
   }
 
+  .fundo-salgadosedoces h1 {
+    font-size: 40px;
+  }
+
   .pricing-cost {
     font-size: 45px;
+  }
+
+  .heading-title h2 {
+    font-size: 30px;
   }
 }
 
 @media (min-width: 992px) {
   #reviews .carousel-inner .carousel-item p {
     padding: 2rem 3.8rem;
+  }
+  #reviews .carousel-inner {
+    height: 30rem;
+  }
+
+  .menu-box .heading-title h2 {
+    padding: 2vh 10rem;
+  }
+
+  .fundo-salgadosedoces h1 {
+    font-size: 50px;
   }
 
   .qt-background p {
@@ -164,5 +188,13 @@
 @media (min-width: 1240px) {
   #reviews .carousel-inner .carousel-item p {
     padding: 2rem 4.5rem;
+  }
+
+  .fundo-salgadosedoces h1 {
+    font-size: 60px;
+  }
+
+  .heading-title h2 {
+    font-size: 36px;
   }
 }

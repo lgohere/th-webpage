@@ -510,7 +510,7 @@ button:focus {
 }
 .heading-title h2 {
   color: #010101;
-  font-size: 28px;
+  font-size: 26px;
   font-family: "Arbutus Slab", serif;
 }
 .heading-title p {
@@ -891,7 +891,7 @@ button:focus {
 
 .fundo-salgadosedoces {
   padding: 215px 0 150px;
-  background: url(../images/novas-imgs/bolosesalgados-top.jpg);
+  background: url(../images/novas-imgs/bolosesalgados-topn.png);
   background-size: cover;
   background-position: -20vh 5vh;
   position: relative;
@@ -918,6 +918,16 @@ button:focus {
   z-index: 1;
   opacity: 0.8;
 }
+
+.fundo-salgadosedoces h1 {
+  font-size: 38px;
+  color: #ffffff;
+  font-family: "Arbutus Slab", serif;
+  padding: 0px;
+  text-shadow: 1px 3px 4px black;
+  filter: drop-shadow(0.2px -0.3px 0px red);
+}
+
 .all-page-title h1 {
   font-size: 38px;
   color: #ffffff;
