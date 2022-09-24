@@ -14,6 +14,11 @@
     font-family: "Arbutus Slab", serif;
     padding: 0px;
   }
+
+  .qt-background p {
+    font-size: 35px;
+    line-height: 4rem;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -39,10 +44,18 @@
   .why-text p {
     margin: 0px;
   }
+
+  .qt-background p {
+    font-size: 42px;
+  }
 }
 
 /* mobile or only mobile */
 @media (max-width: 767px) {
+  #reviews .carousel-inner .carousel-item p {
+    padding: 2rem 2.2rem;
+  }
+
   .navbar-light .navbar-brand {
     margin-left: 15px;
   }
@@ -58,7 +71,7 @@
   }
   .cover-slides p {
     font-size: 20px;
-    padding: 0 20px;
+    padding: 0 35px;
   }
   .slides-navigation a {
     height: 42px;
@@ -66,8 +79,9 @@
     line-height: 33px;
   }
   .inner-column {
-    margin-top: 15px;
+    margin: 5vh 2vh;
   }
+
   .inner-column h1 {
     font-size: 22px;
     display: flex;
@@ -108,11 +122,47 @@
     background-size: cover;
     position: relative;
   }
+
+  .about-section-box .img-fluid {
+    width: 50vh;
+  }
 }
 
 @media only screen and (min-width: 280px) and (max-width: 599px) {
   .why-text p {
     margin-bottom: 0px;
     margin-top: 0px;
+  }
+}
+
+@media (min-width: 768px) {
+  #reviews .carousel-inner .carousel-item p {
+    padding: 2rem 1.5rem;
+  }
+
+  .pricing-price {
+    height: 150px;
+    width: 150px;
+  }
+
+  .pricing-cost {
+    font-size: 45px;
+  }
+}
+
+@media (min-width: 992px) {
+  #reviews .carousel-inner .carousel-item p {
+    padding: 2rem 3.8rem;
+  }
+
+  .qt-background p {
+    font-size: 45px;
+    line-height: 4rem;
+  }
+}
+
+@media (min-width: 1240px) {
+  #reviews .carousel-inner .carousel-item p {
+    padding: 2rem 4.5rem;
   }
 }

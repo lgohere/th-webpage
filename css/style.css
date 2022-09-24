@@ -26,7 +26,6 @@ body {
   color: #666666;
   font-size: 15px;
   font-family: "Athiti", sans-serif;
-  line-height: 1.80857;
 }
 
 a {
@@ -419,9 +418,10 @@ button:focus {
   color: #fff;
 }
 .cover-slides p {
-  font-size: 18px;
+  font-size: 19px;
   color: #fff;
   font-weight: 500;
+  padding: 0 10vh;
 }
 .slides-pagination a {
   border: 2px solid #ffffff;
@@ -436,13 +436,10 @@ button:focus {
 -------------------------------------------------------------------*/
 
 .about-section-box {
-  padding: 70px 0px;
+  padding: 10vh 0vh;
 }
 .about-section-box .img-fluid {
   box-shadow: -10px -10px 0px #6d466bff;
-}
-
-.inner-column {
 }
 
 .inner-column h1 {
@@ -458,7 +455,9 @@ button:focus {
   font-weight: 500;
 }
 .inner-column p {
+  padding: 1vh 1.5vh;
   font-size: 18px;
+  text-align: justify;
 }
 .inner-column .btn-outline-new-white {
   color: #6d466bff;
@@ -485,7 +484,7 @@ button:focus {
   align-items: center;
 }
 .qt-background p {
-  font-size: 35px;
+  font-size: 23px;
   font-weight: 300;
   color: rgb(255, 255, 255);
   font-family: "Arbutus Slab", serif;
@@ -634,6 +633,8 @@ button:focus {
 -------------------------------------------------------------------*/
 
 .customer-reviews-box {
+  padding-top: 10vh;
+  padding-bottom: 5vh;
 }
 
 .carousel-inner .carousel-item .img-box {
@@ -655,10 +656,9 @@ button:focus {
   font-size: 24px;
 }
 
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) {
   .carousel-inner .carousel-item p {
     font-size: 18px;
-    padding: 2rem 2.2rem;
     color: #412234ff;
     font-weight: 500;
   }
@@ -764,7 +764,6 @@ button:focus {
   background-color: rgba(0, 0, 0, 0);
   background-origin: initial;
   background-position: center -15vh;
-  background-repeat: no-repeat;
   background-size: cover;
   position: relative;
 }
@@ -870,7 +869,6 @@ button:focus {
 }
 
 .copyright {
-  margin-top: 20px;
   position: relative;
   display: block;
   background-color: #010101;
@@ -1461,18 +1459,10 @@ blockquote {
 /* PROMOÇÕES */
 
 .rowPadrao {
-  height: 60vh;
+  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.rowPadrao2 {
-  height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: -10vh;
 }
 
 .arrows {
@@ -1912,14 +1902,14 @@ blockquote {
   box-shadow: 0px 0px 0px 10px rgba(0, 188, 212, 0.31);
   color: #fff;
   border-radius: 50%;
-  height: 150px;
-  width: 150px;
+  height: 125px;
+  width: 125px;
   display: inline-block;
   padding-top: 40px;
 }
 
 .pricing-cost {
-  font-size: 50px;
+  font-size: 35px;
   font-weight: 300;
   line-height: 1;
 }
