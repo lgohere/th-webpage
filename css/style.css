@@ -18,10 +18,6 @@
     SKELETON
 -------------------------------------------------------------------*/
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   color: #666666;
   font-size: 15px;
@@ -1367,10 +1363,10 @@ blockquote {
   bottom: 40px;
   right: 40px;
   z-index: 9999;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   text-align: center;
-  line-height: 30px;
+  line-height: 40px;
   background: #6d466bff;
   color: #ffffff;
   cursor: pointer;
