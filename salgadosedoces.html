@@ -185,16 +185,11 @@
         </div>
       </div>
 
-      <!-- <p>CARRINHO</p>
-      <p>{{ carrinho }}</p> -->
-
-      <!-- End All Pages -->
-
       <!-- Start Menu -->
       <div class="menu-box">
         <div class="container">
           <div class="row">
-            <div class="col-lg-12 text-center">
+            <div class="col-lg-12 px-lg-5 text-center">
               <div class="heading-title text-center">
                 <h2>
                   As melhores opções para o seu evento você encontra aqui!
@@ -231,7 +226,7 @@
       </div>
       <div class="container mt-1" style="overflow-x: auto">
         <div class="row justify-content-center">
-          <div class="col-12 col-lg-10">
+          <div class="col-12 col-lg-8">
             <h3
               class="h5 p-4 text-center border border-2"
               style="background: rgba(179, 159, 170, 0.384)"
@@ -240,12 +235,12 @@
             </h3>
           </div>
         </div>
-        <div class="row mx-0 d-flex justify-content-center">
-          <div class="col-md-12 col-lg-10">
+        <div id="listaProdutos" class="row mx-0 d-flex justify-content-center">
+          <div class="col-md-12 col-lg-8">
             <div class="col-12" v-for="salgado in cardapio" :key="salgado.id">
               <div class="row border mb-2 box-items shadow">
                 <div
-                  class="col-5 py-2 d-flex flex-column justify-content-center"
+                  class="col-5 py-2 d-flex flex-column justify-content-center align-items-center"
                 >
                   <img :src="salgado.image" class="img-fluid" />
                   <span class="text-center">100 Unidades (cento)</span>

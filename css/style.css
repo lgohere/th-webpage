@@ -289,13 +289,6 @@ button:focus {
   margin: 10px auto;
 }
 
-@media (min-width: 600px) {
-  .modal-content {
-    margin: 15% auto;
-    width: 50%;
-  }
-}
-
 /* The Close Button */
 .closeModalCarrinho {
   color: #d30000;

@@ -50,6 +50,13 @@
   }
 }
 
+@media (min-width: 600px) {
+  .modal-content {
+    margin: 15% auto;
+    width: 40vh;
+  }
+}
+
 /* mobile or only mobile */
 @media (max-width: 767px) {
   #reviews .carousel-inner .carousel-item p {
@@ -160,6 +167,10 @@
 
   .heading-title h2 {
     font-size: 30px;
+  }
+
+  #listaProdutos .img-fluid {
+    width: 20vh;
   }
 }
 
