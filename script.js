@@ -4,6 +4,7 @@ new Vue({
     cardapio: getCardapio(),
     carrinho: [],
     totalCarrinho: [],
+    finalizacao: false,
   },
   computed: {
     carrinhoMessage() {
@@ -125,6 +126,10 @@ new Vue({
       }
       salgadoNoCarrinho.congelado = 0;
       salgadoNoCarrinho.priceCongelado = 0;
+    },
+
+    fecharCarrinho() {
+      fecharModal();
     },
   },
 });

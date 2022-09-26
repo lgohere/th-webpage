@@ -287,6 +287,7 @@ button:focus {
   font-weight: 600;
   font-size: 1.2rem;
   margin: 10px auto;
+  color: #412234ff;
 }
 
 /* The Close Button */
@@ -388,6 +389,15 @@ button:focus {
 .btn-total {
   display: flex;
   justify-content: center;
+}
+
+.btn-totalEnd {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+  align-items: stretch;
 }
 
 .overlay-background {
@@ -1050,6 +1060,19 @@ button:focus {
 
 .form-control[readonly] {
   background-color: #ffffff;
+}
+
+label {
+  margin-top: 9px;
+  font-weight: 500;
+}
+
+.checkboxForm {
+  margin-top: 9px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: baseline;
 }
 
 .form-control {

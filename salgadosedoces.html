@@ -96,14 +96,14 @@
       <!-- The Modal -->
       <div id="modalCarrinho" class="modal">
         <!-- Modal content -->
-        <div class="modal-content">
+        <div class="modal-content" v-if="!finalizacao">
           <div class="row">
             <div
               class="col-12 d-inline-flex flex-row justify-content-between align-items-center"
             >
               <h1>{{ carrinhoMessage }}</h1>
-              <span class="closeModalCarrinho"
-                ><i class="bi bi-x-circle"></i
+              <span class="closeModalCarrinho" @click="fecharCarrinho"
+                ><i class="bi bi-x-circle"> </i
               ></span>
             </div>
           </div>
@@ -170,11 +170,101 @@
               <div>Total: R${{ totalDoCarrinho }},00</div>
             </div>
             <div class="col-12 btn-total">
-              <button class="btn">Confirmar Pedido</button>
+              <button class="btn" @click="finalizacao = true">
+                Confirmar Pedido
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delivery Data Input Section -->
+        <div class="modal-content" v-else>
+          <div class="row">
+            <div
+              class="col-12 d-inline-flex flex-row justify-content-between align-items-center"
+            >
+              <h1>Insira os dados para Entrega ou Retirada:</h1>
+              <span class="closeModalCarrinho" @click="fecharCarrinho"
+                ><i class="bi bi-x-circle"> </i
+              ></span>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div
+              id="totalCarrinho"
+              class="col-12 d-flex flex-column align-items-center"
+              style="padding-bottom: 10px; border-bottom: 1px solid #412234ff"
+            >
+              <div>
+                Items: {{ carrinho.length }} / Total: R${{ totalDoCarrinho }},00
+              </div>
+            </div>
+            <div>
+              <div
+                class="col-12 text-center d-flex flex-column align-items-center"
+              >
+                <form>
+                  <label for="fname">Nome e Sobrenome:</label><br />
+                  <input type="text" id="nome" name="nome" />
+                  <br />
+                  <label for="lname">Whatsapp / Celular:</label><br />
+                  <input type="text" id="mobile" name="mobile" />
+                  <br />
+                  <div class="checkboxForm">
+                    <div>
+                      <input
+                        type="checkbox"
+                        id="entregar"
+                        name="entregar"
+                        value="delivery"
+                      />
+                      <label for="entregar"> Incluir Entrega (R$30,00) </label>
+                    </div>
+                    <div>
+                      <input
+                        type="checkbox"
+                        id="retirar"
+                        name="retirar"
+                        value="pickUp"
+                      />
+                      <label for="retirar"> Retirar no Local</label>
+                    </div>
+                  </div>
+                  <label for="enderecoEntrega">Endereço para Entrega:</label
+                  ><br />
+                  <input type="text" id="endereco" name="endereco" />
+                  <br />
+                  <label for="datemin">Data para Entrega:</label>
+                  <br />
+                  <input
+                    type="date"
+                    id="deliveryDate"
+                    name="deliveryDate"
+                    min="2022-09-28"
+                  /><br />
+                  <label for="perido">Periodo para Entrega / Retirada:</label>
+                  <br />
+                  <select name="perido" id="periodo">
+                    <option value="manha">Manhã (10 as 12hrs)</option>
+                    <option value="tarde">Tarde (14 as 18hrs)</option>
+                    <option value="noite">Noite (18 as 22:30hrs)</option>
+                  </select>
+                </form>
+              </div>
+            </div>
+            <div class="col-12 mt-4 btn-totalEnd">
+              <button
+                class="btn btn-danger"
+                @click="finalizacao = !finalizacao"
+              >
+                Voltar
+              </button>
+              <button class="btn btn-success mt-2">Finalizar Pedido</button>
             </div>
           </div>
         </div>
       </div>
+
       <!-- Start All Pages -->
       <div id="saledoc" class="fundo-salgadosedoces text-center">
         <h1 style="z-index: 1">Salgados e Doces</h1>
