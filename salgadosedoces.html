@@ -170,7 +170,11 @@
               <div>Total: R${{ totalDoCarrinho }},00</div>
             </div>
             <div class="col-12 btn-total">
-              <button class="btn" @click="finalizacao = true">
+              <button
+                v-if="carrinho.length > 0"
+                class="btn"
+                @click="finalizacao = true"
+              >
                 Confirmar Pedido
               </button>
             </div>
@@ -204,19 +208,27 @@
                 class="col-12 text-center d-flex flex-column align-items-center"
               >
                 <form>
-                  <label for="fname">Nome e Sobrenome:</label><br />
-                  <input type="text" id="nome" name="nome" />
+                  <label>Nome e Sobrenome:</label><br />
+                  <input
+                    type="input"
+                    v-model="formData.nome"
+                    placeholder="Digite aqui seu nome e sobrenome."
+                  />
                   <br />
-                  <label for="lname">Whatsapp / Celular:</label><br />
-                  <input type="text" id="mobile" name="mobile" />
+                  <label for="mobilenum">Whatsapp / Celular:</label><br />
+                  <input
+                    type="text"
+                    v-model="formData.mobile"
+                    placeholder="(DDD) XXXXX-XXXX"
+                  />
                   <br />
                   <div class="checkboxForm">
                     <div>
                       <input
                         type="checkbox"
                         id="entregar"
-                        name="entregar"
-                        value="delivery"
+                        value="P/ Entrega"
+                        v-model="formData.delivery"
                       />
                       <label for="entregar"> Incluir Entrega (R$30,00) </label>
                     </div>
@@ -224,8 +236,8 @@
                       <input
                         type="checkbox"
                         id="retirar"
-                        name="retirar"
-                        value="pickUp"
+                        value="P/ Retirada"
+                        v-model="formData.delivery"
                       />
                       <label for="retirar"> Retirar no Local</label>
                     </div>
@@ -253,10 +265,7 @@
               </div>
             </div>
             <div class="col-12 mt-4 btn-totalEnd">
-              <button
-                class="btn btn-danger"
-                @click="finalizacao = !finalizacao"
-              >
+              <button class="btn btn-danger" @click="voltarCarrinho">
                 Voltar
               </button>
               <button class="btn btn-success mt-2">Finalizar Pedido</button>

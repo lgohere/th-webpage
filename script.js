@@ -5,6 +5,14 @@ new Vue({
     carrinho: [],
     totalCarrinho: [],
     finalizacao: false,
+    formData: {
+      nome: "",
+      mobile: "",
+      delivery: [],
+      endereco: "Rua / nº Casa ou Prédio / nº Apt.",
+      dataEntrega: "",
+      periodo: "",
+    },
   },
   computed: {
     carrinhoMessage() {
@@ -19,6 +27,9 @@ new Vue({
       this.carrinho.forEach((item) => {
         total += item.subtotal + item.priceCongelado;
       });
+      if (this.formData.delivery[0] == "P/ Entrega") {
+        total += 30;
+      }
       return total;
     },
   },
@@ -126,6 +137,15 @@ new Vue({
       }
       salgadoNoCarrinho.congelado = 0;
       salgadoNoCarrinho.priceCongelado = 0;
+    },
+
+    adicionarEntrega(valor) {
+      console.log(this.item.entrega);
+    },
+
+    voltarCarrinho() {
+      this.finalizacao = !this.finalizacao;
+      this.formData.delivery = [];
     },
 
     fecharCarrinho() {
