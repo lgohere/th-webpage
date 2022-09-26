@@ -28,7 +28,7 @@ new Vue({
         total += item.subtotal + item.priceCongelado;
       });
       if (this.formData.delivery[0] == "P/ Entrega") {
-        total += 30;
+        total += 20;
       }
       return total;
     },
@@ -137,10 +137,6 @@ new Vue({
       }
       salgadoNoCarrinho.congelado = 0;
       salgadoNoCarrinho.priceCongelado = 0;
-    },
-
-    adicionarEntrega(valor) {
-      console.log(this.item.entrega);
     },
 
     voltarCarrinho() {
