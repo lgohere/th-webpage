@@ -208,58 +208,73 @@
                 class="col-12 text-center d-flex flex-column align-items-center"
               >
                 <form>
-                  <label>Nome e Sobrenome:</label><br />
+                  <label for="nome">Nome e Sobrenome:</label><br />
                   <input
                     type="input"
+                    id="nome"
                     v-model="formData.nome"
+                    name="nome"
                     placeholder="Digite aqui seu nome e sobrenome."
                   />
                   <br />
-                  <label for="mobilenum">Whatsapp / Celular:</label><br />
+                  <label for="mobile">Whatsapp / Celular:</label><br />
                   <input
+                    id="mobile"
                     type="text"
                     v-model="formData.mobile"
-                    placeholder="(DDD) XXXXX-XXXX"
+                    placeholder="(DD) XXXXX-XXXX"
+                    name="mobile"
                   />
                   <br />
                   <div class="checkboxForm">
-                    <div>
+                    <div v-if="entrega">
                       <input
                         type="checkbox"
-                        id="entregar"
+                        id="delivery"
                         value="P/ Entrega"
                         v-model="formData.delivery"
+                        @click="retirada = !retirada"
                       />
-                      <label for="entregar"> Incluir Entrega (R$20,00) </label>
+                      <label for="entrega"> Incluir Entrega (R$20,00) </label>
                     </div>
-                    <div>
+                    <div v-if="retirada">
                       <input
                         type="checkbox"
-                        id="retirar"
+                        id="delivery"
                         value="P/ Retirada"
-                        v-model="formData.delivery"
+                        @click="entrega = !entrega"
                       />
-                      <label for="retirar"> Retirar no Local</label>
+                      <label for="retirada"> Retirar no Local</label>
                     </div>
                   </div>
-                  <label for="enderecoEntrega">Endereço para Entrega:</label
-                  ><br />
-                  <input type="text" id="endereco" name="endereco" />
+                  <label for="delivery">{{ entregaOuRetirada }}</label><br />
+                  <input
+                    v-if="entrega"
+                    id="endereco"
+                    type="text"
+                    v-model="formData.endereco"
+                    placeholder="Rua / nº Casa ou Prédio / nº Apt."
+                  />
+                  <label v-if="!entrega" for="endereco"
+                    >Rua Pastor Alberto Augusto nº 126, Santos/SP.</label
+                  >
                   <br />
-                  <label for="datemin">Data para Entrega:</label>
+                  <label v-if="entrega" for="dataPedido"
+                    >Data para Entrega:</label
+                  >
+                  <label v-else for="dataPedido">Data para Retirada:</label>
                   <br />
                   <input
+                    id="dataPedido"
                     type="date"
-                    id="deliveryDate"
-                    name="deliveryDate"
-                    min="2022-09-28"
+                    v-model="formData.dataPedido"
                   /><br />
-                  <label for="perido">Periodo para Entrega / Retirada:</label>
+                  <label for="periodo">Periodo para Entrega / Retirada:</label>
                   <br />
-                  <select name="perido" id="periodo">
-                    <option value="manha">Manhã (10 as 12hrs)</option>
-                    <option value="tarde">Tarde (14 as 18hrs)</option>
-                    <option value="noite">Noite (18 as 22:30hrs)</option>
+                  <select v-model="formData.periodo">
+                    <option>Manhã (10 as 12hrs)</option>
+                    <option>Tarde (14 as 18hrs)</option>
+                    <option>Noite (18 as 22:30hrs)</option>
                   </select>
                 </form>
               </div>

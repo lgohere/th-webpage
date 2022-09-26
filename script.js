@@ -5,13 +5,15 @@ new Vue({
     carrinho: [],
     totalCarrinho: [],
     finalizacao: false,
+    entrega: true,
+    retirada: true,
     formData: {
       nome: "",
       mobile: "",
       delivery: [],
-      endereco: "Rua / nº Casa ou Prédio / nº Apt.",
-      dataEntrega: "",
-      periodo: "",
+      endereco: "",
+      dataPedido: new Date(),
+      periodo: [],
     },
   },
   computed: {
@@ -20,6 +22,14 @@ new Vue({
         return "Nenhum item no carrinho";
       } else {
         return "Itens no Carrinho";
+      }
+    },
+
+    entregaOuRetirada() {
+      if (this.entrega == true) {
+        return "Endereço para Entrega:";
+      } else {
+        return "Endereço de Retirada:";
       }
     },
     totalDoCarrinho() {
