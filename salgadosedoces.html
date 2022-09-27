@@ -357,7 +357,9 @@
         <div id="listaProdutos" class="row mx-0 d-flex justify-content-center">
           <div class="col-md-12 col-lg-8">
             <div class="col-12" v-for="salgado in cardapio" :key="salgado.id">
-              <div class="row border mb-2 box-items shadow">
+              <div 
+                :class="{'row': true, 'shadow': true, 'box-items': true, 'carrinho-item-borda--adicionado': salgado.qtd > 0, 'carrinho-item-borda--normal': salgado.qtd == 0}"
+                >
                 <div
                   class="col-5 py-2 d-flex flex-column justify-content-center align-items-center"
                 >

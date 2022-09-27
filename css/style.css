@@ -2368,3 +2368,12 @@ body {
   -o-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
 }
+
+.carrinho-item-borda--normal {
+  border: solid rgba(0, 0, 0, 0.075) 1px;
+}
+
+.carrinho-item-borda--adicionado {
+  border: solid rgba(0, 0, 0, 0.075) 1px;
+  background-color: #dee6d5;
+}
