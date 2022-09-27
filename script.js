@@ -15,6 +15,7 @@ new Vue({
       dataPedido: new Date(),
       periodo: [],
     },
+    pedido: [],
   },
   computed: {
     carrinhoMessage() {
@@ -24,7 +25,6 @@ new Vue({
         return "Itens no Carrinho";
       }
     },
-
     entregaOuRetirada() {
       if (this.entrega == true) {
         return "Endereço para Entrega:";
@@ -156,6 +156,24 @@ new Vue({
 
     fecharCarrinho() {
       fecharModal();
+    },
+
+    salvarPedido() {
+      localStorage.setItem("Nome:", this.formData.nome);
+      localStorage.setItem("Celular:", this.formData.mobile);
+      localStorage.setItem("Delivery:", this.formData.delivery[0]);
+      localStorage.setItem("Endereço:", this.formData.endereco);
+      localStorage.setItem("Data solicitada:", this.formData.dataPedido);
+      localStorage.setItem("Periodo solicitado:", this.formData.periodo);
+      localStorage.setItem("Valor:", this.totalDoCarrinho);
+
+      for (i in this.carrinho) {
+        let pedir =
+          `${this.carrinho[i].name} : Quantidade: ${this.carrinho[i].qtd} / Congelado: ${this.carrinho[i].congelado}` +
+          ``;
+        this.pedido.push(pedir);
+        localStorage.setItem("Pedido:", JSON.stringify(this.pedido));
+      }
     },
   },
 });

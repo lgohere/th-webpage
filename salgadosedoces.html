@@ -214,6 +214,7 @@
                     id="nome"
                     v-model="formData.nome"
                     name="nome"
+                    required
                     placeholder="Digite aqui seu nome e sobrenome."
                   />
                   <br />
@@ -222,6 +223,7 @@
                     id="mobile"
                     type="text"
                     v-model="formData.mobile"
+                    required
                     placeholder="(DD) XXXXX-XXXX"
                     name="mobile"
                   />
@@ -242,6 +244,7 @@
                         type="checkbox"
                         id="delivery"
                         value="P/ Retirada"
+                        v-model="formData.delivery"
                         @click="entrega = !entrega"
                       />
                       <label for="retirada"> Retirar no Local</label>
@@ -283,7 +286,9 @@
               <button class="btn btn-danger" @click="voltarCarrinho">
                 Voltar
               </button>
-              <button class="btn btn-success mt-2">Finalizar Pedido</button>
+              <button @click="salvarPedido" class="btn btn-success mt-2">
+                Finalizar Pedido
+              </button>
             </div>
           </div>
         </div>
