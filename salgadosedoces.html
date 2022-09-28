@@ -152,7 +152,7 @@
                 <div class="col-4 text-center pt-3">
                   <strong>Subtotal</strong>
                   <p class="pt-2">
-                    R$ {{ item.subtotal + item.priceCongelado }},00
+                    R$ {{ item.subtotal + item.subtotalCongelado }},00
                   </p>
                   <i
                     @click="lixeiraCarrinho(item)"
@@ -529,7 +529,6 @@
     <script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom.js"></script>
-    <script src="./cardapio.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>

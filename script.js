@@ -1,7 +1,128 @@
 new Vue({
   el: "#app",
   data: {
-    cardapio: getCardapio(),
+    cardapio: [
+      {
+        id: 1,
+        name: "Coxinha de Frango",
+        image: "./images/novas-imgs/coxinha-sm.jpg",
+        price: 58.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Coxinha recheada com frango",
+        priceCongelado: 50,
+      },
+      {
+        id: 2,
+        name: "Bolinha de Queijo Tradicional",
+        image: "./images/novas-imgs/bolinha-de-queijo-sm.jpg",
+        price: 58.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Bolinha frita recheada com queijo mussarela",
+        priceCongelado: 50,
+      },
+      {
+        id: 3,
+        name: "Bolinha de Queijo c/ Alho Frito",
+        image: "./images/novas-imgs/bolinha-de-queijo-sm.jpg",
+        price: 58.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Bolinha recheada com queijo mussarela e alho frito",
+        priceCongelado: 50,
+      },
+      {
+        id: 4,
+        name: "Maravilha",
+        image: "./images/novas-imgs/maravilha-sm.jpg",
+        price: 58.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Maravilha recheada com presunto e queijo mussarela",
+        priceCongelado: 50,
+      },
+      {
+        id: 5,
+        name: "Risoles de Carne",
+        image: "./images/novas-imgs/risoles-carne-sm.jpg",
+        price: 58.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Risoles recheada com carne bovina",
+        priceCongelado: 50,
+      },
+      {
+        id: 6,
+        name: "Risoles de Carne c/ Queijo",
+        image: "./images/novas-imgs/risoles-carne-sm.jpg",
+        price: 58.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Risoles recheado com carne bovina e queijo mussarela",
+        priceCongelado: 50,
+      },
+      {
+        id: 7,
+        name: "Risoles de Calabresa",
+        image: "./images/novas-imgs/risoles-calabresa-sm.png",
+        price: 58.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Risoles recheado com calabresa",
+        priceCongelado: 50,
+      },
+      {
+        id: 8,
+        name: "Risoles de Calabresa c/ Queijo",
+        image: "./images/novas-imgs/risoles-calabresa-sm.png",
+        price: 58.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Risoles recheado com calabresa e queijo mussarela",
+        priceCongelado: 50,
+      },
+      {
+        id: 9,
+        name: "Croquete de Carne",
+        image: "./images/novas-imgs/croquete-carne-sm.jpg",
+        price: 58.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Croquete de carne bovina",
+        priceCongelado: 50,
+      },
+      {
+        id: 10,
+        name: "Croquete de Frango",
+        image: "./images/novas-imgs/croquete-frango-sm.png",
+        price: 58.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Croquete de frango",
+        priceCongelado: 50,
+      },
+    ],
     carrinho: [],
     totalCarrinho: [],
     finalizacao: false,
@@ -35,7 +156,7 @@ new Vue({
     totalDoCarrinho() {
       let total = 0;
       this.carrinho.forEach((item) => {
-        total += item.subtotal + item.priceCongelado;
+        total += item.subtotal + item.subtotalCongelado;
       });
       if (this.formData.delivery[0] == "P/ Entrega") {
         total += 20;
@@ -56,7 +177,6 @@ new Vue({
       // nao encontrou
       if (!salgadoDoCarrinho) {
         salgadoDoCarrinho = salgado;
-        salgadoDoCarrinho.qtd = 0;
         this.carrinho.push(salgadoDoCarrinho);
         abrirModal();
       }
@@ -67,8 +187,9 @@ new Vue({
       abrirModal();
 
       // gamby para atualizar o carrinho!
-      this.carrinho.push(10);
-      this.carrinho.pop();
+      // this.carrinho.push(10);
+      // this.carrinho.pop();
+      this.salvarPedido()
     },
 
     somaQtd(salgado, qtd) {
@@ -80,8 +201,8 @@ new Vue({
       salgadoNoCarrinho.qtd += 1;
       salgadoNoCarrinho.subtotal =
         salgadoNoCarrinho.qtd * salgadoNoCarrinho.price;
-      this.carrinho.push(10);
-      this.carrinho.pop();
+      // this.carrinho.push(10);
+      // this.carrinho.pop();
     },
 
     subtraiQtd(salgado, qtd) {
@@ -95,8 +216,8 @@ new Vue({
         salgadoNoCarrinho.qtd -= 1;
         salgadoNoCarrinho.subtotal =
           salgadoNoCarrinho.qtd * salgadoNoCarrinho.price;
-        this.carrinho.push(10);
-        this.carrinho.pop();
+        // this.carrinho.push(10);
+        // this.carrinho.pop();
       }
 
       if (salgadoNoCarrinho.qtd == 0 && salgadoNoCarrinho.congelado == 0) {
@@ -109,13 +230,15 @@ new Vue({
 
     somaQtdCongelado(salgado, qtd) {
       // find do salgado
+      console.log('salgado', salgado)
       let congeladoNoCarrinho = this.carrinho.find(
         (item) => salgado.id == item.id
       );
-      if (congeladoNoCarrinho.qtd >= 0) {
-        congeladoNoCarrinho.congelado += 1;
-        congeladoNoCarrinho.priceCongelado = 50 * congeladoNoCarrinho.congelado;
-      }
+      console.log('congeladoNoCarrinho', congeladoNoCarrinho)
+      congeladoNoCarrinho.congelado += 1;
+      congeladoNoCarrinho.subtotalCongelado = congeladoNoCarrinho.priceCongelado * congeladoNoCarrinho.congelado;
+      // if (congeladoNoCarrinho.qtd >= 0) {
+      // }
     },
 
     subtraiQtdCongelado(salgado, qtd) {
@@ -125,7 +248,7 @@ new Vue({
       );
       if (congeladoNoCarrinho.congelado >= 1) {
         congeladoNoCarrinho.congelado -= 1;
-        congeladoNoCarrinho.priceCongelado = 50 * congeladoNoCarrinho.congelado;
+        congeladoNoCarrinho.subtotalCongelado = congeladoNoCarrinho.priceCongelado * congeladoNoCarrinho.congelado;
       }
 
       if (congeladoNoCarrinho.qtd == 0 && congeladoNoCarrinho.congelado == 0) {
@@ -159,23 +282,37 @@ new Vue({
     },
 
     salvarPedido() {
-      localStorage.setItem("Nome:", this.formData.nome);
-      localStorage.setItem("Celular:", this.formData.mobile);
-      localStorage.setItem("Delivery:", this.formData.delivery[0]);
-      localStorage.setItem("Endereço:", this.formData.endereco);
-      localStorage.setItem("Data solicitada:", this.formData.dataPedido);
-      localStorage.setItem("Periodo solicitado:", this.formData.periodo);
-      localStorage.setItem("Valor:", this.totalDoCarrinho);
-
-      for (i in this.carrinho) {
-        let pedir =
-          `${this.carrinho[i].name} : Quantidade: ${this.carrinho[i].qtd} / Congelado: ${this.carrinho[i].congelado}` +
-          ``;
-        this.pedido.push(pedir);
-        localStorage.setItem("Pedido:", JSON.stringify(this.pedido));
+      const data = {
+        form:this.formData,
+        carrinho: this.carrinho,
       }
+      localStorage.setItem("data-user", JSON.stringify(data))
     },
+    carregarPedido() {
+      let data = localStorage.getItem("data-user")
+      if (data) {
+        console.log('achei dados para restaurar...')
+        data = JSON.parse(data)
+        console.log(data)
+        this.formData = data.form
+        //this.carrinho = data.carrinho
+        for (let salgadoSalvo of data.carrinho) {
+          let salgadoDoCardapio = this.cardapio.find(
+            (item) => item.id == salgadoSalvo.id
+          );
+          salgadoDoCardapio.qtd = salgadoSalvo.qtd
+          salgadoDoCardapio.congelado = salgadoSalvo.congelado
+          salgadoDoCardapio.subtotal = salgadoSalvo.price * salgadoSalvo.qtd;
+          salgadoDoCardapio.subtotalCongelado = salgadoSalvo.priceCongelado * salgadoSalvo.congelado;
+          this.carrinho.push(salgadoDoCardapio)
+        }
+
+      }
+    }
   },
+  mounted() {
+    this.carregarPedido()
+  }
 });
 
 const seleciona = (elemento) => document.querySelector(elemento);
