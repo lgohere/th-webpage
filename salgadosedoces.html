@@ -134,9 +134,9 @@
                   <div
                     class="col-12 d-inline-flex align-items-center justify-content-center"
                   >
-                    <button @click="subtraiQtd(item)">-</button>
+                    <button @click="alteraQtd(item, -1)">-</button>
                     <h3 class="mx-3">{{ item.qtd }}</h3>
-                    <button @click="somaQtd(item)">+</button>
+                    <button @click="alteraQtd(item, +1)">+</button>
                   </div>
                   <p>(Pronto)</p>
                   <div

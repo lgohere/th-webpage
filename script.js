@@ -192,33 +192,15 @@ new Vue({
       this.salvarPedido()
     },
 
-    somaQtd(salgado, qtd) {
+    alteraQtd(salgado, qtd) {
       // find do salgado
       let salgadoNoCarrinho = this.carrinho.find(
         (item) => salgado.id == item.id
       );
-      salgadoNoCarrinho = salgado;
-      salgadoNoCarrinho.qtd += 1;
+
+      salgadoNoCarrinho.qtd += qtd
       salgadoNoCarrinho.subtotal =
-        salgadoNoCarrinho.qtd * salgadoNoCarrinho.price;
-      // this.carrinho.push(10);
-      // this.carrinho.pop();
-    },
-
-    subtraiQtd(salgado, qtd) {
-      // find do salgado
-      let salgadoNoCarrinho = this.carrinho.find(
-        (item) => salgado.id == item.id
-      );
-
-      if (salgadoNoCarrinho.qtd > 0) {
-        salgadoNoCarrinho.qtd = salgado.qtd;
-        salgadoNoCarrinho.qtd -= 1;
-        salgadoNoCarrinho.subtotal =
-          salgadoNoCarrinho.qtd * salgadoNoCarrinho.price;
-        // this.carrinho.push(10);
-        // this.carrinho.pop();
-      }
+      salgadoNoCarrinho.qtd * salgadoNoCarrinho.price;
 
       if (salgadoNoCarrinho.qtd == 0 && salgadoNoCarrinho.congelado == 0) {
         const index = this.carrinho.indexOf(salgadoNoCarrinho);
