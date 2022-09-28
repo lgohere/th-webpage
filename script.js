@@ -187,6 +187,7 @@ new Vue({
       // gamby para atualizar o carrinho!
       // this.carrinho.push(10);
       // this.carrinho.pop();
+      this.dadosPadrao();
       this.salvarPedido();
     },
 
@@ -210,6 +211,7 @@ new Vue({
           this.carrinho.splice(index, 1);
         }
       }
+      this.dadosPadrao();
       this.salvarPedido();
     },
 
@@ -244,6 +246,7 @@ new Vue({
           this.carrinho.splice(index, 1);
         }
       }
+      this.dadosPadrao();
       this.salvarPedido();
     },
 
@@ -258,24 +261,37 @@ new Vue({
       if (index > -1) {
         this.carrinho.splice(index, 1);
       }
+      this.dadosPadrao();
       this.salvarPedido();
+    },
+
+    dadosPadrao() {
+      this.retirada = true;
+      this.entrega = true;
     },
 
     voltarCarrinho() {
       this.finalizacao = false;
       this.formData.delivery = [];
       this.totalCarrinho = this.totalCarrinho;
-      this.retirada = true;
-      this.entrega = true;
+      this.dadosPadrao();
       this.salvarPedido();
     },
 
     fecharCarrinho() {
+      this.dadosPadrao();
       fecharModal();
+      this.formData.delivery = [];
       this.salvarPedido();
     },
 
+    confirmarPedido() {
+      this.dadosPadrao();
+      this.finalizacao = true;
+    },
+
     finalizarPedido() {
+      this.dadosPadrao();
       this.salvarPedido();
       this.enviarMensagem();
     },
@@ -287,6 +303,7 @@ new Vue({
       localStorage.setItem("data-user", JSON.stringify(data));
     },
     carregarPedido() {
+      this.dadosPadrao();
       let data = localStorage.getItem("data-user");
       if (data) {
         console.log("achei dados para restaurar...");
