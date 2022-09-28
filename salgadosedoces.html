@@ -46,7 +46,11 @@
                 style="filter: drop-shadow(1px 1.5px 0.3px #b49fccff)"
               />
             </a>
-            <div class="cart" id="modalCarrinhoBtn">
+            <div
+              class="cart"
+              id="modalCarrinhoBtn"
+              @click="finalizacao = false"
+            >
               <i class="bi bi-cart2"></i>
               <div class="cartAmount">
                 <p id="carrinhoBtnQtd">{{ carrinho.length }}</p>
@@ -94,7 +98,7 @@
 
       <!-- Modal Carrinho -->
       <!-- The Modal -->
-      <div id="modalCarrinho" class="modal">
+      <div id="modalCarrinho" @click="!finalizacao" class="modal">
         <!-- Modal content -->
         <div class="modal-content" v-if="!finalizacao">
           <div class="row">
@@ -228,7 +232,7 @@
                     name="mobile"
                   />
                   <br />
-                  <div class="checkboxForm">
+                  <div :class="{'checkboxForm' : true, 'retirada': !entrega}">
                     <div v-if="entrega">
                       <input
                         type="checkbox"
@@ -357,9 +361,10 @@
         <div id="listaProdutos" class="row mx-0 d-flex justify-content-center">
           <div class="col-md-12 col-lg-8">
             <div class="col-12" v-for="salgado in cardapio" :key="salgado.id">
-              <div 
-                :class="{'row': true, 'shadow': true, 'box-items': true, 'carrinho-item-borda--adicionado': salgado.qtd > 0, 'carrinho-item-borda--normal': salgado.qtd == 0}"
-                >
+              <div
+                :class="{'row': true, 'shadow': true, 'box-items': true, 'carrinho-item-borda--adicionado': salgado.qtd > 0 || salgado.congelado > 0, 
+                '!carrinho-item-borda--adicionado': salgado.qtd == 0 && salgado.congelado == 0 }"
+              >
                 <div
                   class="col-5 py-2 d-flex flex-column justify-content-center align-items-center"
                 >

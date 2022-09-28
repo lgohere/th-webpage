@@ -4,7 +4,7 @@ new Vue({
     cardapio: [
       {
         id: 1,
-        name: "Coxinha de Frango",
+        name: "Coxinha de Frango (cento)",
         image: "./images/novas-imgs/coxinha-sm.jpg",
         price: 58.0,
         qtd: 0,
@@ -16,7 +16,7 @@ new Vue({
       },
       {
         id: 2,
-        name: "Bolinha de Queijo Tradicional",
+        name: "Bolinha de Queijo Tradicional (cento)",
         image: "./images/novas-imgs/bolinha-de-queijo-sm.jpg",
         price: 58.0,
         qtd: 0,
@@ -28,7 +28,7 @@ new Vue({
       },
       {
         id: 3,
-        name: "Bolinha de Queijo c/ Alho Frito",
+        name: "Bolinha de Queijo c/ Alho Frito (cento)",
         image: "./images/novas-imgs/bolinha-de-queijo-sm.jpg",
         price: 58.0,
         qtd: 0,
@@ -40,8 +40,8 @@ new Vue({
       },
       {
         id: 4,
-        name: "Maravilha",
-        image: "./images/novas-imgs/maravilha-sm.jpg",
+        name: "Maravilha (cento)",
+        image: "./images/novas-imgs/maravilha-sm.jpg ",
         price: 58.0,
         qtd: 0,
         congelado: 0,
@@ -52,7 +52,7 @@ new Vue({
       },
       {
         id: 5,
-        name: "Risoles de Carne",
+        name: "Risoles de Carne (cento)",
         image: "./images/novas-imgs/risoles-carne-sm.jpg",
         price: 58.0,
         qtd: 0,
@@ -64,7 +64,7 @@ new Vue({
       },
       {
         id: 6,
-        name: "Risoles de Carne c/ Queijo",
+        name: "Risoles de Carne c/ Queijo (cento)",
         image: "./images/novas-imgs/risoles-carne-sm.jpg",
         price: 58.0,
         qtd: 0,
@@ -76,7 +76,7 @@ new Vue({
       },
       {
         id: 7,
-        name: "Risoles de Calabresa",
+        name: "Risoles de Calabresa (cento)",
         image: "./images/novas-imgs/risoles-calabresa-sm.png",
         price: 58.0,
         qtd: 0,
@@ -88,7 +88,7 @@ new Vue({
       },
       {
         id: 8,
-        name: "Risoles de Calabresa c/ Queijo",
+        name: "Risoles de Calabresa c/ Queijo (cento)",
         image: "./images/novas-imgs/risoles-calabresa-sm.png",
         price: 58.0,
         qtd: 0,
@@ -100,7 +100,7 @@ new Vue({
       },
       {
         id: 9,
-        name: "Croquete de Carne",
+        name: "Croquete de Carne (cento)",
         image: "./images/novas-imgs/croquete-carne-sm.jpg",
         price: 58.0,
         qtd: 0,
@@ -112,7 +112,7 @@ new Vue({
       },
       {
         id: 10,
-        name: "Croquete de Frango",
+        name: "Croquete de Frango (cento)",
         image: "./images/novas-imgs/croquete-frango-sm.png",
         price: 58.0,
         qtd: 0,
@@ -150,7 +150,7 @@ new Vue({
       if (this.entrega == true) {
         return "Endereço para Entrega:";
       } else {
-        return "Endereço de Retirada:";
+        return "Endereço para Retirada:";
       }
     },
     totalDoCarrinho() {
@@ -167,9 +167,7 @@ new Vue({
 
   methods: {
     adicionarAoCarrinho(salgado) {
-      // procurar se ja tem no carrinho
-      // se tiver no carrinho, somo qtd
-      // senao faco push no carrinho
+      this.finalizacao = false;
       let salgadoDoCarrinho = this.carrinho.find(
         (item) => salgado.id == item.id
       );
@@ -189,7 +187,7 @@ new Vue({
       // gamby para atualizar o carrinho!
       // this.carrinho.push(10);
       // this.carrinho.pop();
-      this.salvarPedido()
+      this.salvarPedido();
     },
 
     alteraQtd(salgado, qtd) {
@@ -198,9 +196,13 @@ new Vue({
         (item) => salgado.id == item.id
       );
 
-      salgadoNoCarrinho.qtd += qtd
-      salgadoNoCarrinho.subtotal =
-      salgadoNoCarrinho.qtd * salgadoNoCarrinho.price;
+      if (salgadoNoCarrinho.qtd == 0) {
+        salgadoNoCarrinho.qtd = 0;
+      } else {
+        salgadoNoCarrinho.qtd += qtd;
+        salgadoNoCarrinho.subtotal =
+          salgadoNoCarrinho.qtd * salgadoNoCarrinho.price;
+      }
 
       if (salgadoNoCarrinho.qtd == 0 && salgadoNoCarrinho.congelado == 0) {
         const index = this.carrinho.indexOf(salgadoNoCarrinho);
@@ -208,19 +210,20 @@ new Vue({
           this.carrinho.splice(index, 1);
         }
       }
+      this.salvarPedido();
     },
 
     somaQtdCongelado(salgado, qtd) {
       // find do salgado
-      console.log('salgado', salgado)
+      console.log("salgado", salgado);
       let congeladoNoCarrinho = this.carrinho.find(
         (item) => salgado.id == item.id
       );
-      console.log('congeladoNoCarrinho', congeladoNoCarrinho)
+      console.log("congeladoNoCarrinho", congeladoNoCarrinho);
       congeladoNoCarrinho.congelado += 1;
-      congeladoNoCarrinho.subtotalCongelado = congeladoNoCarrinho.priceCongelado * congeladoNoCarrinho.congelado;
-      // if (congeladoNoCarrinho.qtd >= 0) {
-      // }
+      congeladoNoCarrinho.subtotalCongelado =
+        congeladoNoCarrinho.priceCongelado * congeladoNoCarrinho.congelado;
+      this.salvarPedido();
     },
 
     subtraiQtdCongelado(salgado, qtd) {
@@ -230,8 +233,10 @@ new Vue({
       );
       if (congeladoNoCarrinho.congelado >= 1) {
         congeladoNoCarrinho.congelado -= 1;
-        congeladoNoCarrinho.subtotalCongelado = congeladoNoCarrinho.priceCongelado * congeladoNoCarrinho.congelado;
+        congeladoNoCarrinho.subtotalCongelado =
+          congeladoNoCarrinho.priceCongelado * congeladoNoCarrinho.congelado;
       }
+      this.salvarPedido();
 
       if (congeladoNoCarrinho.qtd == 0 && congeladoNoCarrinho.congelado == 0) {
         const index = this.carrinho.indexOf(congeladoNoCarrinho);
@@ -239,6 +244,7 @@ new Vue({
           this.carrinho.splice(index, 1);
         }
       }
+      this.salvarPedido();
     },
 
     lixeiraCarrinho(salgado) {
@@ -246,67 +252,85 @@ new Vue({
         (item) => salgado.id == item.id
       );
       salgadoNoCarrinho = salgado;
+      salgadoNoCarrinho.qtd = 0;
+      salgadoNoCarrinho.congelado = 0;
       const index = this.carrinho.indexOf(salgadoNoCarrinho);
       if (index > -1) {
         this.carrinho.splice(index, 1);
       }
-      salgadoNoCarrinho.congelado = 0;
-      salgadoNoCarrinho.priceCongelado = 0;
+      this.salvarPedido();
     },
 
     voltarCarrinho() {
-      this.finalizacao = !this.finalizacao;
+      this.finalizacao = false;
       this.formData.delivery = [];
+      this.totalCarrinho = this.totalCarrinho;
+      this.retirada = true;
+      this.entrega = true;
+      this.salvarPedido();
     },
 
     fecharCarrinho() {
       fecharModal();
+      this.salvarPedido();
     },
 
     finalizarPedido() {
-      this.salvarPedido()
-      this.enviarMensagem()
+      this.salvarPedido();
+      this.enviarMensagem();
     },
     salvarPedido() {
       const data = {
-        form:this.formData,
+        form: this.formData,
         carrinho: this.carrinho,
-      }
-      localStorage.setItem("data-user", JSON.stringify(data))
+      };
+      localStorage.setItem("data-user", JSON.stringify(data));
     },
     carregarPedido() {
-      let data = localStorage.getItem("data-user")
+      let data = localStorage.getItem("data-user");
       if (data) {
-        console.log('achei dados para restaurar...')
-        data = JSON.parse(data)
-        console.log(data)
-        this.formData = data.form
+        console.log("achei dados para restaurar...");
+        data = JSON.parse(data);
+        console.log(data);
+        this.formData = data.form;
         //this.carrinho = data.carrinho
         for (let salgadoSalvo of data.carrinho) {
           let salgadoDoCardapio = this.cardapio.find(
             (item) => item.id == salgadoSalvo.id
           );
-          salgadoDoCardapio.qtd = salgadoSalvo.qtd
-          salgadoDoCardapio.congelado = salgadoSalvo.congelado
+          salgadoDoCardapio.qtd = salgadoSalvo.qtd;
+          salgadoDoCardapio.congelado = salgadoSalvo.congelado;
           salgadoDoCardapio.subtotal = salgadoSalvo.price * salgadoSalvo.qtd;
-          salgadoDoCardapio.subtotalCongelado = salgadoSalvo.priceCongelado * salgadoSalvo.congelado;
-          this.carrinho.push(salgadoDoCardapio)
+          salgadoDoCardapio.subtotalCongelado =
+            salgadoSalvo.priceCongelado * salgadoSalvo.congelado;
+          this.carrinho.push(salgadoDoCardapio);
         }
-
       }
     },
+
     enviarMensagem() {
-      let msg = '*Pedido*:%0a'
+      let msg = "*MTH Pedidos*:%0a";
+      msg += `Cliente: *${this.formData.nome}*, solicitou:%0a%0a`;
       for (item of this.carrinho) {
-        msg += `${item.name} (pronto: ${item.qtd}, congelado:${item.congelado})%0a`
+        msg += `*${item.name}* (Pronto: *${item.qtd}*/ Congelado: *${item.congelado})*%0a`;
       }
-      msg += `%0a*Entrega*:%0a${this.formData.nome}`
-      window.location.href = `https://wa.me/5513981942956?text=${msg}`
-    }
+      msg += `%0a*Encomenda*: ${this.formData.delivery}%0a`;
+
+      if (this.formData.delivery[0] == "P/ Entrega") {
+        msg += `*Endereço*: ${this.formData.endereco}%0a`;
+        msg += `*Data para Entrega*: ${this.formData.dataPedido}%0a`;
+        msg += `*Periodo*: ${this.formData.periodo}%0a`;
+      } else {
+        msg += `*Data para Retirada*: ${this.formData.dataPedido}%0a`;
+        msg += `*Periodo*: ${this.formData.periodo}%0a`;
+      }
+
+      window.location.href = `https://wa.me/5513981942956?text=${msg}`;
+    },
   },
   mounted() {
-    this.carregarPedido()
-  }
+    this.carregarPedido();
+  },
 });
 
 const seleciona = (elemento) => document.querySelector(elemento);
@@ -337,61 +361,3 @@ window.onclick = function (event) {
 
 seleciona("#modalCarrinhoBtn").addEventListener("click", abrirModal);
 seleciona(".closeModalCarrinho").addEventListener("click", fecharModal);
-
-/*
------------- Tasks - MTH Bolos e Salgados ----------------
-
-1 - acrescentar valor "pronto" ou "congelado" ao item adicionado ao carrinho.
-2-  distinguir quantidade de prontos e de congelados (caso haja 2 tipos para um único item)
-
-1 - ativar botoes de + e - para quantidade do item no carrinho
-2 - multiplicar quantidade do item por preço do item e gerar subtotal.
-3 - somar subtotais dos items no carrinho e gerar valor total.
-
-1 - ativar botão da lixeira (remover) do item no carrinho.
-2 - subtrair o valor removido do valor total do carrinho.
-
-1 - criar botão 'finalizar pedido' abaixo do valor total.
-2 - ao clicar em 'finalizar pedido' -> 
-inicia-se a seção adicionar dados com:
-#INPUTS:
-- 'nome', 
-- 'email',
-- 'endereço para entrega',
-- data e horario DESEJADO (a confirmar por whatsapp). 
-- 'celular para contato'.
-
-#BUTTONS:
-- [Voltar] ->
-- Volta para a seção de items no carrinho.
-
-[Proximo]
-* requisito para proximo = preencher todos os campos.
-
-
-#FOOTER-REMINDER:
-- forma de pagamento (pix).
-- tempo minimo de entrega para quantidades 'x' de pedido.
-
-
-1 - após preencher todos os dados -> proximo: 
-aparece: 
-- o pedido completo em formato de ul li c/ todos os valores e items.
-- os dados do consumidor e da entrega.
-
-#BUTTONS:
-[Confirmar Pedido] -> 
-- MENSAGEM: Obrigado por escolher a MTH! 
-            Você está sendo encaminhado para o nosso whatsapp.
-- O pedido é enviado ao cliente que confirma o recebimento.
-- Avalia a disponibilidade da data e horarios DESEJADOS.
-- Aguarda envio do comprovante de pegamento PIX e prossegue com encomenda.
-
-[Editar] -> 
-- Volta para a seção anterior de preenchimento dos dados.
-
-[Cancelar] ->
-- Pergunta se tem certeza que gostaria de cancelar o pedido?
-  Sub-BUTTONS: [SIM] [NÃO]
-
-*/

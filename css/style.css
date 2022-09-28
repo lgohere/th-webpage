@@ -154,9 +154,6 @@ button:focus {
   opacity: 1;
 }
 
-.testimunhos {
-}
-
 /*------------------------------------------------------------------
     LOADER 
 -------------------------------------------------------------------*/
@@ -1073,6 +1070,14 @@ label {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: baseline;
+}
+
+.retirada {
+  margin-top: 9px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-control {
@@ -2374,6 +2379,7 @@ body {
 }
 
 .carrinho-item-borda--adicionado {
-  border: solid rgba(0, 0, 0, 0.075) 1px;
-  background-color: #dee6d5;
+  border: solid #82ff3a9e 1px;
+  background-color: #00ff1d0d;
+  filter: drop-shadow(1px 1px 5px #82ff3a9e);
 }
