@@ -291,7 +291,6 @@ new Vue({
     },
 
     finalizarPedido() {
-      this.dadosPadrao();
       this.salvarPedido();
       this.enviarMensagem();
     },
@@ -326,10 +325,10 @@ new Vue({
     },
 
     enviarMensagem() {
-      let msg = "*MTH Pedidos*:%0a";
+      let msg = `*MTH / Web Pedidos*:%0a`;
       msg += `Cliente: *${this.formData.nome}*, solicitou:%0a%0a`;
       for (item of this.carrinho) {
-        msg += `*${item.name}* (Pronto: *${item.qtd}*/ Congelado: *${item.congelado})*%0a`;
+        msg += `_*${item.name}* (Pronto: *${item.qtd}*/ Congelado: *${item.congelado})_*%0a`;
       }
       msg += `%0a*Encomenda*: ${this.formData.delivery}%0a`;
 
@@ -341,6 +340,8 @@ new Vue({
         msg += `*Data para Retirada*: ${this.formData.dataPedido}%0a`;
         msg += `*Periodo*: ${this.formData.periodo}%0a`;
       }
+
+      msg += `%0a*Total*: R$${this.totalDoCarrinho},00%0a_(Pagamento PIX a confirmar)_`;
 
       window.location.href = `https://wa.me/5513981942956?text=${msg}`;
     },
