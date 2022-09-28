@@ -263,6 +263,10 @@ new Vue({
       fecharModal();
     },
 
+    finalizarPedido() {
+      this.salvarPedido()
+      this.enviarMensagem()
+    },
     salvarPedido() {
       const data = {
         form:this.formData,
@@ -290,6 +294,14 @@ new Vue({
         }
 
       }
+    },
+    enviarMensagem() {
+      let msg = '*Pedido*:%0a'
+      for (item of this.carrinho) {
+        msg += `${item.name} (pronto: ${item.qtd}, congelado:${item.congelado})%0a`
+      }
+      msg += `%0a*Entrega*:%0a${this.formData.nome}`
+      window.location.href = `https://wa.me/5513981942956?text=${msg}`
     }
   },
   mounted() {
