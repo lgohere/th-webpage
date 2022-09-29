@@ -517,16 +517,23 @@ new Vue({
         data = JSON.parse(data);
         console.log(data);
         this.formData = data.form;
-        //this.carrinho = data.carrinho
         for (let salgadoSalvo of data.carrinho) {
           let salgadoDoCardapio = this.cardapio.find(
             (item) => item.id == salgadoSalvo.id
           );
           salgadoDoCardapio.qtd = salgadoSalvo.qtd;
           salgadoDoCardapio.congelado = salgadoSalvo.congelado;
+          salgadoDoCardapio.meioCento = salgadoSalvo.meioCento;
+          salgadoDoCardapio.meioCentoCongelado =
+            salgadoSalvo.meioCentoCongelado;
           salgadoDoCardapio.subtotal = salgadoSalvo.price * salgadoSalvo.qtd;
           salgadoDoCardapio.subtotalCongelado =
             salgadoSalvo.priceCongelado * salgadoSalvo.congelado;
+          salgadoDoCardapio.subtotalMeioCento =
+            salgadoSalvo.priceMeioCento * salgadoSalvo.meioCento;
+          salgadoDoCardapio.subtotalMeioCentoCongelado =
+            salgadoSalvo.priceMeioCentoCongelado *
+            salgadoSalvo.meioCentoCongelado;
           this.carrinho.push(salgadoDoCardapio);
         }
       }
@@ -536,20 +543,27 @@ new Vue({
       let msg = `*MTH / Web Pedidos*:%0a`;
       msg += `Cliente: *${this.formData.nome}*, solicitou:%0a%0a`;
       for (item of this.carrinho) {
+        msg += "*```CENTO```:* %0a";
         msg += `_*${item.name}* (Pronto: *${item.qtd}*/ Congelado: *${item.congelado})_*%0a`;
       }
-      msg += `%0a*Encomenda*: ${this.formData.delivery}%0a`;
+      for (item of this.carrinho) {
+        if (item.meioCento > 0 || item.meioCentoCongelado > 0) {
+          msg += "*```MEIO CENTO```:* %0a";
+          msg += `_*${item.name}* (Pronto: *${item.meioCento}*/ Congelado: *${item.meioCentoCongelado})_*%0a`;
+        }
+      }
 
+      msg += `%0a*Encomenda*: ${this.formData.delivery}%0a`;
       if (this.formData.delivery[0] == "P/ Entrega") {
         msg += `*Endereço*: ${this.formData.endereco}%0a`;
         msg += `*Data para Entrega*: ${this.formData.dataPedido}%0a`;
         msg += `*Periodo*: ${this.formData.periodo}%0a`;
       } else {
+        msg += `*Endereço*: Rua Pastor Alberto Augusto 126, Santa Maria, Santos - SP %0a`;
         msg += `*Data para Retirada*: ${this.formData.dataPedido}%0a`;
         msg += `*Periodo*: ${this.formData.periodo}%0a`;
       }
-
-      msg += `%0a*Total*: R$${this.totalDoCarrinho},00%0a_(Pagamento PIX a confirmar)_ `;
+      msg += `%0a*Total*: R$${this.totalDoCarrinho},00 %0a _(Pagamento PIX a confirmar)_ `;
 
       window.location.href = `https://wa.me/5513981942956?text=${msg}`;
     },
