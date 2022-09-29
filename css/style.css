@@ -383,6 +383,59 @@ button:focus {
   border-color: #b49fccff;
 }
 
+.btnCentoMeioCento {
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 2px solid #a0cc9f;
+  border-radius: 7px;
+  padding: 5px 0.5rem;
+  font-size: 15px;
+  line-height: 1.5;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 8rem;
+}
+
+.btnCento {
+  border: solid #48c5009e 1px;
+  background-color: #ffffffc9;
+  filter: drop-shadow(2px 1px 4px #82ff3a9e);
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 7px;
+  padding: 5px 0.5rem;
+  font-size: 15px;
+  line-height: 1.5;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 8rem;
+}
+
+#centoOption {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.btn-cento {
+  width: 7rem;
+}
+
 .btn-total {
   display: flex;
   justify-content: center;

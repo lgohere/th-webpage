@@ -4,10 +4,16 @@ new Vue({
     cardapio: [
       {
         id: 1,
-        name: "Coxinha de Frango (cento)",
+        name: "Coxinha de Frango",
         image: "./images/novas-imgs/coxinha-sm.jpg",
         price: 58.0,
         qtd: 0,
+        meioCento: 0,
+        priceMeioCento: 29,
+        priceMeioCentoCongelado: 25,
+        meioCentoCongelado: 0,
+        subtotalMeioCento: 0,
+        subtotalMeioCentoCongelado: 0,
         congelado: 0,
         subtotalCongelado: 0,
         subtotal: 0,
@@ -16,10 +22,16 @@ new Vue({
       },
       {
         id: 2,
-        name: "Bolinha de Queijo Tradicional (cento)",
+        name: "Bolinha de Queijo Tradicional",
         image: "./images/novas-imgs/bolinha-de-queijo-sm.jpg",
         price: 58.0,
         qtd: 0,
+        meioCento: 0,
+        priceMeioCento: 29,
+        priceMeioCentoCongelado: 25,
+        meioCentoCongelado: 0,
+        subtotalMeioCento: 0,
+        subtotalMeioCentoCongelado: 0,
         congelado: 0,
         subtotalCongelado: 0,
         subtotal: 0,
@@ -28,10 +40,16 @@ new Vue({
       },
       {
         id: 3,
-        name: "Bolinha de Queijo c/ Alho Frito (cento)",
+        name: "Bolinha de Queijo c/ Alho Frito",
         image: "./images/novas-imgs/bolinha-de-queijo-sm.jpg",
         price: 58.0,
         qtd: 0,
+        meioCento: 0,
+        priceMeioCento: 29,
+        priceMeioCentoCongelado: 25,
+        meioCentoCongelado: 0,
+        subtotalMeioCento: 0,
+        subtotalMeioCentoCongelado: 0,
         congelado: 0,
         subtotalCongelado: 0,
         subtotal: 0,
@@ -40,10 +58,16 @@ new Vue({
       },
       {
         id: 4,
-        name: "Maravilha (cento)",
+        name: "Maravilha",
         image: "./images/novas-imgs/maravilha-sm.jpg ",
         price: 58.0,
         qtd: 0,
+        meioCento: 0,
+        priceMeioCento: 29,
+        priceMeioCentoCongelado: 25,
+        meioCentoCongelado: 0,
+        subtotalMeioCento: 0,
+        subtotalMeioCentoCongelado: 0,
         congelado: 0,
         subtotalCongelado: 0,
         subtotal: 0,
@@ -52,10 +76,16 @@ new Vue({
       },
       {
         id: 5,
-        name: "Risoles de Carne (cento)",
+        name: "Risoles de Carne",
         image: "./images/novas-imgs/risoles-carne-sm.jpg",
         price: 58.0,
         qtd: 0,
+        meioCento: 0,
+        priceMeioCento: 29,
+        priceMeioCentoCongelado: 25,
+        meioCentoCongelado: 0,
+        subtotalMeioCento: 0,
+        subtotalMeioCentoCongelado: 0,
         congelado: 0,
         subtotalCongelado: 0,
         subtotal: 0,
@@ -64,10 +94,16 @@ new Vue({
       },
       {
         id: 6,
-        name: "Risoles de Carne c/ Queijo (cento)",
+        name: "Risoles de Carne c/ Queijo",
         image: "./images/novas-imgs/risoles-carne-sm.jpg",
         price: 58.0,
         qtd: 0,
+        meioCento: 0,
+        priceMeioCento: 29,
+        priceMeioCentoCongelado: 25,
+        meioCentoCongelado: 0,
+        subtotalMeioCento: 0,
+        subtotalMeioCentoCongelado: 0,
         congelado: 0,
         subtotalCongelado: 0,
         subtotal: 0,
@@ -76,10 +112,16 @@ new Vue({
       },
       {
         id: 7,
-        name: "Risoles de Calabresa (cento)",
+        name: "Risoles de Calabresa",
         image: "./images/novas-imgs/risoles-calabresa-sm.png",
         price: 58.0,
         qtd: 0,
+        meioCento: 0,
+        priceMeioCento: 29,
+        priceMeioCentoCongelado: 25,
+        meioCentoCongelado: 0,
+        subtotalMeioCento: 0,
+        subtotalMeioCentoCongelado: 0,
         congelado: 0,
         subtotalCongelado: 0,
         subtotal: 0,
@@ -88,10 +130,16 @@ new Vue({
       },
       {
         id: 8,
-        name: "Risoles de Calabresa c/ Queijo (cento)",
+        name: "Risoles de Calabresa c/ Queijo",
         image: "./images/novas-imgs/risoles-calabresa-sm.png",
         price: 58.0,
         qtd: 0,
+        meioCento: 0,
+        priceMeioCento: 29,
+        priceMeioCentoCongelado: 25,
+        meioCentoCongelado: 0,
+        subtotalMeioCento: 0,
+        subtotalMeioCentoCongelado: 0,
         congelado: 0,
         subtotalCongelado: 0,
         subtotal: 0,
@@ -100,10 +148,16 @@ new Vue({
       },
       {
         id: 9,
-        name: "Croquete de Carne (cento)",
+        name: "Croquete de Carne",
         image: "./images/novas-imgs/croquete-carne-sm.jpg",
         price: 58.0,
         qtd: 0,
+        meioCento: 0,
+        priceMeioCento: 29,
+        priceMeioCentoCongelado: 25,
+        meioCentoCongelado: 0,
+        subtotalMeioCento: 0,
+        subtotalMeioCentoCongelado: 0,
         congelado: 0,
         subtotalCongelado: 0,
         subtotal: 0,
@@ -112,10 +166,16 @@ new Vue({
       },
       {
         id: 10,
-        name: "Croquete de Frango (cento)",
+        name: "Croquete de Frango",
         image: "./images/novas-imgs/croquete-frango-sm.png",
         price: 58.0,
         qtd: 0,
+        meioCento: 0,
+        priceMeioCento: 29,
+        priceMeioCentoCongelado: 25,
+        meioCentoCongelado: 0,
+        subtotalMeioCento: 0,
+        subtotalMeioCentoCongelado: 0,
         congelado: 0,
         subtotalCongelado: 0,
         subtotal: 0,
@@ -137,6 +197,7 @@ new Vue({
       periodo: [],
     },
     pedido: [],
+    ativarMeioCento: false,
   },
   computed: {
     carrinhoMessage() {
@@ -156,7 +217,11 @@ new Vue({
     totalDoCarrinho() {
       let total = 0;
       this.carrinho.forEach((item) => {
-        total += item.subtotal + item.subtotalCongelado;
+        total +=
+          item.subtotal +
+          item.subtotalCongelado +
+          item.subtotalMeioCento +
+          item.subtotalMeioCentoCongelado;
       });
       if (this.formData.delivery[0] == "P/ Entrega") {
         total += 20;
@@ -179,9 +244,15 @@ new Vue({
         abrirModal();
       }
 
-      salgadoDoCarrinho.qtd += 1;
-      salgadoDoCarrinho.subtotal =
-        salgadoDoCarrinho.price * salgadoDoCarrinho.qtd;
+      if (this.ativarMeioCento == false) {
+        salgadoDoCarrinho.qtd += 1;
+        salgadoDoCarrinho.subtotal =
+          salgadoDoCarrinho.price * salgadoDoCarrinho.qtd;
+      } else {
+        salgadoDoCarrinho.meioCento += 1;
+        salgadoDoCarrinho.subtotalMeioCento =
+          salgadoDoCarrinho.priceMeioCento * salgadoDoCarrinho.meioCento;
+      }
       abrirModal();
 
       // gamby para atualizar o carrinho!
@@ -191,21 +262,65 @@ new Vue({
       this.salvarPedido();
     },
 
-    alteraQtd(salgado, qtd) {
+    // ver com o professor
+
+    // alteraQtd(salgado, qtd) {
+    //   // find do salgado
+    //   let salgadoNoCarrinho = this.carrinho.find(
+    //     (item) => salgado.id == item.id
+    //   );
+
+    //   if (salgadoNoCarrinho.qtd >= 0) {
+    //     salgadoNoCarrinho.qtd += qtd;
+    //     salgadoNoCarrinho.subtotal =
+    //       salgadoNoCarrinho.qtd * salgadoNoCarrinho.price;
+    //   }
+
+    //   if (
+    //     salgadoNoCarrinho.subtotal == 0 &&
+    //     salgadoNoCarrinho.subtotalCongelado == 0 &&
+    //     salgadoNoCarrinho.subtotalMeioCento == 0 &&
+    //     salgadoNoCarrinho.subtotalMeioCentoCongelado == 0
+    //   ) {
+    //     const index = this.carrinho.indexOf(salgadoNoCarrinho);
+    //     if (index > -1) {
+    //       this.carrinho.splice(index, 1);
+    //     }
+    //   }
+    //   this.dadosPadrao();
+    //   this.salvarPedido();
+    // },
+
+    somaQtd(salgado, qtd) {
+      // find do salgado
+      let salgadoNoCarrinho = this.carrinho.find(
+        (item) => salgado.id == item.id
+      );
+      salgadoNoCarrinho.qtd += 1;
+      salgadoNoCarrinho.subtotal =
+        salgadoNoCarrinho.price * salgadoNoCarrinho.qtd;
+
+      this.salvarPedido();
+    },
+
+    subtraiQtd(salgado, qtd) {
       // find do salgado
       let salgadoNoCarrinho = this.carrinho.find(
         (item) => salgado.id == item.id
       );
 
-      if (salgadoNoCarrinho.qtd == 0) {
-        salgadoNoCarrinho.qtd = 0;
-      } else {
-        salgadoNoCarrinho.qtd += qtd;
+      if (salgadoNoCarrinho.qtd >= 0 && salgadoNoCarrinho.qtd >= 1) {
+        salgadoNoCarrinho.qtd -= 1;
         salgadoNoCarrinho.subtotal =
-          salgadoNoCarrinho.qtd * salgadoNoCarrinho.price;
+          salgadoNoCarrinho.price * salgadoNoCarrinho.qtd;
       }
 
-      if (salgadoNoCarrinho.qtd == 0 && salgadoNoCarrinho.congelado == 0) {
+      if (
+        salgadoNoCarrinho.subtotal == 0 &&
+        salgadoNoCarrinho.subtotalCongelado == 0 &&
+        salgadoNoCarrinho.subtotalMeioCento == 0 &&
+        salgadoNoCarrinho.subtotalMeioCentoCongelado == 0
+      ) {
         const index = this.carrinho.indexOf(salgadoNoCarrinho);
         if (index > -1) {
           this.carrinho.splice(index, 1);
@@ -217,14 +332,13 @@ new Vue({
 
     somaQtdCongelado(salgado, qtd) {
       // find do salgado
-      console.log("salgado", salgado);
       let congeladoNoCarrinho = this.carrinho.find(
         (item) => salgado.id == item.id
       );
-      console.log("congeladoNoCarrinho", congeladoNoCarrinho);
       congeladoNoCarrinho.congelado += 1;
       congeladoNoCarrinho.subtotalCongelado =
         congeladoNoCarrinho.priceCongelado * congeladoNoCarrinho.congelado;
+
       this.salvarPedido();
     },
 
@@ -233,15 +347,107 @@ new Vue({
       let congeladoNoCarrinho = this.carrinho.find(
         (item) => salgado.id == item.id
       );
-      if (congeladoNoCarrinho.congelado >= 1) {
+
+      if (
+        congeladoNoCarrinho.congelado >= 0 &&
+        congeladoNoCarrinho.congelado >= 1
+      ) {
         congeladoNoCarrinho.congelado -= 1;
         congeladoNoCarrinho.subtotalCongelado =
           congeladoNoCarrinho.priceCongelado * congeladoNoCarrinho.congelado;
       }
+
+      if (
+        congeladoNoCarrinho.subtotal == 0 &&
+        congeladoNoCarrinho.subtotalCongelado == 0 &&
+        congeladoNoCarrinho.subtotalMeioCento == 0 &&
+        congeladoNoCarrinho.subtotalMeioCentoCongelado == 0
+      ) {
+        const index = this.carrinho.indexOf(congeladoNoCarrinho);
+        if (index > -1) {
+          this.carrinho.splice(index, 1);
+        }
+      }
+      this.dadosPadrao();
+      this.salvarPedido();
+    },
+
+    somaQtdMeioCento(salgado, qtd) {
+      let meioCentoNoCarrinho = this.carrinho.find(
+        (item) => salgado.id == item.id
+      );
+
+      meioCentoNoCarrinho.meioCento += 1;
+      meioCentoNoCarrinho.subtotalMeioCento =
+        meioCentoNoCarrinho.meioCento * meioCentoNoCarrinho.priceMeioCento;
+
+      this.dadosPadrao();
+      this.salvarPedido();
+    },
+
+    subtraiQtdMeioCento(salgado, qtd) {
+      // find do salgado
+      let meioCentoNoCarrinho = this.carrinho.find(
+        (item) => salgado.id == item.id
+      );
+
+      if (meioCentoNoCarrinho.meioCento >= 1) {
+        meioCentoNoCarrinho.meioCento -= 1;
+        meioCentoNoCarrinho.subtotalMeioCento =
+          meioCentoNoCarrinho.priceMeioCento * meioCentoNoCarrinho.meioCento;
+      }
       this.salvarPedido();
 
-      if (congeladoNoCarrinho.qtd == 0 && congeladoNoCarrinho.congelado == 0) {
-        const index = this.carrinho.indexOf(congeladoNoCarrinho);
+      if (
+        meioCentoNoCarrinho.subtotalMeioCento == 0 &&
+        meioCentoNoCarrinho.subtotal == 0 &&
+        meioCentoNoCarrinho.subtotalMeioCentoCongelado == 0 &&
+        meioCentoNoCarrinho.subtotalCongelado == 0
+      ) {
+        const index = this.carrinho.indexOf(meioCentoNoCarrinho);
+        if (index > -1) {
+          this.carrinho.splice(index, 1);
+        }
+      }
+      this.dadosPadrao();
+      this.salvarPedido();
+    },
+
+    somaQtdMeioCentoCongelado(salgado, qtd) {
+      let meioCentoNoCarrinho = this.carrinho.find(
+        (item) => salgado.id == item.id
+      );
+
+      meioCentoNoCarrinho.meioCentoCongelado += 1;
+      meioCentoNoCarrinho.subtotalMeioCentoCongelado =
+        meioCentoNoCarrinho.meioCentoCongelado *
+        meioCentoNoCarrinho.priceMeioCentoCongelado;
+
+      this.dadosPadrao();
+      this.salvarPedido();
+    },
+
+    subtraiQtdMeioCentoCongelado(salgado, qtd) {
+      // find do salgado
+      let meioCentoNoCarrinho = this.carrinho.find(
+        (item) => salgado.id == item.id
+      );
+
+      if (meioCentoNoCarrinho.meioCentoCongelado >= 1) {
+        meioCentoNoCarrinho.meioCentoCongelado -= 1;
+        meioCentoNoCarrinho.subtotalMeioCentoCongelado =
+          meioCentoNoCarrinho.priceMeioCentoCongelado *
+          meioCentoNoCarrinho.meioCentoCongelado;
+      }
+      this.salvarPedido();
+
+      if (
+        meioCentoNoCarrinho.subtotalmeioCento == 0 &&
+        meioCentoNoCarrinho.subtotal == 0 &&
+        meioCentoNoCarrinho.subtotalMeioCentoCongelado == 0 &&
+        meioCentoNoCarrinho.subtotalCongelado == 0
+      ) {
+        const index = this.carrinho.indexOf(meioCentoNoCarrinho);
         if (index > -1) {
           this.carrinho.splice(index, 1);
         }
@@ -257,6 +463,8 @@ new Vue({
       salgadoNoCarrinho = salgado;
       salgadoNoCarrinho.qtd = 0;
       salgadoNoCarrinho.congelado = 0;
+      salgadoNoCarrinho.meioCento = 0;
+      salgadoNoCarrinho.meioCentoCongelado = 0;
       const index = this.carrinho.indexOf(salgadoNoCarrinho);
       if (index > -1) {
         this.carrinho.splice(index, 1);
@@ -341,7 +549,7 @@ new Vue({
         msg += `*Periodo*: ${this.formData.periodo}%0a`;
       }
 
-      msg += `%0a*Total*: R$${this.totalDoCarrinho},00%0a_(Pagamento PIX a confirmar)_`;
+      msg += `%0a*Total*: R$${this.totalDoCarrinho},00%0a_(Pagamento PIX a confirmar)_ `;
 
       window.location.href = `https://wa.me/5513981942956?text=${msg}`;
     },

@@ -55,6 +55,11 @@
     margin: 15% auto;
     width: 40vh;
   }
+
+  .btnCentoMeioCento {
+    font-size: 13px;
+    width: 6rem;
+  }
 }
 
 /* mobile or only mobile */
