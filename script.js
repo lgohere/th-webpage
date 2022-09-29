@@ -442,7 +442,7 @@ new Vue({
       this.salvarPedido();
 
       if (
-        meioCentoNoCarrinho.subtotalmeioCento == 0 &&
+        meioCentoNoCarrinho.subtotalMeioCento == 0 &&
         meioCentoNoCarrinho.subtotal == 0 &&
         meioCentoNoCarrinho.subtotalMeioCentoCongelado == 0 &&
         meioCentoNoCarrinho.subtotalCongelado == 0
