@@ -191,19 +191,52 @@ new Vue({
       this.salvarPedido();
     },
 
-    alteraQtd(salgado, qtd) {
+    // esclarecer com professor.
+    // alteraQtd(salgado, qtd) {
+    //   let salgadoNoCarrinho = this.carrinho.find(
+    //     (item) => salgado.id == item.id
+    //   );
+
+    //   if (salgadoNoCarrinho.qtd == 0) {
+    //     salgadoNoCarrinho.qtd = 0;
+    //   } else {
+    //     salgadoNoCarrinho.qtd += qtd;
+    //     salgadoNoCarrinho.subtotal =
+    //       salgadoNoCarrinho.qtd * salgadoNoCarrinho.price;
+    //   }
+
+    //   if (salgadoNoCarrinho.qtd == 0 && salgadoNoCarrinho.congelado == 0) {
+    //     const index = this.carrinho.indexOf(salgadoNoCarrinho);
+    //     if (index > -1) {
+    //       this.carrinho.splice(index, 1);
+    //     }
+    //   }
+    //   this.dadosPadrao();
+    //   this.salvarPedido();
+    // },
+
+    somaQtd(salgado, qtd) {
       // find do salgado
       let salgadoNoCarrinho = this.carrinho.find(
         (item) => salgado.id == item.id
       );
+      salgadoNoCarrinho.qtd += 1;
+      salgadoNoCarrinho.subtotal =
+        salgadoNoCarrinho.price * salgadoNoCarrinho.qtd;
+      this.salvarPedido();
+    },
 
-      if (salgadoNoCarrinho.qtd == 0) {
-        salgadoNoCarrinho.qtd = 0;
-      } else {
-        salgadoNoCarrinho.qtd += qtd;
+    subtraiQtd(salgado, qtd) {
+      // find do salgado
+      let salgadoNoCarrinho = this.carrinho.find(
+        (item) => salgado.id == item.id
+      );
+      if (salgadoNoCarrinho.qtd >= 1) {
+        salgadoNoCarrinho.qtd -= 1;
         salgadoNoCarrinho.subtotal =
-          salgadoNoCarrinho.qtd * salgadoNoCarrinho.price;
+          salgadoNoCarrinho.price * salgadoNoCarrinho.qtd;
       }
+      this.salvarPedido();
 
       if (salgadoNoCarrinho.qtd == 0 && salgadoNoCarrinho.congelado == 0) {
         const index = this.carrinho.indexOf(salgadoNoCarrinho);
