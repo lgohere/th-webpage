@@ -1,7 +1,7 @@
 new Vue({
   el: "#app",
   data: {
-    cardapio: [
+    fritos: [
       {
         id: 1,
         name: "Coxinha de Frango",
@@ -123,6 +123,188 @@ new Vue({
         priceCongelado: 25,
       },
     ],
+    assados: [
+      {
+        id: 1,
+        name: "Esfiha de Carne",
+        image: "./images/novas-imgs/esfihacarne.png",
+        price: 35.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Esfiha recheada com carne bovina.",
+        priceCongelado: 30,
+      },
+      {
+        id: 2,
+        name: "Esfiha de Carne c/ Catupiry",
+        image: "./images/novas-imgs/",
+        price: 35.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Esfiha recheada com carne bovina e catupiry.",
+        priceCongelado: 30,
+      },
+      {
+        id: 3,
+        name: "Esfiha de Frango",
+        image: "./images/novas-imgs/",
+        price: 35.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Esfiha recheada com frango.",
+        priceCongelado: 30,
+      },
+      {
+        id: 4,
+        name: "Esfiha de Frango c/ Catupiry",
+        image: "./images/novas-imgs/",
+        price: 35.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Esfiha recheada com frango e catupiry.",
+        priceCongelado: 30,
+      },
+      {
+        id: 5,
+        name: "Esfiha de Calabresa",
+        image: "./images/novas-imgs/",
+        price: 35.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Esfiha recheada com carne suína.",
+        priceCongelado: 30,
+      },
+      {
+        id: 6,
+        name: "Esfiha de Calabresa c/ Catupiry",
+        image: "./images/novas-imgs/",
+        price: 35.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Esfiha recheada com carne suína e catupiry.",
+        priceCongelado: 30,
+      },
+      {
+        id: 7,
+        name: "Mistinho de Presunto e Queijo",
+        image: "./images/novas-imgs/",
+        price: 35.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Mistinho recheado com presunto e queijo.",
+        priceCongelado: 30,
+      },
+      {
+        id: 8,
+        name: "Mistinho de Presunto e Queijo",
+        image: "./images/novas-imgs/",
+        price: 35.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Mistinho recheado com presunto e queijo.",
+        priceCongelado: 30,
+      },
+      {
+        id: 9,
+        name: "Enroladinho de Salsicha",
+        image: "./images/novas-imgs/",
+        price: 35.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "",
+        priceCongelado: 30,
+      },
+      {
+        id: 10,
+        name: "Empadinha de Frango",
+        image: "./images/novas-imgs/",
+        price: 40.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Empadinha recheada com frango.",
+        priceCongelado: 35,
+      },
+      {
+        id: 11,
+        name: "Empadinha de Frango c/ Catupiry",
+        image: "./images/novas-imgs/",
+        price: 40.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Empadinha recheada com frango e catupiry.",
+        priceCongelado: 35,
+      },
+      {
+        id: 12,
+        name: "Empadinha de Palmito",
+        image: "./images/novas-imgs/",
+        price: 40.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Empadinha recheada com palmito.",
+        priceCongelado: 35,
+      },
+      {
+        id: 13,
+        name: "Empadinha de Brócolis c/ Bacon",
+        image: "./images/novas-imgs/",
+        price: 40.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Empadinha recheada brócolis e bacon.",
+        priceCongelado: 35,
+      },
+      {
+        id: 14,
+        name: "Empadinha de Brócolis c/ Catupiry",
+        image: "./images/novas-imgs/",
+        price: 40.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Empadinha recheada brócolis e catupiry.",
+        priceCongelado: 35,
+      },
+      {
+        id: 15,
+        name: "Empadinha de Camarão",
+        image: "./images/novas-imgs/",
+        price: 45.0,
+        qtd: 0,
+        congelado: 0,
+        subtotalCongelado: 0,
+        subtotal: 0,
+        desc: "Empadinha recheada com camarão.",
+        priceCongelado: 40,
+      },
+    ],
     carrinho: [],
     totalCarrinho: [],
     finalizacao: false,
@@ -137,6 +319,10 @@ new Vue({
       periodo: [],
     },
     pedido: [],
+    listaSalgados: true,
+    listaDoces: false,
+    listaFritos: true,
+    listaAssados: false,
   },
   computed: {
     carrinhoMessage() {
@@ -166,6 +352,34 @@ new Vue({
   },
 
   methods: {
+    abrirSalgados() {
+      (this.listaSalgados = true),
+        (this.listaDoces = false),
+        (this.listaFritos = true),
+        (this.listaAssados = false);
+    },
+
+    abrirDoces() {
+      (this.listaSalgados = false),
+        (this.listaDoces = true),
+        (this.listaFritos = false),
+        (this.listaAssados = false);
+    },
+
+    abrirFritos() {
+      (this.listaSalgados = true),
+        (this.listaDoces = false),
+        (this.listaFritos = true),
+        (this.listaAssados = false);
+    },
+
+    abrirAssados() {
+      (this.listaSalgados = true),
+        (this.listaDoces = false),
+        (this.listaFritos = false),
+        (this.listaAssados = true);
+    },
+
     adicionarAoCarrinho(salgado) {
       this.finalizacao = false;
       let salgadoDoCarrinho = this.carrinho.find(
@@ -344,15 +558,15 @@ new Vue({
         this.formData = data.form;
         //this.carrinho = data.carrinho
         for (let salgadoSalvo of data.carrinho) {
-          let salgadoDoCardapio = this.cardapio.find(
+          let salgadoDofritos = this.fritos.find(
             (item) => item.id == salgadoSalvo.id
           );
-          salgadoDoCardapio.qtd = salgadoSalvo.qtd;
-          salgadoDoCardapio.congelado = salgadoSalvo.congelado;
-          salgadoDoCardapio.subtotal = salgadoSalvo.price * salgadoSalvo.qtd;
-          salgadoDoCardapio.subtotalCongelado =
+          salgadoDofritos.qtd = salgadoSalvo.qtd;
+          salgadoDofritos.congelado = salgadoSalvo.congelado;
+          salgadoDofritos.subtotal = salgadoSalvo.price * salgadoSalvo.qtd;
+          salgadoDofritos.subtotalCongelado =
             salgadoSalvo.priceCongelado * salgadoSalvo.congelado;
-          this.carrinho.push(salgadoDoCardapio);
+          this.carrinho.push(salgadoDofritos);
         }
       }
     },

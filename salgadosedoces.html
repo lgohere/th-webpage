@@ -324,88 +324,146 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="special-menu text-center">
-                <div class="button-group filter-button-group">
-                  <button
-                    class="active"
-                    style="box-shadow: none"
-                    data-filter="*"
-                  >
-                    Tudo
-                  </button>
-                  <button style="box-shadow: none" data-filter=".salgados">
-                    Salgados
-                  </button>
-                  <button style="box-shadow: none" data-filter=".doces">
-                    Doces
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <div class="container mt-1" style="overflow-x: auto">
         <div class="row justify-content-center">
-          <div class="col-12 col-lg-8">
+          <div class="col-6 col-lg-4" @click="abrirSalgados">
             <h3
-              class="h5 p-4 text-center border border-2"
-              style="background: rgba(179, 159, 170, 0.384)"
+              :class="{'h5': true,'p-4': true, 'text-center':true, 'border': true, 'shadow': true, 'btnSalgadoDoce': listaSalgados == true}"
             >
-              FRITOS
+              SALGADOS
+            </h3>
+          </div>
+          <div class="col-6 col-lg-4" @click="abrirDoces">
+            <h3
+              :class="{'h5': true,'p-4': true, 'text-center':true, 'border': true, 'shadow': true,'btnSalgadoDoce': listaSalgados == false}"
+            >
+              DOCES
             </h3>
           </div>
         </div>
-        <div id="listaProdutos" class="row mx-0 d-flex justify-content-center">
-          <div class="col-md-12 col-lg-8">
-            <div class="col-12" v-for="salgado in cardapio" :key="salgado.id">
-              <div
-                :class="{'row': true, 'shadow': true, 'box-items': true, 'carrinho-item-borda--adicionado': salgado.qtd > 0 || salgado.congelado > 0, 
-                '!carrinho-item-borda--adicionado': salgado.qtd == 0 && salgado.congelado == 0 }"
+        <div v-show="listaSalgados == true" class="col-12 py-2">
+          <div class="special-menu text-center">
+            <div class="button-group filter-button-group">
+              <button
+                @click="abrirFritos"
+                class="active"
+                style="box-shadow: none"
+                data-filter="#listaFritos"
               >
-                <div
-                  class="col-5 py-2 d-flex flex-column justify-content-center align-items-center"
+                Fritos
+              </button>
+              <button
+                @click="abrirAssados"
+                style="box-shadow: none"
+                data-filter=".salgados"
+              >
+                Assados
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ************ LISTA DE FRITOS ************-->
+      <div class="row mx-0 d-flex justify-content-center">
+        <div v-show="listaFritos == true" class="col-md-12 col-lg-7">
+          <div
+            class="col-12 py-lg-2"
+            v-for="salgado in fritos"
+            :key="salgado.id"
+          >
+            <div
+              :class="{'row': true, 'shadow': true, 'box-items': true, 'carrinho-item-borda--adicionado': salgado.qtd > 0 || salgado.congelado > 0, 
+                '!carrinho-item-borda--adicionado': salgado.qtd == 0 && salgado.congelado == 0 }"
+            >
+              <div
+                class="col-5 py-2 d-flex flex-column justify-content-center align-items-center"
+              >
+                <img :src="salgado.image" class="img-fluid" />
+                <span class="text-center">50 Unidades</span>
+              </div>
+              <div class="col-7 pt-3 d-flex justify-content-around flex-column">
+                <h3 id="salgado-item--name" style="text-align: start">
+                  <strong>{{ salgado.name }}</strong>
+                </h3>
+                <p id="salgado-item--desc" style="text-align: start">
+                  {{ salgado.desc }}
+                </p>
+                <p id="salgado-item--desc" style="text-align: start">
+                  Congelado: R$ 25,00
+                </p>
+                <p
+                  id="salgado-item--price"
+                  class="d-flex flex-row-reverse"
+                  style="font-size: 18pt"
                 >
-                  <img :src="salgado.image" class="img-fluid" />
-                  <span class="text-center">50 Unidades</span>
-                </div>
-                <div
-                  class="col-7 pt-3 d-flex justify-content-around flex-column"
-                >
-                  <h3 id="salgado-item--name" style="text-align: start">
-                    <strong>{{ salgado.name }}</strong>
-                  </h3>
-                  <p id="salgado-item--desc" style="text-align: start">
-                    {{ salgado.desc }}
-                  </p>
-                  <p id="salgado-item--desc" style="text-align: start">
-                    Congelado: R$ 25,00
-                  </p>
-                  <p
-                    id="salgado-item--price"
-                    class="d-flex flex-row-reverse"
-                    style="font-size: 18pt"
+                  <strong>R${{ salgado.price }},00</strong>
+                </p>
+                <div id="adicionarAoCarrinho" class="mb-3">
+                  <button
+                    @click="adicionarAoCarrinho(salgado)"
+                    class="btn-block m-auto p-2 botao-carrinho"
+                    :produtoId="salgado.id"
                   >
-                    <strong>R${{ salgado.price }},00</strong>
-                  </p>
-                  <div id="adicionarAoCarrinho" class="mb-3">
-                    <button
-                      @click="adicionarAoCarrinho(salgado)"
-                      class="btn-block m-auto p-2 botao-carrinho"
-                      :produtoId="salgado.id"
-                    >
-                      Adicionar ao Carrinho <i class="bi bi-cart-plus"></i>
-                    </button>
-                  </div>
+                    Adicionar ao Carrinho <i class="bi bi-cart-plus"></i>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <!-- ************ FIM LISTA DE FRITOS ************-->
+        <div v-show="listaAssados == true" class="col-md-12 col-lg-7">
+          <h1>Work in progress...</h1>
+          <!-- <div
+            class="col-12 py-lg-2"
+            v-for="assado in assados"
+            :key="assado.id"
+          >
+            <div
+              :class="{'row': true, 'shadow': true, 'box-items': true, 'carrinho-item-borda--adicionado': salgado.qtd > 0 || salgado.congelado > 0, 
+            '!carrinho-item-borda--adicionado': salgado.qtd == 0 && salgado.congelado == 0 }"
+            >
+              <div
+                class="col-5 py-2 d-flex flex-column justify-content-center align-items-center"
+              >
+                <img :src="assado.image" class="img-fluid" />
+                <span class="text-center">50 Unidades</span>
+              </div>
+              <div class="col-7 pt-3 d-flex justify-content-around flex-column">
+                <h3 id="assado-item--name" style="text-align: start">
+                  <strong>{{ assado.name }}</strong>
+                </h3>
+                <p id="assado-item--desc" style="text-align: start">
+                  {{ assado.desc }}
+                </p>
+                <p id="assado-item--desc" style="text-align: start">
+                  Congelado: R$ 25,00
+                </p>
+                <p
+                  id="assado-item--price"
+                  class="d-flex flex-row-reverse"
+                  style="font-size: 18pt"
+                >
+                  <strong>R${{ assado.price }},00</strong>
+                </p>
+                <div id="adicionarAoCarrinho" class="mb-3">
+                  <button
+                    @click="adicionarAoCarrinho(assado)"
+                    class="btn-block m-auto p-2 botao-carrinho"
+                    :produtoId="assado.id"
+                  >
+                    Adicionar ao Carrinho <i class="bi bi-cart-plus"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
       </div>
     </div>
+
     <!-- Start Contact info -->
     <div class="contact-imfo-box">
       <div class="container">
