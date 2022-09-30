@@ -122,36 +122,15 @@
                 class="row shadow-item mb-2"
                 style="border: solid rgba(0, 0, 0, 0.075) 1px"
               >
-                <div
-                  class="col-12 text-center py-3 d-flex flex-row justify-content-around"
-                >
-                  <button
-                    @click="ativarMeioCento = false"
-                    :class="{'btnCentoMeioCento': true, 'btnCento': ativarMeioCento == false}"
-                  >
-                    CENTO
-                  </button>
-                  <button
-                    @click="ativarMeioCento = true"
-                    :class="{'btnCentoMeioCento': true, 'btnCento': ativarMeioCento == true}"
-                  >
-                    MEIO-CENTO
-                  </button>
-                </div>
                 <div class="col-4 pt-3 d-flex flex-column align-items-center">
                   <img
                     :src="item.image"
                     class="img-fluid border border-success"
                   />
-                  <div class="d-flex flex-column align-items-center">
+                  <div>
                     <p class="text-center mt-3" style="line-height: 20px">
                       {{ item.name }}
                     </p>
-                    <i
-                      @click="lixeiraCarrinho(item)"
-                      class="py-2 bi bi-trash3-fill"
-                      style="font-size: 20px"
-                    ></i>
                   </div>
                 </div>
                 <div class="col-4 text-center pt-3 card-text">
@@ -159,81 +138,31 @@
                   <div
                     class="col-12 d-inline-flex align-items-center justify-content-center"
                   >
-                    <button
-                      v-show="ativarMeioCento == false"
-                      @click="subtraiQtd(item)"
-                    >
-                      -
-                    </button>
-                    <button
-                      v-show="ativarMeioCento == true"
-                      @click="subtraiQtdMeioCento(item)"
-                    >
-                      -
-                    </button>
-
-                    <h3 class="mx-3">
-                      {{ ativarMeioCento == false? item.qtd : item.meioCento }}
-                    </h3>
-                    <button
-                      v-show="ativarMeioCento == false"
-                      @click="somaQtd(item)"
-                    >
-                      +
-                    </button>
-                    <button
-                      v-show="ativarMeioCento == true"
-                      @click="somaQtdMeioCento(item)"
-                    >
-                      +
-                    </button>
+                    <button @click="alteraQtd(item, -1)">-</button>
+                    <h3 class="mx-3">{{ item.qtd }}</h3>
+                    <button @click="alteraQtd(item, +1)">+</button>
                   </div>
                   <p>(Pronto)</p>
                   <div
                     class="col-12 d-inline-flex align-items-center justify-content-center"
                   >
-                    <button
-                      v-show="ativarMeioCento == false"
-                      @click="subtraiQtdCongelado(item)"
-                    >
-                      -
-                    </button>
-                    <button
-                      v-show="ativarMeioCento == true"
-                      @click="subtraiQtdMeioCentoCongelado(item)"
-                    >
-                      -
-                    </button>
-                    <h3 class="mx-3">
-                      {{ ativarMeioCento == false ? item.congelado :
-                      item.meioCentoCongelado}}
-                    </h3>
-                    <button
-                      v-show="ativarMeioCento == false"
-                      @click="somaQtdCongelado(item)"
-                    >
-                      +
-                    </button>
-                    <button
-                      v-show="ativarMeioCento == true"
-                      @click="somaQtdMeioCentoCongelado(item)"
-                    >
-                      +
-                    </button>
+                    <button @click="subtraiQtdCongelado(item)">-</button>
+                    <h3 class="mx-3">{{ item.congelado }}</h3>
+                    <button @click="somaQtdCongelado(item)">+</button>
                   </div>
                   <p>(Congelado)</p>
                 </div>
+
                 <div class="col-4 text-center pt-3">
-                  <strong>Subtotal (100)</strong>
+                  <strong>Subtotal</strong>
                   <p class="pt-2">
                     R$ {{ item.subtotal + item.subtotalCongelado }},00
                   </p>
-
-                  <strong>Subtotal (50)</strong>
-                  <p>
-                    R$ {{ item.subtotalMeioCento +
-                    item.subtotalMeioCentoCongelado }},00
-                  </p>
+                  <i
+                    @click="lixeiraCarrinho(item)"
+                    class="pt-4 bi bi-trash3-fill"
+                    style="font-size: 20px"
+                  ></i>
                 </div>
               </div>
             </div>
@@ -440,22 +369,7 @@
                   class="col-5 py-2 d-flex flex-column justify-content-center align-items-center"
                 >
                   <img :src="salgado.image" class="img-fluid" />
-                  <div id="centoOption">
-                    <button
-                      class="text-center mt-1 btn-cento py-1"
-                      @click="ativarMeioCento = false"
-                    >
-                      100 <br />
-                      Unidades
-                    </button>
-                    <button
-                      class="text-center mt-1 btn-cento py-1"
-                      @click="ativarMeioCento = true"
-                    >
-                      50 <br />
-                      Unidades
-                    </button>
-                  </div>
+                  <span class="text-center">50 Unidades</span>
                 </div>
                 <div
                   class="col-7 pt-3 d-flex justify-content-around flex-column"
@@ -466,15 +380,15 @@
                   <p id="salgado-item--desc" style="text-align: start">
                     {{ salgado.desc }}
                   </p>
+                  <p id="salgado-item--desc" style="text-align: start">
+                    Congelado: R$ 25,00
+                  </p>
                   <p
                     id="salgado-item--price"
                     class="d-flex flex-row-reverse"
                     style="font-size: 18pt"
                   >
-                    <strong>
-                      R${{ ativarMeioCento == true ? salgado.priceMeioCento :
-                      salgado.price }},00</strong
-                    >
+                    <strong>R${{ salgado.price }},00</strong>
                   </p>
                   <div id="adicionarAoCarrinho" class="mb-3">
                     <button
