@@ -325,23 +325,46 @@ new Vue({
     },
 
     enviarMensagem() {
-      let msg = `*MTH / Web Pedidos*:%0a`;
-      msg += `Cliente: *${this.formData.nome}*, solicitou:%0a%0a`;
+      let msg = "```MTH / Web Pedidos:%0a";
+      msg += `Cliente: ${this.formData.nome}, solicitou:%0a`;
+      msg += "—————————————————————————```%0a%0a";
       for (item of this.carrinho) {
-        msg += `_*${item.name}* (Pronto: *${item.qtd}*/ Congelado: *${item.congelado})_*%0a`;
+        msg += `*${item.name}*%0a`;
+        msg += "```";
+        msg += `Pronto: ${item.qtd} Congelado: ${item.congelado}%0a`;
+        msg += "—————————————————————————```%0a%0a";
       }
-      msg += `%0a*Encomenda*: ${this.formData.delivery}%0a`;
 
       if (this.formData.delivery[0] == "P/ Entrega") {
-        msg += `*Endereço*: ${this.formData.endereco}%0a`;
-        msg += `*Data para Entrega*: ${this.formData.dataPedido}%0a`;
-        msg += `*Periodo*: ${this.formData.periodo}%0a`;
+        msg += "*Encomenda*: ```";
+        msg += `${this.formData.delivery[0]}`;
+        msg += "```%0a";
+        msg += "*Endereço*: ```";
+        msg += `${this.formData.endereco}`;
+        msg += "```%0a";
+        msg += "%0a*Data para Entrega*:```";
+        msg += `${this.formData.dataPedido}`;
+        msg += "```%0a";
+        msg += "*Periodo*: ```";
+        msg += `${this.formData.periodo}`;
+        msg += "```%0a%0a";
       } else {
-        msg += `*Data para Retirada*: ${this.formData.dataPedido}%0a`;
-        msg += `*Periodo*: ${this.formData.periodo}%0a`;
+        msg += "*Encomenda*:```";
+        msg += `${this.formData.delivery[0]}`;
+        msg += "```%0a";
+        msg +=
+          "*Endereço*: ```Rua Pastor Alberto Augusto nº 126 , Santa Maria , Santos - SP.```%0a%0a";
+        msg += "*Data para Entrega*:```";
+        msg += `${this.formData.dataPedido}`;
+        msg += "```%0a";
+        msg += "*Periodo*:```";
+        msg += `${this.formData.periodo}`;
+        msg += "```%0a%0a";
       }
 
-      msg += `%0a*Total*: R$${this.totalDoCarrinho},00%0a_(Pagamento PIX a confirmar)_`;
+      msg += "*Total*:```";
+      msg += `R$ ${this.totalDoCarrinho},00%0a`;
+      msg += "(Pagamento PIX a confirmar)```";
 
       window.location.href = `https://wa.me/5513981942956?text=${msg}`;
     },
