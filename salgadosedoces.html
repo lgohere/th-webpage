@@ -367,7 +367,10 @@
       </div>
       <!-- ************ LISTA DE FRITOS ************-->
       <div class="row mx-0 d-flex justify-content-center">
-        <div v-show="listaFritos == true" class="col-md-12 col-lg-7">
+        <div
+          v-show="listaFritos == true"
+          class="col-md-12 col-lg-7 swing-in-left-bck"
+        >
           <div
             class="col-12 py-lg-2"
             v-for="salgado in fritos"
@@ -414,16 +417,18 @@
           </div>
         </div>
         <!-- ************ FIM LISTA DE FRITOS ************-->
-        <div v-show="listaAssados == true" class="col-md-12 col-lg-7">
-          <h1>Work in progress...</h1>
-          <!-- <div
+        <div
+          v-show="listaAssados == true"
+          class="col-md-12 col-lg-7 swing-in-right-bck"
+        >
+          <div
             class="col-12 py-lg-2"
             v-for="assado in assados"
             :key="assado.id"
           >
             <div
-              :class="{'row': true, 'shadow': true, 'box-items': true, 'carrinho-item-borda--adicionado': salgado.qtd > 0 || salgado.congelado > 0, 
-            '!carrinho-item-borda--adicionado': salgado.qtd == 0 && salgado.congelado == 0 }"
+              :class="{'row': true, 'shadow': true, 'box-items': true, 'carrinho-item-borda--adicionado': assado.qtd > 0 || assado.congelado > 0, 
+            '!carrinho-item-borda--adicionado': assado.qtd == 0 && assado.congelado == 0 }"
             >
               <div
                 class="col-5 py-2 d-flex flex-column justify-content-center align-items-center"
@@ -459,7 +464,7 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>
