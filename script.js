@@ -293,6 +293,45 @@ new Vue({
         priceCongelado: 40,
       },
     ],
+    bolos: {
+      image: {
+        redondo: "./images/novas-imgs/roundedcake.png",
+        retangular: "./images/novas-imgs/squarecake.png",
+      },
+      formato: [
+        "Redondo (20cm / 2kg / 20-25 fatias)",
+        "Redondo (25cm / 3kg / 35-37 fatias)",
+        "Retangular (25x35cm / peso / 45 fatias)",
+        "Retangular (30x40cm / peso / 60 fatias)",
+      ],
+      massa: ["Pão de Ló Branca", "Chocolate"],
+      tipoRecheio: [
+        "Tradicional (01 recheio)",
+        "Dois Recheios",
+        "Tradicional c/ Frutas (01 recheio + 01 fruta)",
+        "Dois Recheios c/ Frutas (02 recheios + 01 fruta)",
+      ],
+      recheio: {
+        tradicional: [
+          "Leite Ninho",
+          "Brigadeiro",
+          "Beijinho",
+          "Doce de leite",
+          "Doce de Leite c/ Ameixa",
+          "Paçoca",
+          "Creme Belga Tradicional",
+          "Creme Belga de Chocolate Trufado",
+          "Sensação",
+          "Mousse de Maracujá",
+          "Mousse de Chocolate",
+          "Mousse de Morango",
+          "Mousse de Limão",
+        ],
+        frutas: ["Abacaxi", "Ameixa", "Côco", "Maracujá", "Morango", "Pêssego"],
+      },
+      qtd: 0,
+      subtotal: 0,
+    },
     carrinho: [],
     totalCarrinho: [],
     finalizacao: false,
@@ -307,8 +346,18 @@ new Vue({
       periodo: [],
     },
     pedido: [],
+    boloPedido: {
+      image: "",
+      formato: "",
+      massa: "",
+      tipoRecheio: "",
+      recheio: "",
+      recheioPlus: "",
+      recheioFruta: "",
+    },
+
     listaSalgados: true,
-    listaDoces: false,
+    listaBolos: false,
     listaFritos: true,
     listaAssados: false,
   },
@@ -337,33 +386,43 @@ new Vue({
       }
       return total;
     },
+    boloImagem() {
+      if (
+        this.boloPedido.formato == "Redondo (20cm / 2kg / 20-25 fatias)" ||
+        this.boloPedido.formato == "Redondo (25cm / 3kg / 35-37 fatias)"
+      ) {
+        this.boloPedido.image = this.bolos.image.redondo;
+      } else {
+        this.boloPedido.image = this.bolos.image.retangular;
+      }
+    },
   },
 
   methods: {
     abrirSalgados() {
       (this.listaSalgados = true),
-        (this.listaDoces = false),
+        (this.listaBolos = false),
         (this.listaFritos = true),
         (this.listaAssados = false);
     },
 
-    abrirDoces() {
+    abrirBolos() {
       (this.listaSalgados = false),
-        (this.listaDoces = true),
+        (this.listaBolos = true),
         (this.listaFritos = false),
         (this.listaAssados = false);
     },
 
     abrirFritos() {
       (this.listaSalgados = true),
-        (this.listaDoces = false),
+        (this.listaBolos = false),
         (this.listaFritos = true),
         (this.listaAssados = false);
     },
 
     abrirAssados() {
       (this.listaSalgados = true),
-        (this.listaDoces = false),
+        (this.listaBolos = false),
         (this.listaFritos = false),
         (this.listaAssados = true);
     },
@@ -391,6 +450,11 @@ new Vue({
       // this.carrinho.pop();
       this.dadosPadrao();
       this.salvarPedido();
+    },
+
+    adicionarBoloAoCarrinho() {
+      this.carrinho.push(this.boloPedido);
+      abrirModal();
     },
 
     // esclarecer com professor.

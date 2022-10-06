@@ -420,6 +420,57 @@ button:focus {
   padding-bottom: 0.5rem;
 }
 
+#areaBolos {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 3vh;
+  padding-bottom: 5vh;
+}
+
+#areaBolos select {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 18rem;
+  font-size: 17px;
+}
+
+.bolosbackground {
+  background-image: url("../images/novas-imgs/bolosbackground-sm.png");
+  line-height: 5vh;
+  background-size: contain;
+}
+
+.bolosbackground .row {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.bolosbackground .col-lg-10 {
+  background-color: rgba(255 255 255 / 63%);
+  border-radius: 10px;
+  line-height: 3rem;
+}
+
+.bolosbackground .col-12 {
+  background-color: rgba(255 255 255 / 63%);
+  border-radius: 10px;
+  line-height: 3rem;
+}
+
+#seleciones h3 {
+  color: #412234ff;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
 .btn-cento {
   width: 7rem;
 }
