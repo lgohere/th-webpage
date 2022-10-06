@@ -573,8 +573,7 @@
                 v-show=" boloPedido.tipoRecheio == 
                  'Tradicional c/ Frutas (01 recheio + 01 fruta)' || boloPedido.tipoRecheio == 'Dois Recheios c/ Frutas (02 recheios + 01 fruta)'"
               >
-                Selecione <strong>uma fruta</strong>:
-                <br />
+                <h3>Selecione <strong>uma fruta</strong>:</h3>
                 <select v-model="boloPedido.recheioFruta">
                   <option v-for="fruta in bolos.recheio.frutas">
                     {{ fruta}}
