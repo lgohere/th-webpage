@@ -125,7 +125,7 @@ new Vue({
     ],
     assados: [
       {
-        id: 1,
+        id: 11,
         name: "Esfiha de Carne",
         image: "./images/novas-imgs/esfihacarne.png",
         price: 35.0,
@@ -137,7 +137,7 @@ new Vue({
         priceCongelado: 30,
       },
       {
-        id: 2,
+        id: 12,
         name: "Esfiha de Carne c/ Catupiry",
         image: "./images/novas-imgs/esfihacarne.png",
         price: 35.0,
@@ -149,7 +149,7 @@ new Vue({
         priceCongelado: 30,
       },
       {
-        id: 3,
+        id: 13,
         name: "Esfiha de Frango",
         image: "./images/novas-imgs/esfihafrango.png",
         price: 35.0,
@@ -161,7 +161,7 @@ new Vue({
         priceCongelado: 30,
       },
       {
-        id: 4,
+        id: 14,
         name: "Esfiha de Frango c/ Catupiry",
         image: "./images/novas-imgs/esfihafrango.png",
         price: 35.0,
@@ -173,7 +173,7 @@ new Vue({
         priceCongelado: 30,
       },
       {
-        id: 5,
+        id: 15,
         name: "Esfiha de Calabresa",
         image: "./images/novas-imgs/esfihacalabresa.png",
         price: 35.0,
@@ -185,7 +185,7 @@ new Vue({
         priceCongelado: 30,
       },
       {
-        id: 6,
+        id: 16,
         name: "Esfiha de Calabresa c/ Catupiry",
         image: "./images/novas-imgs/esfihacalabresa.png",
         price: 35.0,
@@ -197,7 +197,7 @@ new Vue({
         priceCongelado: 30,
       },
       {
-        id: 7,
+        id: 17,
         name: "Mistinho de Presunto e Queijo",
         image: "./images/novas-imgs/mistinho.png",
         price: 35.0,
@@ -209,7 +209,7 @@ new Vue({
         priceCongelado: 30,
       },
       {
-        id: 8,
+        id: 18,
         name: "Enroladinho de Salsicha",
         image: "./images/novas-imgs/enrroladinho.png",
         price: 35.0,
@@ -221,7 +221,7 @@ new Vue({
         priceCongelado: 30,
       },
       {
-        id: 9,
+        id: 19,
         name: "Empadinha de Frango",
         image: "./images/novas-imgs/emp-frango.png",
         price: 40.0,
@@ -233,7 +233,7 @@ new Vue({
         priceCongelado: 35,
       },
       {
-        id: 10,
+        id: 20,
         name: "Empadinha de Frango c/ Catupiry",
         image: "./images/novas-imgs/emp-frangocatupiry.png",
         price: 40.0,
@@ -245,7 +245,7 @@ new Vue({
         priceCongelado: 35,
       },
       {
-        id: 11,
+        id: 21,
         name: "Empadinha de Palmito",
         image: "./images/novas-imgs/emp-palmito.png",
         price: 40.0,
@@ -257,7 +257,7 @@ new Vue({
         priceCongelado: 35,
       },
       {
-        id: 12,
+        id: 22,
         name: "Empadinha de Brócolis c/ Bacon",
         image: "./images/novas-imgs/emp-brocolis.png",
         price: 40.0,
@@ -269,7 +269,7 @@ new Vue({
         priceCongelado: 35,
       },
       {
-        id: 13,
+        id: 23,
         name: "Empadinha de Brócolis c/ Catupiry",
         image: "./images/novas-imgs/emp-brocoliscatupiry.png",
         price: 40.0,
@@ -281,7 +281,7 @@ new Vue({
         priceCongelado: 35,
       },
       {
-        id: 14,
+        id: 24,
         name: "Empadinha de Camarão",
         image: "./images/novas-imgs/emp-camarao.png",
         price: 45.0,
@@ -347,6 +347,7 @@ new Vue({
     },
     pedido: [],
     boloPedido: {
+      id: 50,
       image: "",
       formato: "",
       massa: "",
@@ -354,6 +355,9 @@ new Vue({
       recheio: "",
       recheioPlus: "",
       recheioFruta: "",
+      price: 50,
+      subtotal: 0,
+      qtd: 0,
     },
 
     listaSalgados: true,
@@ -385,16 +389,6 @@ new Vue({
         total += 20;
       }
       return total;
-    },
-    boloImagem() {
-      if (
-        this.boloPedido.formato == "Redondo (20cm / 2kg / 20-25 fatias)" ||
-        this.boloPedido.formato == "Redondo (25cm / 3kg / 35-37 fatias)"
-      ) {
-        this.boloPedido.image = this.bolos.image.redondo;
-      } else {
-        this.boloPedido.image = this.bolos.image.retangular;
-      }
     },
   },
 
@@ -452,8 +446,40 @@ new Vue({
       this.salvarPedido();
     },
 
+    boloImagem() {
+      if (
+        this.boloPedido.formato == "Redondo (20cm / 2kg / 20-25 fatias)" ||
+        this.boloPedido.formato == "Redondo (25cm / 3kg / 35-37 fatias)"
+      ) {
+        this.boloPedido.image = this.bolos.image.redondo;
+      } else {
+        this.boloPedido.image = this.bolos.image.retangular;
+      }
+    },
+
     adicionarBoloAoCarrinho() {
-      this.carrinho.push(this.boloPedido);
+      this.boloImagem();
+      let pedidoBolo = {
+        id: this.boloPedido.id++,
+        image: this.boloPedido.image,
+        formato: this.boloPedido.formato,
+        massa: this.boloPedido.massa,
+        tipoRecheio: this.boloPedido.tipoRecheio,
+        recheio: this.boloPedido.recheio,
+        recheioPlus: this.boloPedido.recheioPlus,
+        recheioFruta: this.boloPedido.recheioFruta,
+        subtotal: this.boloPedido.subtotal,
+        qtd: this.boloPedido.qtd,
+      };
+      this.carrinho.push(pedidoBolo);
+      this.boloPedido.image = "";
+      this.boloPedido.formato = "";
+      this.boloPedido.massa = "";
+      this.boloPedido.tipoRecheio = "";
+      this.boloPedido.recheio = "";
+      this.boloPedido.recheioPlus = "";
+      this.boloPedido.recheioFruta = "";
+      console.log(this.carrinho);
       abrirModal();
     },
 
@@ -608,17 +634,27 @@ new Vue({
         data = JSON.parse(data);
         console.log(data);
         this.formData = data.form;
-        //this.carrinho = data.carrinho
         for (let salgadoSalvo of data.carrinho) {
-          let salgadoDofritos = this.fritos.find(
+          let salgadoFrito = this.fritos.find(
             (item) => item.id == salgadoSalvo.id
           );
-          salgadoDofritos.qtd = salgadoSalvo.qtd;
-          salgadoDofritos.congelado = salgadoSalvo.congelado;
-          salgadoDofritos.subtotal = salgadoSalvo.price * salgadoSalvo.qtd;
-          salgadoDofritos.subtotalCongelado =
+          salgadoFrito.qtd = salgadoSalvo.qtd;
+          salgadoFrito.congelado = salgadoSalvo.congelado;
+          salgadoFrito.subtotal = salgadoSalvo.price * salgadoSalvo.qtd;
+          salgadoFrito.subtotalCongelado =
             salgadoSalvo.priceCongelado * salgadoSalvo.congelado;
-          this.carrinho.push(salgadoDofritos);
+          this.carrinho.push(salgadoFrito);
+        }
+        for (let salgadoSalvo of data.carrinho) {
+          let salgadoAssado = this.assados.find(
+            (item) => item.id == salgadoSalvo.id
+          );
+          salgadoAssado.qtd = salgadoSalvo.qtd;
+          salgadoAssado.subtotal = salgadoSalvo.price * salgadoSalvo.qtd;
+          salgadoAssado.subtotalCongelado = salgadoAssado.congelado =
+            salgadoSalvo.congelado;
+          salgadoSalvo.priceCongelado * salgadoSalvo.congelado;
+          this.carrinho.push(salgadoAssado);
         }
       }
     },
