@@ -335,6 +335,10 @@ new Vue({
     carrinho: [],
     totalCarrinho: [],
     finalizacao: false,
+    delivery: {
+      sim: "Incluir Entrega (R$ 20,00)",
+      nao: "Retirar no Local",
+    },
     entrega: true,
     retirada: true,
     formData: {
@@ -374,10 +378,12 @@ new Vue({
       }
     },
     entregaOuRetirada() {
-      if (this.entrega == true) {
+      if (this.formData.delivery == this.delivery.sim) {
         return "Endereço para Entrega:";
-      } else {
+      } else if (this.formData.delivery == this.delivery.nao) {
         return "Endereço para Retirada:";
+      } else {
+        return "";
       }
     },
     totalDoCarrinho() {
@@ -385,7 +391,7 @@ new Vue({
       this.carrinho.forEach((item) => {
         total += item.subtotal + item.subtotalCongelado;
       });
-      if (this.formData.delivery[0] == "P/ Entrega") {
+      if (this.formData.delivery == this.delivery.sim) {
         total += 20;
       }
       return total;
@@ -468,8 +474,10 @@ new Vue({
         recheio: this.boloPedido.recheio,
         recheioPlus: this.boloPedido.recheioPlus,
         recheioFruta: this.boloPedido.recheioFruta,
-        subtotal: this.boloPedido.subtotal,
-        qtd: this.boloPedido.qtd,
+        subtotal: this.boloPedido.price,
+        qtd: this.boloPedido.qtd + 1,
+        price: this.boloPedido.price,
+        subtotalCongelado: 0,
       };
       this.carrinho.push(pedidoBolo);
       this.boloPedido.image = "";

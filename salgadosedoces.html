@@ -302,7 +302,7 @@
               <div
                 class="col-12 text-center d-flex flex-column align-items-center"
               >
-                <form>
+                <form id="dadosPessoais">
                   <label for="nome">Nome e Sobrenome:</label><br />
                   <input
                     type="input"
@@ -323,7 +323,7 @@
                     name="mobile"
                   />
                   <br />
-                  <div :class="{'checkboxForm' : true, 'retirada': !entrega}">
+                  <!-- <div :class="{'checkboxForm' : true, 'retirada': !entrega}">
                     <div v-if="entrega">
                       <input
                         type="checkbox"
@@ -344,36 +344,53 @@
                       />
                       <label for="retirada"> Retirar no Local</label>
                     </div>
-                  </div>
-                  <label for="delivery">{{ entregaOuRetirada }}</label><br />
-                  <input
-                    v-if="entrega"
-                    id="endereco"
-                    type="text"
-                    v-model="formData.endereco"
-                    placeholder="Rua / nº Casa ou Prédio / nº Apt."
-                  />
-                  <label v-if="!entrega" for="endereco"
-                    >Rua Pastor Alberto Augusto nº 126, Santos/SP.</label
-                  >
-                  <br />
-                  <label v-if="entrega" for="dataPedido"
-                    >Data para Entrega:</label
-                  >
-                  <label v-else for="dataPedido">Data para Retirada:</label>
-                  <br />
-                  <input
-                    id="dataPedido"
-                    type="date"
-                    v-model="formData.dataPedido"
-                  /><br />
-                  <label for="periodo">Periodo para Entrega / Retirada:</label>
-                  <br />
-                  <select v-model="formData.periodo">
-                    <option>Manhã (10 as 12hrs)</option>
-                    <option>Tarde (14 as 18hrs)</option>
-                    <option>Noite (18 as 22:30hrs)</option>
+                  </div> -->
+                  <label for="delivery">Para Entrega ou Retirada?</label><br />
+                  <select v-model="formData.delivery">
+                    <option v-for="opcao in delivery">{{ opcao }}</option>
                   </select>
+                  <div v-if="formData.delivery.length > 0">
+                    <label for="delivery">{{ entregaOuRetirada }}</label><br />
+                    <input
+                      v-if="formData.delivery == delivery.sim"
+                      id="endereco"
+                      type="text"
+                      v-model="formData.endereco"
+                      placeholder="Rua / nº Casa ou Prédio / nº Apt."
+                    />
+                    <label
+                      v-if="formData.delivery == delivery.nao"
+                      for="endereco"
+                      >Rua Pastor Alberto Augusto nº 126, Santos/SP.</label
+                    >
+                    <br />
+                    <label
+                      v-if="formData.delivery == delivery.sim"
+                      for="dataPedido"
+                      >Data para Entrega:</label
+                    >
+                    <label
+                      v-if="formData.delivery == delivery.nao"
+                      for="dataPedido"
+                      >Data para Retirada:</label
+                    >
+                    <br />
+                    <input
+                      id="dataPedido"
+                      type="date"
+                      v-model="formData.dataPedido"
+                    /><br />
+
+                    <label for="periodo"
+                      >Periodo para Entrega / Retirada:</label
+                    >
+                    <br />
+                    <select v-model="formData.periodo">
+                      <option>Manhã (10 as 12hrs)</option>
+                      <option>Tarde (14 as 18hrs)</option>
+                      <option>Noite (18 as 22:30hrs)</option>
+                    </select>
+                  </div>
                 </form>
               </div>
             </div>
