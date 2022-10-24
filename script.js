@@ -1,9 +1,10 @@
 new Vue({
   el: "#app",
   data: {
-    fritos: [
+    cardapio: [
       {
         id: 1,
+        tipo: "fritos",
         name: "Coxinha de Frango",
         image: "./images/novas-imgs/coxinha-sm.jpg",
         price: 29.0,
@@ -16,6 +17,7 @@ new Vue({
       },
       {
         id: 2,
+        tipo: "fritos",
         name: "Bolinha de Queijo Tradicional",
         image: "./images/novas-imgs/bolinha-de-queijo-sm.jpg",
         price: 29.0,
@@ -28,6 +30,7 @@ new Vue({
       },
       {
         id: 3,
+        tipo: "fritos",
         name: "Bolinha de Queijo c/ Alho Frito",
         image: "./images/novas-imgs/bolinha-de-queijo-sm.jpg",
         price: 29.0,
@@ -40,6 +43,7 @@ new Vue({
       },
       {
         id: 4,
+        tipo: "fritos",
         name: "Maravilha",
         image: "./images/novas-imgs/maravilha-sm.jpg ",
         price: 29.0,
@@ -52,6 +56,7 @@ new Vue({
       },
       {
         id: 5,
+        tipo: "fritos",
         name: "Risoles de Carne",
         image: "./images/novas-imgs/risoles-carne-sm.jpg",
         price: 29.0,
@@ -64,6 +69,7 @@ new Vue({
       },
       {
         id: 6,
+        tipo: "fritos",
         name: "Risoles de Carne c/ Queijo",
         image: "./images/novas-imgs/risoles-carne-sm.jpg",
         price: 29.0,
@@ -76,6 +82,7 @@ new Vue({
       },
       {
         id: 7,
+        tipo: "fritos",
         name: "Risoles de Calabresa",
         image: "./images/novas-imgs/risoles-calabresa-sm.png",
         price: 29.0,
@@ -88,6 +95,7 @@ new Vue({
       },
       {
         id: 8,
+        tipo: "fritos",
         name: "Risoles de Calabresa c/ Queijo",
         image: "./images/novas-imgs/risoles-calabresa-sm.png",
         price: 29.0,
@@ -100,6 +108,7 @@ new Vue({
       },
       {
         id: 9,
+        tipo: "fritos",
         name: "Croquete de Carne",
         image: "./images/novas-imgs/croquete-carne-sm.jpg",
         price: 29.0,
@@ -112,6 +121,7 @@ new Vue({
       },
       {
         id: 10,
+        tipo: "fritos",
         name: "Croquete de Frango",
         image: "./images/novas-imgs/croquete-frango-sm.png",
         price: 29.0,
@@ -122,10 +132,9 @@ new Vue({
         desc: "Croquete de frango.",
         priceCongelado: 25,
       },
-    ],
-    assados: [
       {
         id: 11,
+        tipo: "assados",
         name: "Esfiha de Carne",
         image: "./images/novas-imgs/esfihacarne.png",
         price: 35.0,
@@ -138,6 +147,7 @@ new Vue({
       },
       {
         id: 12,
+        tipo: "assados",
         name: "Esfiha de Carne c/ Catupiry",
         image: "./images/novas-imgs/esfihacarne.png",
         price: 35.0,
@@ -150,6 +160,7 @@ new Vue({
       },
       {
         id: 13,
+        tipo: "assados",
         name: "Esfiha de Frango",
         image: "./images/novas-imgs/esfihafrango.png",
         price: 35.0,
@@ -162,6 +173,7 @@ new Vue({
       },
       {
         id: 14,
+        tipo: "assados",
         name: "Esfiha de Frango c/ Catupiry",
         image: "./images/novas-imgs/esfihafrango.png",
         price: 35.0,
@@ -174,6 +186,7 @@ new Vue({
       },
       {
         id: 15,
+        tipo: "assados",
         name: "Esfiha de Calabresa",
         image: "./images/novas-imgs/esfihacalabresa.png",
         price: 35.0,
@@ -186,6 +199,7 @@ new Vue({
       },
       {
         id: 16,
+        tipo: "assados",
         name: "Esfiha de Calabresa c/ Catupiry",
         image: "./images/novas-imgs/esfihacalabresa.png",
         price: 35.0,
@@ -198,6 +212,7 @@ new Vue({
       },
       {
         id: 17,
+        tipo: "assados",
         name: "Mistinho de Presunto e Queijo",
         image: "./images/novas-imgs/mistinho.png",
         price: 35.0,
@@ -210,6 +225,7 @@ new Vue({
       },
       {
         id: 18,
+        tipo: "assados",
         name: "Enroladinho de Salsicha",
         image: "./images/novas-imgs/enrroladinho.png",
         price: 35.0,
@@ -222,6 +238,7 @@ new Vue({
       },
       {
         id: 19,
+        tipo: "assados",
         name: "Empadinha de Frango",
         image: "./images/novas-imgs/emp-frango.png",
         price: 40.0,
@@ -234,6 +251,7 @@ new Vue({
       },
       {
         id: 20,
+        tipo: "assados",
         name: "Empadinha de Frango c/ Catupiry",
         image: "./images/novas-imgs/emp-frangocatupiry.png",
         price: 40.0,
@@ -246,6 +264,7 @@ new Vue({
       },
       {
         id: 21,
+        tipo: "assados",
         name: "Empadinha de Palmito",
         image: "./images/novas-imgs/emp-palmito.png",
         price: 40.0,
@@ -258,6 +277,7 @@ new Vue({
       },
       {
         id: 22,
+        tipo: "assados",
         name: "Empadinha de Brócolis c/ Bacon",
         image: "./images/novas-imgs/emp-brocolis.png",
         price: 40.0,
@@ -270,6 +290,7 @@ new Vue({
       },
       {
         id: 23,
+        tipo: "assados",
         name: "Empadinha de Brócolis c/ Catupiry",
         image: "./images/novas-imgs/emp-brocoliscatupiry.png",
         price: 40.0,
@@ -282,6 +303,7 @@ new Vue({
       },
       {
         id: 24,
+        tipo: "assados",
         name: "Empadinha de Camarão",
         image: "./images/novas-imgs/emp-camarao.png",
         price: 45.0,
@@ -370,6 +392,12 @@ new Vue({
     listaAssados: false,
   },
   computed: {
+    fritos() {
+      return this.cardapio.filter((item) => item.tipo == "fritos");
+    },
+    assados() {
+      return this.cardapio.filter((item) => item.tipo == "assados");
+    },
     carrinhoMessage() {
       if (this.carrinho.length == 0 && this.totalDoCarrinho == 0) {
         return "Nenhum item no carrinho";
@@ -643,7 +671,7 @@ new Vue({
         console.log(data);
         this.formData = data.form;
         for (let salgadoSalvo of data.carrinho) {
-          let salgadoFrito = this.fritos.find(
+          let salgadoFrito = this.cardapio.find(
             (item) => item.id == salgadoSalvo.id
           );
           salgadoFrito.qtd = salgadoSalvo.qtd;
@@ -652,17 +680,6 @@ new Vue({
           salgadoFrito.subtotalCongelado =
             salgadoSalvo.priceCongelado * salgadoSalvo.congelado;
           this.carrinho.push(salgadoFrito);
-        }
-        for (let salgadoSalvo of data.carrinho) {
-          let salgadoAssado = this.assados.find(
-            (item) => item.id == salgadoSalvo.id
-          );
-          salgadoAssado.qtd = salgadoSalvo.qtd;
-          salgadoAssado.subtotal = salgadoSalvo.price * salgadoSalvo.qtd;
-          salgadoAssado.subtotalCongelado = salgadoAssado.congelado =
-            salgadoSalvo.congelado;
-          salgadoSalvo.priceCongelado * salgadoSalvo.congelado;
-          this.carrinho.push(salgadoAssado);
         }
       }
     },
@@ -678,9 +695,9 @@ new Vue({
         msg += "—————————————————————————```%0a%0a";
       }
 
-      if (this.formData.delivery[0] == "P/ Entrega") {
+      if (this.formData.delivery == this.delivery.sim) {
         msg += "*Encomenda*: ```";
-        msg += `${this.formData.delivery[0]}`;
+        msg += `${this.formData.delivery}`;
         msg += "```%0a";
         msg += "*Endereço*: ```";
         msg += `${this.formData.endereco}`;
@@ -693,7 +710,7 @@ new Vue({
         msg += "```%0a%0a";
       } else {
         msg += "*Encomenda*:```";
-        msg += `${this.formData.delivery[0]}`;
+        msg += `${this.delivery.nao}`;
         msg += "```%0a";
         msg +=
           "*Endereço*: ```Rua Pastor Alberto Augusto nº 126 , Santa Maria , Santos - SP.```%0a%0a";

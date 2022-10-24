@@ -448,7 +448,6 @@ button:focus {
 .bolosbackground {
   background-image: url("../images/novas-imgs/bolosbackground-sm.png");
   line-height: 5vh;
-  background-size: contain;
 }
 
 .bolosbackground .row {

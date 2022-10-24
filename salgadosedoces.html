@@ -73,7 +73,9 @@
                   <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#go-to-about">Quem somos Nós</a>
+                  <a class="nav-link" href="index.html#go-to-about"
+                    >Quem somos Nós</a
+                  >
                 </li>
                 <li class="nav-item active">
                   <a class="nav-link" href="salgadosedoces.html"
@@ -585,71 +587,18 @@
               id="seleciones"
               class="col-12 col-md-8 col-lg-10 text-center shadow box-items p-4"
             >
-              <div class="heading-title text-center p-2">
-                <h2 class="px-3">Hora de montarmos o seu bolo!</h2>
-              </div>
-
-              <div>
-                <h3 class="px-4">
-                  Selecione o <strong>formato e tamanho</strong> do seu bolo:
-                </h3>
-
-                <select v-model="boloPedido.formato">
-                  <option v-for="formato in bolos.formato">
-                    {{ formato }}
-                  </option>
-                </select>
-              </div>
-              <div>
-                <h3>Selecione o <strong>tipo de massa</strong>:</h3>
-                <select v-model="boloPedido.massa">
-                  <option v-for="tipo in bolos.massa">{{ tipo }}</option>
-                </select>
-              </div>
-              <div>
-                <h3>Selecione o <strong>tipo de recheio</strong>:</h3>
-                <select v-model="boloPedido.tipoRecheio">
-                  <option v-for="tipo in bolos.tipoRecheio">{{ tipo }}</option>
-                </select>
-              </div>
-              <div>
-                <h3>Selecione <strong>um recheio</strong>:</h3>
-                <select v-model="boloPedido.recheio">
-                  <option v-for="recheio in bolos.recheio.tradicional">
-                    {{ recheio }}
-                  </option>
-                </select>
-              </div>
-              <div
-                v-show=" boloPedido.tipoRecheio == 
-                 'Dois Recheios' || boloPedido.tipoRecheio == 'Dois Recheios c/ Frutas (02 recheios + 01 fruta)'"
+              <img
+                src="./images/novas-imgs/cartazBolos.jpeg"
+                alt="Flyer Bolos"
+                class="img-fluid"
+              />
+              <a
+                href="https://wa.me/5513981942956?text=Olá!%20Gostaria%20de%20encomendar%20um%20*Bolo%20de%20Festa*!%20"
               >
-                <h3>Selecione <strong>mais um recheio</strong>:</h3>
-                <select v-model="boloPedido.recheioPlus">
-                  <option v-for="recheio in bolos.recheio.tradicional">
-                    {{ recheio }}
-                  </option>
-                </select>
-              </div>
-              <div
-                v-show=" boloPedido.tipoRecheio == 
-                 'Tradicional c/ Frutas (01 recheio + 01 fruta)' || boloPedido.tipoRecheio == 'Dois Recheios c/ Frutas (02 recheios + 01 fruta)'"
-              >
-                <h3>Selecione <strong>uma fruta</strong>:</h3>
-                <select v-model="boloPedido.recheioFruta">
-                  <option v-for="fruta in bolos.recheio.frutas">
-                    {{ fruta}}
-                  </option>
-                </select>
-              </div>
-              <div class="my-4">
-                <button
-                  @click="adicionarBoloAoCarrinho(boloPedido)"
-                  class="col-8 btn-block m-auto p-2 botao-carrinho"
-                >
-                  Adicionar ao Carrinho <i class="bi bi-cart-plus"></i>
+                <button class="btn btn-light shadow mt-3">
+                  CLIQUE AQUI PARA ENCOMENDAR!
                 </button>
-              </div>
+              </a>
             </div>
           </div>
         </div>
