@@ -50,6 +50,20 @@
   }
 }
 
+@media (max-width: 420px) {
+  .cover-slides p {
+    font-size: 18px;
+    padding: 5px 35px;
+  }
+}
+
+@media (min-width: 420px) {
+  .cover-slides p {
+    font-size: 22px;
+    padding: 5px 35px;
+  }
+}
+
 @media (min-width: 600px) {
   .modal-content {
     margin: 15% auto;
@@ -81,10 +95,7 @@
   .cover-slides h1 {
     font-size: 35px;
   }
-  .cover-slides p {
-    font-size: 20px;
-    padding: 0 35px;
-  }
+
   .slides-navigation a {
     height: 42px;
     width: 38px;
@@ -129,7 +140,7 @@
     background-clip: initial;
     background-color: rgba(0, 0, 0, 0);
     background-origin: initial;
-    background-position: -110vh -15vh;
+    background-position: -40vh -10vh;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -155,6 +166,11 @@
 @media (min-width: 768px) {
   #reviews .carousel-inner .carousel-item p {
     padding: 2rem 1.5rem;
+  }
+
+  .cover-slides p {
+    font-size: 25px;
+    padding: 5px 11vh;
   }
 
   .pricing-price {
