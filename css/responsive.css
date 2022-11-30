@@ -66,8 +66,8 @@
 
 @media (min-width: 600px) {
   .modal-content {
-    margin: 15% auto;
-    width: 40vh;
+    margin: 10% auto;
+    width: 50vh;
   }
 
   .btnCentoMeioCento {
@@ -164,6 +164,15 @@
 }
 
 @media (min-width: 768px) {
+  .titleintro {
+    padding-top: 15vh;
+    max-width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+  }
+
   #reviews .carousel-inner .carousel-item p {
     padding: 2rem 1.5rem;
   }
