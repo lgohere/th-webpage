@@ -192,7 +192,9 @@
   }
 
   .pricing-cost {
+    display: flex;
     font-size: 45px;
+    justify-content: center;
   }
 
   .heading-title h2 {

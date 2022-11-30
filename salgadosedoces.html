@@ -145,7 +145,7 @@
                   </div>
                 </div>
                 <div
-                  v-if="item.id < 50"
+                  
                   class="col-4 text-center pt-3 card-text"
                 >
                   <div class="pb-2"><strong>Quantidade</strong></div>
@@ -158,13 +158,14 @@
                   </div>
                   <p>(Pronto)</p>
                   <div
+                    v-if="item.id <= 10"
                     class="col-12 d-inline-flex align-items-center justify-content-center"
                   >
                     <button @click="subtraiQtdCongelado(item)">-</button>
                     <h3 class="mx-3">{{ item.congelado }}</h3>
                     <button @click="somaQtdCongelado(item)">+</button>
                   </div>
-                  <p>(Congelado)</p>
+                  <p v-if="item.id <= 10">(Congelado)</p>
                 </div>
 
                 <div v-if="item.id < 50" class="col-4 text-center pt-3">
@@ -501,8 +502,11 @@
                 <p id="salgado-item--desc" style="text-align: start">
                   {{ salgado.desc }}
                 </p>
-                <p id="salgado-item--desc" style="text-align: start">
-                  Congelado: R$ 25,00
+                <p id="salgado-item--desc" style="text-align: start">   
+                  <ul>
+                    <li>Congelados: &nbsp&nbsp&nbspR$ 25,00</li>
+                    <li>50 Unidades: &nbspR$ 29,00</li>
+                  </ul>
                 </p>
                 <p
                   id="salgado-item--price"
@@ -553,7 +557,7 @@
                   {{ assado.desc }}
                 </p>
                 <p id="assado-item--desc" style="text-align: start">
-                  Congelado: R$ 25,00
+
                 </p>
                 <p
                   id="assado-item--price"
@@ -642,7 +646,7 @@
             <p><span class="text-color">Segunda-Sábado: </span>08:00 - 18:00</p>
             <p><span class="text-color">Domingo: </span>Fechado</p>
           </div>
-          <div class="col-lg6 col-md-6 pt-3">
+          <div class="col-lg-6 col-md-6 pt-3">
             <h3>Horários para Entrega ou Retirada de Encomenda</h3>
             <p><span class="text-color">Segunda-Sábado: </span>10:00 - 22:30</p>
             <p><span class="text-color">Domingo: </span>A depender</p>
@@ -700,9 +704,11 @@
             <div class="col-lg-12">
               <p class="company-name">
                 Todos os direitos reservados. &copy; 2022
-                <a href="#">MTH Bolos e Salgados</a>
+                <a href="#">MTH Bolos e Salgados. CNPJ: 48.503.459/0001-34</a>
                 <br />Desenvolvido por:
-                <a style="color: #412234ff" href="https://luizgouveia.com/"
+                <a
+                  style="color: #412234ff"
+                  href="https://lgohere.github.io/mybusinesscard/"
                   >LGO!</a
                 >
               </p>

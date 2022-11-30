@@ -2032,13 +2032,12 @@ blockquote {
   height: 125px;
   width: 125px;
   display: inline-block;
-  padding-top: 40px;
+  padding-top: 37px;
 }
 
 .pricing-cost {
   font-size: 35px;
   font-weight: 300;
-  line-height: 1;
 }
 
 .pricing-table-style-4 .time {
