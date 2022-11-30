@@ -726,7 +726,7 @@ new Vue({
       msg += `R$ ${this.totalDoCarrinho},00%0a`;
       msg += "(Pagamento PIX a confirmar)```";
 
-      window.location.href = `https://wa.me/5513981942956?text=${msg}`;
+      window.location.href = `https://wa.me/5513981258187?text=${msg}`;
     },
   },
   mounted() {
